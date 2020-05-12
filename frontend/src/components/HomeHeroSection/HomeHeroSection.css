@@ -65,7 +65,7 @@
 ._hero_section .slick-track,
 ._hero_section .slick-slide,
 ._hero_section {
-  height: 100%;
+  height: 100% !important;
 }
 .my_hero {
   display: flex !important;
@@ -77,4 +77,114 @@
 }
 ._hero_section .slick-slide > div {
   height: 100%;
+}
+
+/* Dots */
+._hero_section .slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+._hero_section .slick-dots {
+  display: flex !important;
+  position: absolute;
+  bottom: 10%;
+  display: block;
+  width: 100%;
+  left: 10%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+._hero_section .slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.3s ease-in-out;
+}
+._hero_section .slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+
+  display: block;
+
+  width: 10px;
+  height: 10px;
+  padding: 5px;
+
+  cursor: pointer;
+
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+._hero_section .slick-dots li button:hover,
+._hero_section .slick-dots li button:focus {
+  outline: none;
+}
+._hero_section .slick-dots li button:hover:before,
+._hero_section .slick-dots li button:focus:before {
+  opacity: 1;
+}
+._hero_section .slick-dots li button:before {
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 10px;
+  height: 10px;
+
+  content: "•";
+  text-align: center;
+
+  opacity: 0.25;
+  color: black;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+._hero_section .slick-dots li.slick-active button:before {
+  opacity: 0.75;
+  color: black;
+}
+
+/* Custom Slick Dots */
+
+._hero_section .ft-slick__dots--custom {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 1rem;
+  position: relative;
+}
+
+._hero_section .slick-dots li {
+  width: 14px;
+  margin: 0 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+._hero_section .slick-dots .slick-active {
+  width: 56px;
+  transition: width 0.3s ease-in-out;
+}
+
+._hero_section .slick-dots .slick-active .ft-slick__dots--custom {
+  width: 60px;
+  border-radius: 24px;
+  top: 0px;
+  background: transparent;
+  border: 2px solid white;
+  overflow: hidden;
+  margin: 0 1rem;
 }

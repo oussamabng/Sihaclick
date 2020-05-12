@@ -15,3 +15,19 @@
   display: flex;
   justify-content: center;
 }
+.previous_arrow,
+.next_arrow {
+  position: absolute;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.previous_arrow {
+  left: 2%;
+  transform: rotate(90deg);
+}
+.next_arrow {
+  right: 2%;
+  transform: rotate(-90deg);
+}

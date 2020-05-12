@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Icon, Image } from "semantic-ui-react";
 
 //? import css
@@ -13,21 +13,25 @@ import { ReactComponent as Notification } from "../../assets/notification.svg";
 import User from "../../assets/alex.jpg";
 
 export default function HeaderOnScroll(props) {
+  const [isShow, setShow] = useState(false);
   const { isLogin, header } = props;
+  useEffect(() => {
+    setShow(header);
+  }, [header]);
   return (
     <div
-      className={!header ? "_home_header shadow" : "_home_header shadow fixed"}
+      className="_home_header shadow x"
       style={{
-        background: !header ? "#13C2D4" : "white",
+        background: isShow ? "#13C2D4" : "white",
       }}
     >
       <div className="navbar">
         <Logo
           style={{
-            visibility: !header ? "hidden" : "1",
+            visibility: isShow ? "hidden" : "visible",
           }}
         />
-        <ul className={!header ? "coords_list not_header" : "coords_list"}>
+        <ul className={isShow ? "coords_list not_header" : "coords_list"}>
           <li>
             {" "}
             <Icon name="phone" />
@@ -46,7 +50,7 @@ export default function HeaderOnScroll(props) {
           <div
             className="home_action login"
             style={{
-              visibility: !header ? "hidden" : "1",
+              visibility: isShow ? "hidden" : "visible",
             }}
           >
             <Comment />
@@ -58,7 +62,7 @@ export default function HeaderOnScroll(props) {
           <div
             className="home_action"
             style={{
-              visibility: !header ? "hidden" : "1",
+              visibility: isShow ? "hidden" : "visible",
             }}
           >
             <Icon name="search" />

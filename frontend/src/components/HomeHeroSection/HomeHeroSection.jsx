@@ -6,23 +6,39 @@ import Slider from "react-slick";
 import "./HomeHeroSection.css";
 
 import Test from "../../assets/hero_section.png";
-export default function HomeHeroSection() {
+export default function HomeHeroSection(props) {
+  const { setSlider } = props;
   const settings = {
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    dots: false,
+    initialSlide: 0,
+    speed: 500,
+    arrows: false,
+    adaptiveHeight: true,
+    appendDots: (dots) => <ul>{dots}</ul>,
+    customPaging: (i) => (
+      <div className="ft-slick__dots--custom">
+        <div className="loading" />
+      </div>
+    ),
   };
+
   return (
     <div className="_hero_section">
       <Slider
+        ref={(c) => setSlider(c)}
         {...settings}
         style={{
           height: "100%",
         }}
       >
+        {" "}
         <div className="my_hero">
+          {" "}
           <div className="info">
             <h1>
               <b>Prenez </b>

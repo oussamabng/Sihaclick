@@ -4,9 +4,11 @@
 ._home_header.shadow {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
 }
-._home_header.shadow.fixed {
-  z-index: 40;
+._home_header.x {
+  position: sticky;
+  top: 0;
 }
+
 ._home_header > .navbar > .coords_list {
   display: flex;
   justify-content: space-between;

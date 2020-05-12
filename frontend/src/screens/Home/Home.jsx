@@ -5,40 +5,46 @@ import Header from "../../components/Header/Header.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import HomeHeroSection from "../../components/HomeHeroSection/HomeHeroSection.jsx";
 import HeaderOnScroll from "../../components/HeaderOnScroll/HeaderOnScroll.jsx";
+import BestDoctors from "../../components/BestDoctors/BestDoctors.jsx";
 
 //? import css
 import "./Home.css";
 
+//? import Arrow
+import { ReactComponent as Arrow } from "../../assets/arrow.svg";
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [slider, setSlider] = useState(null);
+
   useEffect(() => {
-    document.addEventListener("scroll", () => {
-      let y = document.body.getBoundingClientRect().top;
-      if (y <= -980) {
-        setIsScrolled((prevState) => !prevState);
-      }
-      if (y > 0) {
-        setIsScrolled((prevState) => !prevState);
-      }
+    window.addEventListener("scroll", () => {
+      let isTop = window.scrollY < 960;
+      isTop ? setIsScrolled(true) : setIsScrolled(false);
     });
+    return () => {
+      window.removeEventListener("scroll");
+    };
   }, []);
+  const next = () => {
+    slider.slickNext();
+  };
+  const previous = () => {
+    slider.slickPrev();
+  };
   return (
     <>
       <div className="home">
         <div className="home_img">
-          <HomeHeroSection />
+          <HomeHeroSection setSlider={setSlider} />
+          <Arrow className="previous_arrow" onClick={previous} />
+          <Arrow className="next_arrow" onClick={next} />
         </div>
+
         <Header />
       </div>
-      <HeaderOnScroll header={true} isLogin={false} />
-      <p
-        className="m-0"
-        style={{
-          height: "800px",
-        }}
-      >
-        content
-      </p>
+      <HeaderOnScroll header={isScrolled} isLogin={false} />
+      <BestDoctors />
       <Footer isBlood={false} />
     </>
   );

@@ -1,0 +1,80 @@
+._hero_section {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 0 rem;
+}
+._hero_section .info {
+  width: 40%;
+  margin: 0 4rem;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+._hero_section .info h1 {
+  font-size: 46px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-align: left;
+}
+._hero_section .info b {
+  font-weight: 700;
+}
+._hero_section .info p {
+  max-width: 500px;
+  text-align: left;
+}
+._hero_section .info .hero_btn {
+  background: var(--lighter-bleu);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 400;
+  margin: 1rem 0;
+  padding: 1.2rem 2.5rem;
+}
+._hero_section .info .hero_btn .icon {
+  background: transparent !important;
+}
+.slick-prev,
+.slick-next {
+  position: absolute !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+}
+.slick-prev {
+  left: 5% !important;
+}
+.slick-next {
+  right: 5% !important;
+}
+.hero_img {
+  width: 547px;
+  height: 752px;
+  position: absolute !important;
+  bottom: 0;
+  right: 8rem;
+}
+._hero_section .slick-slider,
+._hero_section .slick-list,
+._hero_section .slick-track,
+._hero_section .slick-slide,
+._hero_section {
+  height: 100%;
+}
+.my_hero {
+  display: flex !important;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0 8rem;
+}
+._hero_section .slick-slide > div {
+  height: 100%;
+}

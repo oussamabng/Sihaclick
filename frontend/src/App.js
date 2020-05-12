@@ -15,7 +15,11 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/test" component={HeaderOnScroll} />
+        <Route
+          exact
+          path="/test"
+          component={() => <HeaderOnScroll isLogin header />}
+        />
       </Switch>
     </Router>
   );

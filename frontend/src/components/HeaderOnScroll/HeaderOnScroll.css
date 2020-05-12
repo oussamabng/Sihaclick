@@ -4,6 +4,9 @@
 ._home_header.shadow {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
 }
+._home_header.shadow.fixed {
+  z-index: 40;
+}
 ._home_header > .navbar > .coords_list {
   display: flex;
   justify-content: space-between;
@@ -18,6 +21,10 @@
   color: var(--bleu_darker);
   font-family: "Poppins", sans-serif;
 }
+._home_header > .navbar > .coords_list.not_header li,
+._home_header > .navbar > .coords_list.not_header li .icon {
+  color: white;
+}
 ._home_header > .navbar > .coords_list li .icon {
   font-size: 1.4rem;
   color: var(--lighter-bleu);
@@ -25,4 +32,15 @@
 }
 ._home_header > .navbar > .coords_list li .icon.phone {
   transform: rotate(90deg);
+}
+._home_header > .navbar > .home_action.login .image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--lighter-bleu);
+  margin: 0 2rem;
+  margin-right: 0;
+}
+._home_header > .navbar > .home_action.login svg {
+  margin: 0 2rem;
 }

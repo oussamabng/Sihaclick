@@ -1,13 +1,128 @@
+:root {
+  --green: #54ff5f;
+  --red: #fb2828;
+  --orange_red: #da3e39;
+  --lineaire_red: linear-gradient(to bottom, #b81b1b, #df1868);
+  --gray_darker: #555555;
+  --gray_light: #a4a4a4;
+  --white_less: #f5f5f5;
+  --black: #141414;
+  --bleu_darker: #046489;
+  --blue_light: #1baab8;
+  --lineaire_blue: linear-gradient(to bottom, #1baab8, #18cddf);
+  --lighter-bleu: #13c2d4;
+  --lineaire_darker_bleu: linear-gradient(to bottom, #148792, #046489);
+  --lineaire_blue_mix: linear-gradient(to bottom, #1b6ab8, #18cddf);
+  --lineaire_green: linear-gradient(to bottom, #0e707a, #4a4a4a);
+}
+ul {
+  list-style: none;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.raleway {
+  font-family: "Raleway", sans-serif;
+}
+.small_poppins {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #046489;
+}
+.white_poppins {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: #ffff;
+  font-weight: 400;
+}
+.small_bold_poppins {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #046489;
+}
+.extra_small_poppins {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  color: #a4a4a4;
+  font-weight: 400;
+}
+.big_raleway {
+  font-size: 46px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+}
+.big_bold_raleway {
+  font-size: 46px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+.raleway {
+  font-size: 32px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  color: #046489;
+}
+.pointer {
+  cursor: pointer;
+}
+.m-0 {
+  margin: 0;
+}
+.p-0 {
+  padding: 0;
+}
+._margin_horizontal_lg {
+  margin: auto 3rem !important;
+}
+._margin_horizontal_md {
+  margin: auto 2rem !important;
+}
+._margin_horizontal_sm {
+  margin: auto 1rem !important;
+}
+._margin_horizontal_xs {
+  margin: auto 0.5rem !important;
+}
+._margin_vertical_lg {
+  margin: 3rem auto !important;
+}
+._margin_vertical_md {
+  margin: 2rem auto !important;
+}
+._margin_vertical_sm {
+  margin: 1rem auto !important;
+}
+._margin_vertical_xs {
+  margin: 0.05rem auto !important;
+}
+._padding_horizontal_lg {
+  padding: auto 3rem !important;
+}
+._padding_horizontal_md {
+  padding: auto 2rem !important;
+}
+._padding_horizontal_sm {
+  padding: auto 1rem !important;
+}
+._padding_horizontal_xs {
+  padding: auto 0.5rem !important;
+}
+._padding_vertical_lg {
+  padding: 3rem auto !important;
+}
+._padding_vertical_md {
+  padding: 2rem auto !important;
+}
+._padding_vertical_sm {
+  padding: 1rem auto !important;
+}
+._padding_vertical_xs {
+  padding: 0.05rem auto !important;
 }

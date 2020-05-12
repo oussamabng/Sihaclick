@@ -1,0 +1,15 @@
+.home {
+  position: relative;
+  height: 100vh;
+  background: var(--lineaire_green);
+}
+.home > .home_img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-image: url("../../assets/home.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

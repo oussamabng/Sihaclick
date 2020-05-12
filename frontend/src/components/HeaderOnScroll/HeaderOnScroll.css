@@ -1,0 +1,28 @@
+._home_header > .navbar > .home_action .blue {
+  color: var(--bleu_darker) !important;
+}
+._home_header.shadow {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+}
+._home_header > .navbar > .coords_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+._home_header > .navbar > .coords_list li {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bleu_darker);
+  font-family: "Poppins", sans-serif;
+}
+._home_header > .navbar > .coords_list li .icon {
+  font-size: 1.4rem;
+  color: var(--lighter-bleu);
+  margin: 0 0.75rem;
+}
+._home_header > .navbar > .coords_list li .icon.phone {
+  transform: rotate(90deg);
+}

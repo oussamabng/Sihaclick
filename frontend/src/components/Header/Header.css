@@ -1,0 +1,103 @@
+._home_header {
+  width: 100%;
+  padding: 1rem 2rem;
+}
+._home_header > .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+._home_header > .navbar .white path,
+._home_header > .navbar .white g,
+._home_header > .navbar .white ellipse {
+  fill: white;
+}
+
+._home_header > .navbar > .navigation > .menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+._home_header > .navbar > .navigation > .menu .item {
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  font-weight: 600;
+}
+._home_header > .navbar > .navigation > .menu .item.active,
+._home_header > .navbar > .navigation > .menu .item:hover {
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+  color: var(--lighter-bleu);
+  font-weight: 600;
+}
+
+._home_header > .navbar > .navigation > .menu .item.border {
+  border-bottom: 4px solid white;
+  padding: 0.6814286em 1.14285714em;
+}
+._home_header > .navbar > .home_action {
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+._home_header > .navbar > .home_action > .search.icon {
+  margin: 0 1rem !important;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+._home_header > .navbar > .home_action > a {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+._home_header > .navbar > .home_action > .btn {
+  background-color: var(--lighter-bleu);
+  border-radius: 4px;
+  padding: 1rem 2rem;
+}
+._home_header > .navbar > .navigation > .menu .dropdown ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 1.2rem;
+  margin: 0;
+}
+._home_header > .navbar > .navigation > .menu .dropdown li {
+  margin: 0.4rem 0;
+}
+._home_header > .navbar > .navigation > .menu .dropdown a {
+  color: white;
+}
+._home_header > .navbar > .navigation > .menu .dropdown a:hover {
+  color: var(--bleu_darker);
+}
+._home_header > .navbar > .navigation > .menu > .menu:hover .item.dons {
+  color: var(--lighter-bleu) !important;
+}
+._home_header > .navbar > .navigation > .menu .dropdown:hover {
+  display: flex !important;
+}
+._home_header > .navbar > .navigation > .menu .dropdown {
+  display: none;
+  position: absolute;
+  background-color: var(--lighter-bleu);
+  justify-content: center;
+  z-index: 30;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  top: 100%;
+}
+._home_header > .navbar > .navigation > .menu .item.dons:hover ~ .dropdown {
+  display: flex !important;
+}
+._home_header > .navbar > .navigation > .menu > .menu {
+  position: relative;
+}

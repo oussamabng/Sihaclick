@@ -2,6 +2,8 @@
   color: white;
   background: var(--lineaire_darker_bleu);
   width: 100%;
+  position: relative;
+  z-index: 15;
 }
 ._footer.blood {
   background: var(--lineaire_red);

@@ -27,48 +27,7 @@ body {
 .raleway {
   font-family: "Raleway", sans-serif;
 }
-.small_poppins {
-  font-size: 14px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #046489;
-}
-.white_poppins {
-  font-size: 14px;
-  font-family: "Poppins", sans-serif;
-  color: #ffff;
-  font-weight: 400;
-}
-.small_bold_poppins {
-  font-size: 14px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  color: #046489;
-}
-.extra_small_poppins {
-  font-size: 12px;
-  font-family: "Poppins", sans-serif;
-  color: #a4a4a4;
-  font-weight: 400;
-}
-.big_raleway {
-  font-size: 46px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
-  color: #ffffff;
-}
-.big_bold_raleway {
-  font-size: 46px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-}
-.raleway {
-  font-size: 32px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 900;
-  color: #046489;
-}
+
 .pointer {
   cursor: pointer;
 }

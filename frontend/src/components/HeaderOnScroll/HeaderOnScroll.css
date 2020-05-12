@@ -7,6 +7,7 @@
 ._home_header.x {
   position: sticky;
   top: 0;
+  z-index: 30;
 }
 
 ._home_header > .navbar > .coords_list {

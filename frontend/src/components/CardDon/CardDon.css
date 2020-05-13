@@ -1,0 +1,100 @@
+.card_don {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+.card_don.other .card {
+  padding: 0rem 1.5rem;
+  background: white;
+  height: 280px;
+  width: 200px;
+  position: relative;
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.11);
+}
+.other_dons_container {
+  width: 1366px !important;
+  padding: 4rem 0;
+}
+.arr_flex {
+  display: flex;
+}
+.arr_flex ._arrow.left {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+}
+.other_dons_container .slick-dots {
+  left: 0 !important;
+  bottom: -15%;
+}
+.arr_flex ._arrow.right {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+}
+._btn_other_dons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+.btn_don_other.button {
+  background-color: #046489;
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  position: absolute !important;
+  z-index: 90;
+  bottom: 0;
+  white-space: nowrap;
+}
+
+.card_don .card {
+  border: none;
+  box-shadow: none;
+}
+.card_don .card .image {
+  border: none;
+}
+.card_don .dons_title {
+  display: flex;
+  align-items: flex-start;
+}
+.card_don .dons_title p {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  color: var(--bleu_darker);
+  text-align: center;
+}
+.card_don .dons_title svg {
+  width: 30px;
+  height: 30px;
+}
+.card_don > .card > .content > .under_content > p {
+  font-size: 12px;
+  color: var(--lighter-bleu);
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+.card_don > .card > .content {
+  border: none !important;
+}
+.card_don > .card .under_content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center !important;
+}
+.card_don_img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 140px;
+  padding: 1rem 0;
+}

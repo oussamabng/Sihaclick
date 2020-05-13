@@ -8,6 +8,7 @@ import HeaderOnScroll from "../../components/HeaderOnScroll/HeaderOnScroll.jsx";
 import BestDoctors from "../../components/BestDoctors/BestDoctors.jsx";
 import News from "../../components/News/News.jsx";
 import BloodDonate from "../../components/BloodDonate/BloodDonate.jsx";
+import OtherDonations from "../../components/OtherDonations/OtherDonations.jsx";
 
 //? import css
 import "./Home.css";
@@ -48,6 +49,7 @@ export default function Home() {
       <BestDoctors />
       <News />
       <BloodDonate />
+      <OtherDonations />
       <Footer isBlood={false} />
     </>
   );

@@ -1,0 +1,50 @@
+._blood_grid.grid .column {
+  padding: 2rem !important;
+  width: 340px !important;
+}
+.blood_btn.button {
+  background-color: white;
+  border: 1px solid var(--lighter-bleu);
+  color: var(--lighter-bleu);
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  height: 40px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.blood_btn.button:hover {
+  background: var(--lighter-bleu);
+  color: white;
+}
+.blood_btn.button:hover .icon {
+  background: var(--lighter-bleu) !important;
+  color: white;
+}
+.blood_btn.button .icon {
+  background-color: transparent !important;
+  padding: 0 1rem;
+}
+._best_doc.blood {
+  position: relative;
+}
+._best_doc.blood .circle_blood {
+  width: 555px;
+  height: 555px;
+  border-radius: 50%;
+  background: var(--lighter-bleu);
+  position: absolute;
+  left: 0;
+  top: 30%;
+  transform: translate(-60%, 0);
+}
+._best_doc.blood .circle_blood_bottom {
+  background: var(--lineaire_darker_bleu);
+  width: 555px;
+  height: 555px;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  transform: translate(70%, 70%);
+}

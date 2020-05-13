@@ -3,6 +3,7 @@ import { Card, Button } from "semantic-ui-react";
 
 //? import img doctor
 import Doctor from "../../assets/doctor.jpg";
+
 //? import css
 import "./DoctorCard.css";
 

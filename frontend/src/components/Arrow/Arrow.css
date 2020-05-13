@@ -1,0 +1,22 @@
+._arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.11);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+._arrow svg {
+  stroke: white;
+  width: 50%;
+  height: 50%;
+}
+._arrow.right {
+  background: var(--bleu_darker);
+}
+._arrow.left {
+  background: var(--lighter-bleu);
+}

@@ -1,0 +1,41 @@
+.card_doc.new_card {
+  width: 320px;
+  padding: 0;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.11);
+}
+.card_doc.new_card .content .new_content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card_doc.new_card .content {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+.card_doc.new_card .abs_info_new {
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: -50%;
+  z-index: 30;
+  background-color: white;
+  height: 80px;
+  width: 85%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+}
+.card_doc.new_card .abs_info_new h1 {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #046489;
+  margin-bottom: 5px;
+}
+.card_doc.new_card .abs_info_new p {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: #13c2d4;
+}

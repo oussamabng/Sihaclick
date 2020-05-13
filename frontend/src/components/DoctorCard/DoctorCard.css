@@ -1,0 +1,70 @@
+.card_doc.card {
+  border: none;
+  box-shadow: none;
+  border-radius: 4px;
+  width: 220px;
+  z-index: 15;
+  position: relative;
+  padding: 1rem;
+}
+.card_doctor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 0;
+}
+.card_doctor:hover {
+  background-color: white;
+  margin: 0;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border: 1px solid var(--lighter-bleu);
+}
+.card_doc .doctor_img:hover {
+  box-shadow: none;
+}
+.card_doc .doctor_img {
+  z-index: 5;
+  position: relative;
+  height: 224px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: gray;
+}
+.card_doc .image img {
+  height: 100%;
+  width: 100%;
+}
+.card_doc.card .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card_doc.card .content h1 {
+  font-size: 16px;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700 !important;
+  color: var(--black);
+}
+.card_doc.card .content p {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: var(--lighter-bleu);
+  font-weight: 400;
+  margin: 0;
+}
+.hero_btn.card_doc-btn {
+  font-size: 12px;
+  white-space: nowrap;
+  background-color: var(--lighter-bleu);
+  color: white;
+  margin: 0.5rem 0;
+}
+.hero_btn.card_doc-btn:hover {
+  background-color: var(--lighter-bleu);
+  color: white;
+}

@@ -9,6 +9,9 @@ import BestDoctors from "../../components/BestDoctors/BestDoctors.jsx";
 import News from "../../components/News/News.jsx";
 import BloodDonate from "../../components/BloodDonate/BloodDonate.jsx";
 import OtherDonations from "../../components/OtherDonations/OtherDonations.jsx";
+import Event from "../../components/Event/Event.jsx";
+import Stage from "../../components/Stage/Stage.jsx";
+import AddEmail from "../../components/AddEmail/AddEmail.jsx";
 
 //? import css
 import "./Home.css";
@@ -50,6 +53,9 @@ export default function Home() {
       <News />
       <BloodDonate />
       <OtherDonations />
+      <Event />
+      <Stage />
+      <AddEmail />
       <Footer isBlood={false} />
     </>
   );

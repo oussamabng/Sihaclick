@@ -10,7 +10,9 @@
   position: relative;
   z-index: 15 !important;
 }
-
+._best_doc .arrows {
+  display: flex;
+}
 ._best_doc .cercle_right {
   width: 300px;
   height: 300px;
@@ -207,8 +209,8 @@
 /* Custom Slick Dots */
 
 ._best_doc .ft-slick__dots--custom {
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   background-color: white;
   border-radius: 50%;
   border: 1px solid #13c2d4;
@@ -217,17 +219,17 @@
 
 ._best_doc .slick-dots li {
   width: 14px;
-  margin: 0 10px;
+  margin: 0 4px;
   transition: width 0.3s ease-in-out;
 }
 
 ._best_doc .slick-dots .slick-active {
-  width: 56px;
+  width: 25px;
   transition: width 0.3s ease-in-out;
 }
 
 ._best_doc .slick-dots .slick-active .ft-slick__dots--custom {
-  width: 40px;
+  width: 25px;
   border-radius: 24px;
   top: 0px;
   background: #13c2d4;

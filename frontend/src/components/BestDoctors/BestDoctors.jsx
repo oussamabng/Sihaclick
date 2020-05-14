@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import DoctorCard from "../DoctorCard/DoctorCard.jsx";
 
 //? import Arrow
-import { ReactComponent as Arrow } from "../../assets/arrow.svg";
+import Arrow from "../../components/Arrow/Arrow.jsx";
 
 //? import css
 import "./BestDoctors.css";
@@ -69,18 +69,11 @@ export default function BestDoctors() {
               display: "flex",
             }}
           >
-            <div className="arrow_next_doc">
-              <div className="pad">
-                <Arrow className="prev" onClick={previous} />
-              </div>
-            </div>
-            <div className="arrow_next_doc">
-              <div className="pad">
-                <Arrow className="next" onClick={next} />
-              </div>
+            <div className="arrows">
+              <Arrow isRight={false} slider={slider} />
+              <Arrow isRight slider={slider} />
             </div>
           </div>
-
           <Slider ref={(c) => setSlider(c)} {...settings}>
             <div className="slider_doc">
               <DoctorCard />

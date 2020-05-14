@@ -24,7 +24,7 @@ const AddEmail = () => {
             action={{
               icon: "send",
             }}
-            size="large"
+            size="small"
             className="email_input"
             actionPosition="left"
             placeholder="taper ici ton email"

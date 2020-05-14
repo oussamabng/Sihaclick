@@ -5,7 +5,7 @@ import { Card, Icon } from "semantic-ui-react";
 import "./NewCard.css";
 
 //? import img doctor
-import Doctor from "../../assets/doctor.jpg";
+import Doctor from "../../assets/new.jpg";
 
 function NewCard() {
   return (

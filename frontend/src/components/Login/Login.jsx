@@ -14,7 +14,7 @@ const Login = (props) => {
 
   useEffect(() => {
     setOpen(show);
-  }, []);
+  }, [show]);
   return (
     <Modal
       closeIcon

@@ -9,7 +9,7 @@ const AppointmentModal = (props) => {
   const [open, setOpen] = useState(null);
   useEffect(() => {
     setOpen(show);
-  }, []);
+  }, [show]);
   return (
     <Modal
       size="tiny"

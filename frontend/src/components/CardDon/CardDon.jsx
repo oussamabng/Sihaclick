@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
 //? import icon
@@ -6,10 +6,16 @@ import { ReactComponent as Medicament } from "../../assets/Medicament.svg";
 
 import Teva from "../../assets/teva.png";
 
+//? import modal
+import ModalDon from "../../components/ModalDon/ModalDon.jsx";
 //? import css
 import "./CardDon.css";
 
 const CardDon = () => {
+  const [show, setShow] = useState(false);
+  const handleModal = () => {
+    setShow((prevState) => !prevState);
+  };
   return (
     <div className="card_don other">
       <Card>
@@ -29,7 +35,10 @@ const CardDon = () => {
           </div>
         </Card.Content>
       </Card>
-      <Button className="btn_don_other">afficher l’annonce</Button>
+      <Button className="btn_don_other" onClick={handleModal}>
+        afficher l’annonce
+      </Button>
+      {show && <ModalDon setShow={handleModal} show={show} />}
     </div>
   );
 };

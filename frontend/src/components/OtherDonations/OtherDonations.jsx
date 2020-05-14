@@ -5,6 +5,9 @@ import Slider from "react-slick";
 //? import Arrow
 import Arrow from "../../components/Arrow/Arrow.jsx";
 
+//? import modal
+import AddAnnonce from "../../components/AddAnnonce/AddAnnonce.jsx";
+
 //? import css
 import "./OtherDonations.css";
 
@@ -12,6 +15,10 @@ import "./OtherDonations.css";
 import CardDon from "../../components/CardDon/CardDon.jsx";
 
 const OtherDonations = () => {
+  const [show, setShow] = useState(false);
+  const handleModal = () => {
+    setShow((prevState) => !prevState);
+  };
   const [activeItem, setActiveItem] = useState("buy");
   const [slider, setSlider] = useState(null);
   const settings = {
@@ -78,8 +85,10 @@ const OtherDonations = () => {
             content="Ajouter une annonce"
             icon="plus"
             labelPosition="left"
+            onClick={handleModal}
           />
         </div>
+        {show && <AddAnnonce setShow={handleModal} show={show} />}
       </Container>
     </div>
   );

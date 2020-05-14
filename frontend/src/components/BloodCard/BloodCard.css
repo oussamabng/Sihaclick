@@ -27,7 +27,7 @@
 }
 .blood_card .blood_icon .type_blood {
   position: absolute;
-  top: 0;
+  top: -40%;
   right: 0;
   transform: translate(50%, -50%);
   font-size: 1.2rem;
@@ -43,6 +43,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: var(--bleu_darker);
+  white-space: nowrap;
 }
 .blood_card .place,
 .blood_card .date_info h4 {

@@ -12,13 +12,20 @@ import { ReactComponent as AB } from "../../assets/ab.svg";
 import { ReactComponent as Heart } from "../../assets/heart.svg";
 import { ReactComponent as Plaquette } from "../../assets/plaquette.svg";
 
+//? import modal
+import BloodModal from "../../components/BloodModal/BloodModal.jsx";
+
 export default function BloodCard() {
-  const [typeBlood, setTypeBlood] = useState("A");
+  const [typeBlood, setTypeBlood] = useState("AB");
   const [isPlaquette, setIsPlaquette] = useState(false);
   const [isPositive, setIsPositive] = useState(true);
   const [date, setDate] = useState("2h");
   const [wilaya, setWilaya] = useState("Alger");
   const [commune, setCommune] = useState("Alger");
+  const [show, setShow] = useState(false);
+  const handleModal = () => {
+    setShow((prevState) => !prevState);
+  };
   return (
     <div>
       <Card className="blood_card">
@@ -71,8 +78,22 @@ export default function BloodCard() {
           </div>
         </Card.Content>
         <div className="_blood_card_btn">
-          <Button content="Afficher le don" icon="plus" labelPosition="left" />
+          <Button
+            content="Afficher le don"
+            icon="plus"
+            labelPosition="left"
+            onClick={handleModal}
+          />
         </div>
+        {show && (
+          <BloodModal
+            setShow={handleModal}
+            show={show}
+            isPositive={isPositive}
+            isPlaquette={isPlaquette}
+            typeBlood={typeBlood}
+          />
+        )}
       </Card>
     </div>
   );

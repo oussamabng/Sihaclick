@@ -51,13 +51,19 @@
   bottom: 0;
   white-space: nowrap;
 }
-
+.btn_don_other.button:hover {
+  background-color: #084a64;
+  color: white;
+}
 .card_don .card {
   border: none;
   box-shadow: none;
 }
 .card_don .card .image {
   border: none;
+}
+body.dimmed.dimmable {
+  visibility: 1 !important;
 }
 .card_don .dons_title {
   display: flex;

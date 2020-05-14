@@ -27,7 +27,7 @@ export default function BloodDonate() {
             doit demandée
           </h3>
         </div>{" "}
-        <Grid stackable columns={3} className="_blood_grid">
+        <Grid stackable columns={3} className="_blood_grid ">
           <Grid.Column>
             <BloodCard />
           </Grid.Column>{" "}
@@ -57,7 +57,7 @@ export default function BloodDonate() {
           style={{
             display: "flex",
             justifyContent: "center",
-            padding: "2rem 0",
+            paddingTop: "4rem",
           }}
         >
           <Button

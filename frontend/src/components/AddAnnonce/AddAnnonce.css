@@ -1,0 +1,116 @@
+.add_annonce_modal {
+  padding: 2rem 4rem;
+  background-color: white;
+  border: none;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.add_annonce_modal .row {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  padding: 2rem 0;
+}
+.add_annonce_modal > .row .picture_part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add_annonce_modal > .row .col {
+  align-items: center !important;
+}
+.add_annonce_modal > .row .picture_part > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #13c2d4;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+}
+.add_annonce_modal .circle_login {
+  top: 0;
+  z-index: 1;
+}
+.add_annonce_modal .number_age_field {
+  width: 60%;
+}
+.add_annonce_modal .form .field.age_input {
+  width: 50% !important;
+}
+.add_annonce_modal > .row .picture_part > p > svg {
+  margin-right: 1rem;
+}
+.add_annonce_modal .form {
+  width: 80% !important;
+}
+.add_annonce_modal .bottom_add {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.add_annonce_modal .bottom_add .button {
+  height: 50px;
+  background-color: #13c2d4;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+.add_annonce_modal .row.second {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.add_annonce_modal .row.second svg {
+  height: 40px !important;
+}
+.add_annonce_modal .row.second p {
+  font-size: 14px;
+  color: #046489;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 1rem;
+}
+.add_annonce_modal .row.second p .icon {
+  color: var(--red);
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+.add_annonce_modal .bottom_add .button .icon {
+  background: transparent !important;
+}
+.add_annonce_modal > .row .img_don_modal {
+  width: 270px;
+  height: 270px;
+  border: 2px solid #13c2d4;
+  background-color: white;
+  position: relative;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px 0 rgba(11, 98, 104, 0.16);
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+}
+.add_annonce_modal > .row .img_don_modal .card_don_img {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}

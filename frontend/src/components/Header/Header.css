@@ -49,11 +49,13 @@
   font-size: 1.4rem;
   cursor: pointer;
 }
-._home_header > .navbar > .home_action > a {
+._home_header > .navbar > .home_action > a,
+._home_header > .navbar > .home_action > p {
   font-size: 14px;
   font-weight: bold;
   font-family: "Raleway", sans-serif;
   color: white;
+  cursor: pointer;
 }
 ._home_header > .navbar > .home_action > .btn {
   background-color: var(--lighter-bleu);

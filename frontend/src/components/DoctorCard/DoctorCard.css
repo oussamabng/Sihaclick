@@ -14,6 +14,7 @@
   padding: 0.5rem;
   border-radius: 4px;
   margin: 0;
+  border: 1px solid transparent;
 }
 .card_doctor:hover {
   background-color: white;

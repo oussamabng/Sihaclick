@@ -1,0 +1,24 @@
+._best_doc._event {
+  position: relative;
+  padding: 2rem 4rem;
+}
+._best_doc._event > .circle_right {
+  width: 315px;
+  height: 315px;
+  border-radius: 50%;
+  background-color: #13c2d4;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-70%, -20%);
+  z-index: 10;
+}
+._best_doc._event .arr-flex {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+._best_doc._event .slick-slide {
+  width: 300px;
+  margin: 0 2.5rem;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
 //? import img doctor
@@ -7,7 +7,14 @@ import Doctor from "../../assets/doctor.jpg";
 //? import css
 import "./DoctorCard.css";
 
+//? import Modal
+import AppointmentModal from "../../components/AppointmentModal/AppointmentModal.jsx";
+
 export default function DoctorCard() {
+  const [show, setShow] = useState(false);
+  const handleModal = () => {
+    setShow((prevState) => !prevState);
+  };
   return (
     <div className="card_doctor">
       <Card className="card_doc">
@@ -25,9 +32,11 @@ export default function DoctorCard() {
             content="Prendre un Rendez-vous"
             icon="right arrow"
             labelPosition="right"
+            onClick={handleModal}
           />
         </Card.Content>
       </Card>
+      {show && <AppointmentModal setShow={handleModal} show={show} />}
     </div>
   );
 }

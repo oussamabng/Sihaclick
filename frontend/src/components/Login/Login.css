@@ -1,0 +1,126 @@
+.modal_login.modal {
+  padding: 2rem 0.5rem 1rem 0.5rem;
+  background-color: white;
+  border: none;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.modal_login.modal .circle_login {
+  width: 95px;
+  height: 195px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 0% 100% 100% 0% / 100% 50% 50% 0% !important;
+  background-color: rgba(19, 194, 212, 0.5);
+  z-index: 0;
+}
+.modal_login.modal > .close {
+  right: 2.5px;
+  top: 2.5px;
+  color: #13c2d4;
+  font-size: 1.6rem;
+  opacity: 1;
+}
+.modal_login.modal > .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.modal_login.modal .row .col_icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20%;
+  top: 40%;
+}
+.modal_login.modal .row .col_icon svg {
+  cursor: pointer;
+  margin: 0.25rem 0;
+}
+.modal_login.modal > .row > .col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.modal_login .title_best_doc {
+  padding: 0 !important;
+}
+.modal_login .row .col h3 {
+  color: #046489;
+  font-size: 12px;
+  margin: 0.5rem 0;
+}
+.modal_login .row .col .title_best_doc p {
+  padding-top: 0.75rem !important;
+}
+.modal_login._best_doc .plus_title {
+  margin: 0 1rem !important;
+}
+.modal_login .row .form {
+  width: 100%;
+  padding-top: 2rem;
+}
+.modal_login .row .form .field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #046489;
+  margin-left: 1rem;
+  margin-bottom: 6px;
+}
+.modal_login .row .form .field .input,
+.modal_login .row .form .field textarea {
+  border: 1px solid #046489;
+  border-radius: 5px;
+}
+.modal_login .row .form .field.sha .input {
+  box-shadow: 0 4px 6px 0 rgba(19, 194, 212, 0.16) !important;
+}
+.modal_login .row .form .field .input input,
+.modal_login .row .form .field .input input::placeholder,
+.modal_login .row .form .field textarea::placeholder {
+  background-color: #fbfbfb;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(4, 100, 137, 0.75);
+  padding: 1rem 1.5rem;
+}
+.form_actions_modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form_actions_modal p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #13c2d4;
+  margin: 0.5rem 0;
+}
+.form_actions_modal .button {
+  background-color: #13c2d4;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  width: 220px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form_actions_modal .button .icon {
+  font-size: 1.2rem;
+  background: transparent !important;
+}
+
+.form_actions_modal .button:hover {
+  background-color: #099aaa;
+  color: white;
+}

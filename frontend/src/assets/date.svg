@@ -1,0 +1,15 @@
+<svg id="Groupe_589" data-name="Groupe 589" xmlns="http://www.w3.org/2000/svg" width="15.333" height="15.333" viewBox="0 0 15.333 15.333">
+  <g id="Groupe_272" data-name="Groupe 272">
+    <circle id="Ellipse_19" data-name="Ellipse 19" cx="0.5" cy="0.5" r="0.5" transform="translate(11 6)" fill="#13c2d4"/>
+    <path id="Tracé_290" data-name="Tracé 290" d="M12.938,1.2h-.779V.6a.6.6,0,1,0-1.2,0v.6H8.236V.6a.6.6,0,1,0-1.2,0v.6h-2.7V.6a.6.6,0,1,0-1.2,0v.6H2.4A2.4,2.4,0,0,0,0,3.594v9.344a2.4,2.4,0,0,0,2.4,2.4H6.978a.6.6,0,1,0,0-1.2H2.4a1.2,1.2,0,0,1-1.2-1.2V3.594A1.2,1.2,0,0,1,2.4,2.4h.749v.6a.6.6,0,1,0,1.2,0V2.4h2.7v.6a.6.6,0,1,0,1.2,0V2.4h2.725v.6a.6.6,0,1,0,1.2,0V2.4h.779a1.2,1.2,0,0,1,1.2,1.2V7.008a.6.6,0,0,0,1.2,0V3.594A2.4,2.4,0,0,0,12.938,1.2Z" fill="#13c2d4"/>
+    <path id="Tracé_291" data-name="Tracé 291" d="M273.624,270a3.624,3.624,0,1,0,3.624,3.624A3.628,3.628,0,0,0,273.624,270Zm0,6.049a2.426,2.426,0,1,1,2.426-2.426A2.429,2.429,0,0,1,273.624,276.049Z" transform="translate(-261.914 -261.914)" fill="#13c2d4"/>
+    <path id="Tracé_292" data-name="Tracé 292" d="M372.467,331.228h-.27V330.6a.6.6,0,1,0-1.2,0v1.228a.6.6,0,0,0,.6.6h.868a.6.6,0,1,0,0-1.2Z" transform="translate(-359.889 -320.117)" fill="#13c2d4"/>
+    <ellipse id="Ellipse_20" data-name="Ellipse 20" cx="1" cy="0.5" rx="1" ry="0.5" transform="translate(8 6)" fill="#13c2d4"/>
+    <circle id="Ellipse_21" data-name="Ellipse 21" cx="0.5" cy="0.5" r="0.5" transform="translate(6 8)" fill="#13c2d4"/>
+    <circle id="Ellipse_22" data-name="Ellipse 22" cx="0.5" cy="0.5" r="0.5" transform="translate(3 6)" fill="#13c2d4"/>
+    <circle id="Ellipse_23" data-name="Ellipse 23" cx="0.5" cy="0.5" r="0.5" transform="translate(3 8)" fill="#13c2d4"/>
+    <circle id="Ellipse_24" data-name="Ellipse 24" cx="0.5" cy="0.5" r="0.5" transform="translate(3 11)" fill="#13c2d4"/>
+    <circle id="Ellipse_25" data-name="Ellipse 25" cx="0.5" cy="0.5" r="0.5" transform="translate(6 11)" fill="#13c2d4"/>
+    <circle id="Ellipse_26" data-name="Ellipse 26" cx="0.5" cy="0.5" r="0.5" transform="translate(6 6)" fill="#13c2d4"/>
+  </g>
+</svg>

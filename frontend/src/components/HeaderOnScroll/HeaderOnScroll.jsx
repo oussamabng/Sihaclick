@@ -12,9 +12,16 @@ import { ReactComponent as Notification } from "../../assets/notification.svg";
 //? import user img
 import User from "../../assets/alex.jpg";
 
+//? import Login modal
+import Login from "../../components/Login/Login.jsx";
+
 export default function HeaderOnScroll(props) {
   const [isShow, setShow] = useState(false);
   const { isLogin, header } = props;
+  const [show, setSHOW] = useState(false);
+  const handleModal = () => {
+    setSHOW((prevState) => !prevState);
+  };
   useEffect(() => {
     setShow(header);
   }, [header]);
@@ -66,14 +73,19 @@ export default function HeaderOnScroll(props) {
             }}
           >
             <Icon name="search" />
-            <a href="/signin" className="_margin_horizontal_sm blue">
+            <p
+              href="/signin"
+              className="_margin_horizontal_sm blue"
+              onClick={handleModal}
+            >
               Sign in
-            </a>
+            </p>
             <a href="/signup" className="btn _margin_horizontal_sm">
               Sign up
             </a>
           </div>
         )}
+        {show && <Login setShow={handleModal} show={show} />}
       </div>
     </div>
   );

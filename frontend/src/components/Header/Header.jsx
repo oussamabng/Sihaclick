@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 
 //? import css
 import "./Header.css";
 
+//? import Login modal
+import Login from "../../components/Login/Login.jsx";
+
 //? import logo
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 export default function Header() {
+  const [show, setShow] = useState(false);
+  const handleModal = () => {
+    setShow((prevState) => !prevState);
+  };
   return (
     <header className="_home_header">
       <div className="navbar">
         <Logo className="white" />
         <div className="navigation">
+          {show && <Login setShow={handleModal} show={show} />}
           <Menu pointing secondary>
             <Menu.Item name="Accueil" className="border" />
             <Menu.Item name="Professionnels de santé" />
@@ -43,9 +51,9 @@ export default function Header() {
         </div>
         <div className="home_action">
           <Icon name="search" />
-          <a href="/signin" className="_margin_horizontal_sm ">
+          <p className="_margin_horizontal_sm " onClick={handleModal}>
             Sign in
-          </a>
+          </p>
           <a href="/signup" className="btn _margin_horizontal_sm">
             Sign up
           </a>

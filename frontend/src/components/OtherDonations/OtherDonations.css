@@ -51,6 +51,14 @@ body.dimmed.dimmable {
   background: #13c2d4;
   margin: 0 1rem;
 }
+._btn_other_dons .button:hover {
+  color: white;
+  background: #13c2d4;
+}
+._btn_other_dons .button.inverted:hover {
+  color: #13c2d4;
+  background: white;
+}
 ._btn_other_dons .button.inverted {
   color: #13c2d4;
   background: white;

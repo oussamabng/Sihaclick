@@ -29,7 +29,7 @@ export default function Header() {
               <div className="dropdown">
                 <ul>
                   <li>
-                    <a href="/">Echange de sang</a>
+                    <a href="/blood">Echange de sang</a>
                   </li>
                   <li>
                     <a href="/">Echange de médicament</a>

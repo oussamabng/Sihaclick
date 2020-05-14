@@ -13,6 +13,9 @@
   display: flex;
   justify-content: center;
 }
+._footer.blood > .navigation {
+  background: rgba(122, 19, 19, 0.25);
+}
 ._footer > .navigation > .container {
   display: flex;
   justify-content: center;

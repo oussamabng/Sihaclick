@@ -70,8 +70,8 @@ export default function BestDoctors() {
             }}
           >
             <div className="arrows">
-              <Arrow isRight={false} slider={slider} />
-              <Arrow isRight slider={slider} />
+              <Arrow isRight={false} slider={slider} onClick={previous} />
+              <Arrow isRight slider={slider} onClick={next} />
             </div>
           </div>
           <Slider ref={(c) => setSlider(c)} {...settings}>

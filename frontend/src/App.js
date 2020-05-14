@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //? import screens
 import Home from "./screens/Home/Home.jsx";
-
-//! temp
-import HeaderOnScroll from "./components/HeaderOnScroll/HeaderOnScroll.jsx";
+import Blood from "./screens/Blood/Blood.jsx";
 
 //? import slick css
 import "slick-carousel/slick/slick.css";
@@ -15,11 +13,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route
-          exact
-          path="/test"
-          component={() => <HeaderOnScroll isLogin header />}
-        />
+        <Route exact path="/blood" component={Blood} />
       </Switch>
     </Router>
   );

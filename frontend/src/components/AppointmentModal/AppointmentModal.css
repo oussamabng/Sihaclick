@@ -65,6 +65,10 @@
 .appointment_modal.modal .number_age_field .minus {
   margin-left: 0 !important;
 }
+.appointment_modal.modal .form .field textarea {
+  font-size: 16px;
+  color: #046489;
+}
 .appointment_modal.modal .form .field {
   margin: 2rem 0 !important;
 }

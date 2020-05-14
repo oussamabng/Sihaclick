@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Modal, Button, Icon } from "semantic-ui-react";
+import { Modal, Icon } from "semantic-ui-react";
 
 //? import css
 import "./BloodModal.css";

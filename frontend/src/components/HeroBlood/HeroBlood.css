@@ -1,0 +1,70 @@
+.hero_blood {
+  height: 350px;
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+  background: var(--lineaire_red);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero_blood > .content_hero_blood {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero_blood > .circle_btn {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.42);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  transform: translate(-25%, 25%);
+}
+.hero_blood > .circle_left {
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  background-color: rgba(245, 10, 98, 0.42);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-20%, -40%);
+  z-index: 10;
+}
+.hero_blood .plus_title.nrml {
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+}
+.hero_blood .plus_title.again {
+  position: absolute;
+  right: 35%;
+  top: 35%;
+}
+.hero_blood .plus_title .up,
+.hero_blood .plus_title .down {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+.hero_blood > .content_hero_blood > .info {
+  max-width: 700px;
+}
+.hero_blood > .content_hero_blood svg {
+  transform: translate(0%, 20%);
+  z-index: 12;
+}
+.hero_blood > .content_hero_blood > .info h1 {
+  font-size: 38px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+.hero_blood > .content_hero_blood > .info p {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}

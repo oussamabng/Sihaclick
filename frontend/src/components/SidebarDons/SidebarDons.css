@@ -1,0 +1,137 @@
+.sidebar_dons {
+  margin: 2rem;
+  width: 300px;
+  min-height: 800px;
+  border: 1px solid #da3e39;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px 0 rgba(4, 105, 141, 0.16);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  background: white;
+}
+.sidebar_dons .accordion .title {
+  font-size: 16px !important;
+  color: var(--black) !important;
+  font-weight: 700 !important;
+  font-family: "Poppins", sans-serif !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 1.5rem !important;
+
+  background: #f8f8f8 !important;
+}
+.sidebar_dons .accordion .title svg {
+  width: 15px;
+  height: 15px;
+  margin-left: 6px;
+  transform: rotate(-180deg);
+  transition: transform ease 0.3s;
+}
+.sidebar_dons .accordion {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  width: 100%;
+}
+.sidebar_dons .accordion .title.active svg {
+  transform: rotate(0deg);
+  transition: transform ease 0.3s;
+}
+.sidebar_dons .accordion svg path {
+  stroke: #13c2d4;
+}
+.sidebar_dons .accordion .content {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+}
+.sidebar_dons .content_sidebar {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  color: #da3e39;
+}
+.sidebar_dons .content_sidebar .dropdown {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  background: #fbfbfb;
+  border: 1px solid #e4e4e4 !important;
+}
+.sidebar_dons .content_sidebar .dropdown .default.text {
+  color: rgba(218, 62, 57, 0.5) !important;
+}
+.sidebar_dons .content_sidebar .dropdown svg {
+  position: absolute;
+  right: 5%;
+}
+.sidebar_dons .type_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+.sidebar_dons .type_content p {
+  margin: 0;
+}
+.sidebar_dons .ui.checkbox input.hidden + label {
+  color: #da3e39;
+  font-size: 14px;
+  font-weight: 700;
+}
+.sidebar_dons .ui.radio.checkbox label::before {
+  border-radius: 4px;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #da3e39;
+  box-shadow: 0 2px 6px 0 rgba(4, 105, 141, 0.16);
+}
+.sidebar_dons .ui.radio.checkbox label::after {
+  width: 17px;
+  height: 17px;
+}
+.sidebar_dons .ui.radio.checkbox input:checked ~ label::after {
+  color: #da3e39;
+  background: #da3e39;
+}
+.sidebar_dons .ui.radio.checkbox input:checked + label::before {
+  border: none !important;
+}
+.sidebar_dons .form {
+  width: 100%;
+}
+.sidebar_dons .form .input {
+  font-size: 16px;
+  font-weight: 700;
+}
+.sidebar_dons .form .input input {
+  background: #fbfbfb;
+  border: 1px solid #e4e4e4 !important;
+  border-radius: 4px;
+  color: rgba(218, 62, 57, 0.5) !important;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1rem;
+}
+.sidebar_dons .form .input input::placeholder {
+  color: rgba(218, 62, 57, 0.5) !important;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sidebar_dons .form .field label {
+  color: #da3e39;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}

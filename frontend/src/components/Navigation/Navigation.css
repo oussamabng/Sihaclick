@@ -1,0 +1,39 @@
+._navigation {
+  background: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+  z-index: 20;
+  position: relative;
+}
+._navigation ul {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--bleu_darker);
+  font-weight: 600;
+  margin: 0 !important;
+  padding: 0;
+}
+._navigation ul .row {
+  padding: 1rem 0;
+  display: flex;
+  border-bottom: 4px solid #13c2d4;
+}
+._navigation ul .row li {
+  margin: 0 2rem;
+  cursor: pointer;
+}
+._navigation ul > li {
+  margin: 0 2rem;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+._navigation ul .active {
+  color: #13c2d4;
+}
+._navigation svg {
+  width: 16px;
+  height: 10px;
+}
+._navigation svg path {
+  stroke: #13c2d4;
+}

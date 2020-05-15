@@ -18,6 +18,13 @@
 ul {
   list-style: none;
 }
+h1,
+p,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
+}
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;

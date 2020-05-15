@@ -1,0 +1,148 @@
+._calender {
+  width: 80%;
+  margin: 0 2rem;
+}
+._calender_all {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+}
+.slider_calender {
+  padding: 1.5rem 0;
+  max-height: 400px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin: 1rem 0;
+}
+.action_doctor_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 2rem 0;
+}
+.action_doctor_btn .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #13c2d4;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  width: 226px;
+  height: 40px;
+  border-radius: 6px;
+  margin: 0 1rem;
+}
+.action_doctor_btn .button svg {
+  stroke: white;
+  margin: 0 0.42857143em 0 -0.21428571em;
+}
+.slider_calender .slick-slider {
+  border: 2px solid #046489;
+  background-color: white;
+  box-shadow: 0 2px 10px 0 rgba(4, 105, 141, 0.16);
+  border-radius: 4px;
+}
+.arrow_top {
+  position: absolute;
+  background-color: #13c2d4;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow_top.top {
+  top: 0;
+  left: 0;
+  transform: translate(30%, -50%);
+}
+.arrow_top.bottom {
+  bottom: 0;
+  left: 0;
+  transform: translate(30%, 50%);
+}
+.arrow_top.top svg {
+  transform: rotate(180deg);
+}
+.arrow_top svg {
+  width: 15px;
+  height: 15px;
+}
+.arrow_top svg path {
+  stroke: white;
+}
+.slider_calender .slick-track,
+.slider_calender .slick-list,
+.slider_calender .slick-slider {
+  height: 100% !important;
+}
+.day_item {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--black);
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+.day_item p {
+  margin: 0;
+}
+._calender .header {
+  display: flex;
+  border-radius: 4px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.4rem 1rem;
+  border: 2px solid #046489;
+  box-shadow: 0 2px 10px 0 rgba(4, 105, 141, 0.16);
+}
+._calender .header p {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #046489;
+}
+._calender .here {
+  background-color: rgba(251, 40, 40, 0.38);
+  border: 0 !important;
+}
+._calender th,
+._calender td {
+  width: 50px !important;
+  height: 50px !important;
+  text-align: center;
+}
+._calender th {
+  border: none !important;
+  background: transparent !important;
+  padding: 1rem 1.2rem !important;
+  border: none !important;
+  border-right: none !important;
+  border-left: none !important;
+}
+._calender tr {
+  padding: 1rem !important;
+}
+._calender .ui.table {
+  border: 0;
+  width: 100%;
+}
+._calender .ui.table td {
+  border: 1px solid #e2e2e2;
+  border-left: 1px solid #e2e2e2 !important;
+  border-right: 1px solid #e2e2e2 !important;
+  border-top: 1px solid #e2e2e2 !important;
+}
+._calender .ui.table tr {
+  border: 1px solid red;
+}

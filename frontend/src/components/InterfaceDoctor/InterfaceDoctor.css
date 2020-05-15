@@ -9,3 +9,7 @@
   width: 50%;
   margin: 0 2rem;
 }
+.interface_doctor .row .input {
+  width: 80%;
+  padding: 2rem 0;
+}

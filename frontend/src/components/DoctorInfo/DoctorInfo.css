@@ -1,0 +1,115 @@
+.doctor_info {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+  transform: translate(0%, -20%);
+}
+.doctor_info h1 {
+  margin: 0;
+}
+.doctor_info .header_part {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.doctor_info .doctor_img {
+  width: 180px !important;
+  height: 180px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: 2px solid #046489;
+  border-radius: 4px;
+  background: #f9fcfc;
+}
+.doctor_info .info_doc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding-top: 2rem;
+}
+.doctor_info .info_doc h4 {
+  margin: 0;
+}
+.doctor_info .info_doc .text_with_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.doctor_info .info_doc .text_with_icon .icon {
+  color: var(--lighter-bleu);
+  margin-right: 0.75rem;
+}
+.doctor_info .info_doc .text_with_icon .icon.user {
+  font-family: outline-icons;
+}
+.doctor_info .info_doc .text_with_icon .icon.phone {
+  transform: rotate(90deg);
+}
+.doctor_info .info_doc .text_with_icon.mar {
+  margin: 1.5rem 0;
+}
+.doctor_info .info_doc .text_with_icon h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.doctor_info .info_doc .text_with_icon h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.doctor_info .info_doc .phones {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.doctor_info .info_doc .phones h4 {
+  margin: 0.25rem 0;
+}
+.doctor_info .header_part .label_part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #046489;
+  margin: 0 2rem;
+  font-weight: 600;
+}
+.doctor_info .header_part .label_part p {
+  padding: 0.5rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+  margin: 0 0.75rem;
+}
+.doctor_info .other_info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+}
+.doctor_info .other_info h1 {
+  color: #046489;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+
+.doctor_info .other_info p {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+  font-weight: 500;
+  margin: 0.5rem 0 !important;
+}
+.doctor_info .other_info .title {
+  height: 4px;
+  width: 47px;
+  background: #13c2d4;
+}

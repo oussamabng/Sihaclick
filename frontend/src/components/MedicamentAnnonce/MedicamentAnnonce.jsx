@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Checkbox, Button, Input } from "semantic-ui-react";
+import { Grid, Checkbox, Input } from "semantic-ui-react";
 
 //? import css
 import "./MedicamentAnnonce.css";

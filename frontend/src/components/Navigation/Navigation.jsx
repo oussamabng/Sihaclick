@@ -7,23 +7,39 @@ import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 import "./Navigation.css";
 import { Container } from "semantic-ui-react";
 
-const Navigation = () => {
+const Navigation = (props) => {
   return (
     <div className="_navigation">
       <Container>
         <ul>
-          <div className="row">
-            <li>Accueil</li>
-            <li>Annuaire</li>
-            <li className="active">
-              <Arrow
-                style={{
-                  margin: "0 .5rem",
-                }}
-              />
-              Echange
-            </li>
-          </div>
+          {!props.notLine && (
+            <div className="row">
+              <li>Accueil</li>
+              <li>Annuaire</li>
+              <li className="active">
+                <Arrow
+                  style={{
+                    margin: "0 .5rem",
+                  }}
+                />
+                Echange
+              </li>
+            </div>
+          )}
+          {props.notLine && (
+            <>
+              <li>Accueil</li>
+              <li>Annuaire</li>
+              <li>
+                <Arrow
+                  style={{
+                    margin: "0 .5rem",
+                  }}
+                />
+                Echange
+              </li>
+            </>
+          )}
           <li>Blog</li>
           <li>Evenement</li>
           <li>Contactez</li>

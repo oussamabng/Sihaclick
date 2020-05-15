@@ -1,0 +1,11 @@
+.interface_doctor {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.interface_doctor .row {
+  width: 50%;
+  margin: 0 2rem;
+}

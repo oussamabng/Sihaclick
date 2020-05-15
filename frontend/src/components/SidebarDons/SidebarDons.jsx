@@ -13,7 +13,8 @@ import "./SidebarDons.css";
 //? import arrow
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
-const SidebarDons = () => {
+const SidebarDons = (props) => {
+  const { isBlood } = props;
   const [activeIndex, setActive] = useState(0);
   const [activeChecked, setactiveChecked] = useState(false);
   const handleChecked = () => {
@@ -23,7 +24,7 @@ const SidebarDons = () => {
     setActive((prevState) => !prevState);
   };
   return (
-    <div className="sidebar_dons">
+    <div className={isBlood ? "sidebar_dons" : "sidebar_dons blue"}>
       <Accordion>
         <Accordion.Title active={activeIndex} onClick={handleClick}>
           Recherche de sang <Arrow />
@@ -35,25 +36,37 @@ const SidebarDons = () => {
             onHide={handleChecked}
           >
             <div className="content_sidebar">
-              <p>Groupe sanguin</p>
-              <Dropdown placeholder="A" openOnFocus selection icon={null}>
-                <Arrow />
-              </Dropdown>
-              <div className="type_content">
-                <Checkbox
-                  radio
-                  label="Positive +"
-                  checked={activeChecked}
-                  onChange={handleChecked}
-                />
-                <Checkbox
-                  radio
-                  label="Négative -"
-                  checked={!activeChecked}
-                  onChange={handleChecked}
-                />
-              </div>
+              {isBlood && (
+                <>
+                  <p>Groupe sanguin</p>
+                  <Dropdown placeholder="A" openOnFocus selection icon={null}>
+                    <Arrow />
+                  </Dropdown>
+                </>
+              )}
+              {isBlood && (
+                <div className={isBlood ? "type_content" : "type_content blue"}>
+                  <Checkbox
+                    radio
+                    label="Positive +"
+                    checked={activeChecked}
+                    onChange={handleChecked}
+                  />
+                  <Checkbox
+                    radio
+                    label="Négative -"
+                    checked={!activeChecked}
+                    onChange={handleChecked}
+                  />
+                </div>
+              )}
               <Form>
+                {!isBlood && (
+                  <Form.Input
+                    label="Nom de Médicament"
+                    placeholder="Médicament"
+                  />
+                )}
                 <Form.Input label="wilaya" placeholder="Alger centre" />
                 <Form.Input label="Commune" placeholder="Cheraga" />
               </Form>

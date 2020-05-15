@@ -1,0 +1,8 @@
+._navigation.medicament li {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  color: var(--black);
+}
+._navigation.medicament li.active {
+  color: var(--lighter-bleu);
+}

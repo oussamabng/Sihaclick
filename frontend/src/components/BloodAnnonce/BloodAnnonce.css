@@ -1,0 +1,61 @@
+.blood_annonce {
+  padding: 2rem;
+  background: white;
+  position: relative;
+  display: flex;
+  z-index: 10;
+  align-items: flex-start;
+  width: 100%;
+}
+.table_blood {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 2rem;
+  width: 100%;
+}
+.blood_filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.blood_filter ._checkbox {
+  display: flex;
+  align-items: center;
+}
+.blood_filter ._checkbox .checkbox {
+  margin: 0 1rem;
+}
+.blood_annonce .grid {
+  padding: 4rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+.blood_annonce .grid .column {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 2rem;
+  width: 310px !important;
+}
+.blood_filter .button {
+  border-radius: 21px;
+  background: #fb2828;
+  font-size: 14px;
+  color: white !important;
+  padding: 0.8 rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blood_filter .button .icon {
+  background: transparent !important;
+  color: white;
+}
+.blood_filter .button:hover {
+  background: #fb2828;
+  color: white;
+}

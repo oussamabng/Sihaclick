@@ -1,0 +1,62 @@
+.hero_medicament {
+  background-image: url("../../assets/Pharmacies.png");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 350px;
+  position: relative;
+}
+.hero_medicament .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(
+    to bottom,
+    rgba(27, 106, 184, 0.71),
+    rgba(24, 205, 223, 0.71)
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.hero_medicament > .circle_btn {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.42);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  transform: translate(-25%, 25%);
+}
+.hero_medicament > .circle_left {
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  background-color: rgba(10, 197, 245, 0.42);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-20%, -40%);
+  z-index: 15;
+}
+.hero_medicament .overlay .info {
+  max-width: 680px;
+}
+.hero_medicament .overlay .info h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+.hero_medicament .overlay .info p {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}

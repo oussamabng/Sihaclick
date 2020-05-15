@@ -32,7 +32,7 @@ export default function Header() {
                     <a href="/blood">Echange de sang</a>
                   </li>
                   <li>
-                    <a href="/">Echange de médicament</a>
+                    <a href="/medicament">Echange de médicament</a>
                   </li>
                   <li>
                     <a href="/">Echange de livres</a>

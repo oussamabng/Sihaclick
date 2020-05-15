@@ -1,6 +1,6 @@
 .sidebar_dons {
   margin: 2rem;
-  width: 300px;
+  min-width: 307px;
   min-height: 800px;
   border: 1px solid #da3e39;
   border-radius: 4px;
@@ -10,6 +10,9 @@
   align-items: flex-start;
   position: relative;
   background: white;
+}
+.sidebar_dons.blue {
+  border: 1px solid #04698d;
 }
 .sidebar_dons .accordion .title {
   font-size: 16px !important;
@@ -57,6 +60,9 @@
   padding: 1rem 2rem;
   color: #da3e39;
 }
+.sidebar_dons.blue .content_sidebar {
+  color: #04698d;
+}
 .sidebar_dons .content_sidebar .dropdown {
   width: 100%;
   text-align: center;
@@ -70,6 +76,9 @@
 }
 .sidebar_dons .content_sidebar .dropdown .default.text {
   color: rgba(218, 62, 57, 0.5) !important;
+}
+.sidebar_dons.blue .type_content .ui.checkbox input.hidden + label {
+  color: #04698d !important;
 }
 .sidebar_dons .content_sidebar .dropdown svg {
   position: absolute;
@@ -85,27 +94,37 @@
 .sidebar_dons .type_content p {
   margin: 0;
 }
-.sidebar_dons .ui.checkbox input.hidden + label {
+.type_content .ui.checkbox input.hidden + label {
   color: #da3e39;
   font-size: 14px;
   font-weight: 700;
 }
-.sidebar_dons .ui.radio.checkbox label::before {
+.type_content.blue .ui.checkbox input.hidden + label {
+  color: #04698d;
+}
+.type_content .ui.radio.checkbox label::before {
   border-radius: 4px;
   width: 17px;
   height: 17px;
   border: 1px solid #da3e39;
   box-shadow: 0 2px 6px 0 rgba(4, 105, 141, 0.16);
 }
-.sidebar_dons .ui.radio.checkbox label::after {
+.type_content.blue .ui.radio.checkbox label::before {
+  border: 1px solid #04698d;
+}
+.type_content .ui.radio.checkbox label::after {
   width: 17px;
   height: 17px;
 }
-.sidebar_dons .ui.radio.checkbox input:checked ~ label::after {
+.type_content .ui.radio.checkbox input:checked ~ label::after {
   color: #da3e39;
   background: #da3e39;
 }
-.sidebar_dons .ui.radio.checkbox input:checked + label::before {
+.type_content.blue .ui.radio.checkbox input:checked ~ label::after {
+  color: #04698d;
+  background: #04698d;
+}
+.type_content .ui.radio.checkbox input:checked + label::before {
   border: none !important;
 }
 .sidebar_dons .form {
@@ -123,6 +142,17 @@
   font-size: 14px;
   font-weight: 500;
   padding: 1rem;
+}
+
+.sidebar_dons.blue .form .input input {
+  color: rgba(4, 105, 141, 0.5) !important;
+}
+
+.sidebar_dons.blue .form .field label {
+  color: #04698d !important;
+}
+.sidebar_dons.blue .form .input input::placeholder {
+  color: rgba(4, 105, 141, 0.5) !important;
 }
 .sidebar_dons .form .input input::placeholder {
   color: rgba(218, 62, 57, 0.5) !important;

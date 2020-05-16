@@ -1,6 +1,7 @@
 import React from "react";
-import { Dropdown } from "semantic-ui-react";
+import { Dropdown, Button } from "semantic-ui-react";
 import { ReactComponent as Arrow } from "../../assets/arrow_big.svg";
+import { ReactComponent as ArrowMin } from "../../assets/arrow.svg";
 
 //? import css
 import "./StageSimpleForm.css";
@@ -70,6 +71,11 @@ const StageSimpleForm = () => {
           />
         </div>
       </div>
+      <Button>
+        <p>.</p>
+        Confirmer
+        <ArrowMin />
+      </Button>
     </div>
   );
 };

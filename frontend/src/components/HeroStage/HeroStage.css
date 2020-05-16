@@ -6,10 +6,36 @@
   background-size: cover;
   height: 500px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero_stage.hero_medicament .button {
+  width: 270px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  background: #13c2d4;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 2rem 0;
+}
+.hero_stage.hero_medicament .button:hover {
+  background: #14909e;
+}
+.hero_stage.hero_medicament .button svg {
+  transform: rotate(-90deg);
+}
+.hero_stage.hero_medicament .button p {
+  visibility: hidden;
 }
 .hero_stage.hero_medicament .contents .texts p {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Po  ppins", sans-serif;
   font-weight: 400;
 }
 .hero_stage.hero_medicament .contents .texts {

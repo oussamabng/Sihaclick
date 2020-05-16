@@ -13,6 +13,14 @@
   margin: 0 !important;
   padding: 0;
 }
+._navigation ul a {
+  font-size: 14px;
+  color: var(--bleu_darker);
+  font-weight: 600;
+}
+._navigation ul a:hover {
+  color: #13c2d4;
+}
 ._navigation ul .row {
   padding: 1rem 0;
   display: flex;

@@ -1,0 +1,48 @@
+.hero_annuaire .contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.hero_annuaire {
+  position: relative;
+  height: 350px;
+}
+.hero_annuaire .contents .texts {
+  max-width: 500px;
+  color: white;
+}
+.medicament_annonce .ui.form .field {
+  margin: 0;
+}
+.hero_annuaire .contents .texts .button {
+  background: #13c2d4;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+}
+.hero_annuaire .contents .texts .button svg {
+  stroke: white;
+  transform: rotate(-90deg);
+  margin: 0 0.25rem;
+}
+.hero_annuaire .contents .texts p {
+  font-weight: 400;
+  font-size: 38px;
+  text-transform: none;
+  margin: 0;
+}
+.hero_annuaire .contents .texts b {
+  font-weight: 700;
+}
+.hero_annuaire .contents .hero_ann {
+  width: 260px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}

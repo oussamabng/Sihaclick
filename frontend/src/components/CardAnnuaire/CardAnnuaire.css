@@ -1,0 +1,132 @@
+._card_annuaire {
+  width: 100%;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem;
+  background-color: white;
+}
+.annuaire_annonce .grid_center .grid,
+.annuaire_annonce .grid_center .grid .column {
+  width: 100% !important;
+  margin: 0 !important;
+}
+._card_annuaire .left_part {
+  display: flex;
+}
+._card_annuaire .left_part .img_doc {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 140px;
+  border-radius: 4px;
+  background-color: gray;
+  border: 1px solid #d6d6d6;
+}
+._card_annuaire .left_part .infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+._card_annuaire .infos .texts .title {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+._card_annuaire .infos .texts .icon {
+  color: #13c2d4;
+}
+._card_annuaire .infos .texts > h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #046489;
+  margin: 1rem 1.5rem;
+}
+._card_annuaire .infos .texts > p {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 1rem 1.5rem;
+  color: #046489;
+}
+._card_annuaire .infos .texts .phone_f {
+  display: flex;
+  align-items: center;
+}
+._card_annuaire .infos .icon.phone {
+  transform: rotate(90deg);
+  margin-bottom: 0;
+  margin-left: 3px;
+}
+._card_annuaire .infos .label_part {
+  display: flex;
+  margin: 0 1rem;
+}
+._card_annuaire .infos .label_part p {
+  margin: 0 0.5rem;
+  background: #f5f5f5;
+  font-size: 12px;
+  font-weight: 600;
+  color: #046489;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+._card_annuaire .right_part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+._card_annuaire .right_part .times {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem 0;
+}
+._card_annuaire .right_part .times p {
+  font-size: 12px;
+  color: var(--black);
+  font-weight: 700;
+  background: #e4e4e4;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 0 0.75rem;
+}
+._card_annuaire .right_part .times .line {
+  height: 2px;
+  width: 15px;
+  background: #707070;
+  margin: 0 0.75rem;
+}
+._card_annuaire .right_part .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+._card_annuaire .right_part .bottom p {
+  margin: 0;
+  color: #13c2d4;
+  text-decoration: underline;
+  margin: 0 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+._card_annuaire .right_part .bottom .this {
+  display: flex;
+  align-items: center;
+}
+._card_annuaire .right_part .bottom > p > .icon {
+  margin: 0 0.25rem;
+  color: #13c2d4;
+}
+._card_annuaire .right_part .bottom svg {
+  margin: 0 0.25rem;
+}
+._card_annuaire .right_part .bottom .rating .icon {
+  font-size: 1.4rem;
+  background: white !important;
+  stroke: yellow !important;
+}

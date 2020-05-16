@@ -75,3 +75,28 @@
 .appointment_modal.modal .form {
   padding: 0;
 }
+.birthday_picker {
+  display: flex;
+  flex-direction: column;
+}
+.birthday_picker .react-datepicker__input-container {
+  border: 1px solid #046489;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #046489;
+}
+.birthday_picker .react-datepicker__input-container input {
+  background-color: #fbfbfb !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: rgba(4, 100, 137, 0.75) !important;
+  padding: 1rem 1.5rem !important;
+  border: none !important;
+}
+.birthday_picker label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #046489;
+  margin-left: 1rem;
+  margin-bottom: 6px;
+}

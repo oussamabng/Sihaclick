@@ -15,8 +15,10 @@ const Navigation = (props) => {
           {!props.notLine && (
             <div className="row">
               <li>Accueil</li>
-              <li>Annuaire</li>
-              <li className="active">
+              <li className={props.active === "annuaire" && "active"}>
+                <a href="/annuaire">Annuaire</a>
+              </li>
+              <li>
                 <Arrow
                   style={{
                     margin: "0 .5rem",
@@ -29,7 +31,9 @@ const Navigation = (props) => {
           {props.notLine && (
             <>
               <li>Accueil</li>
-              <li>Annuaire</li>
+              <li className={props.active === "annuaire" && "active"}>
+                <a href="/annuaire">Annuaire</a>
+              </li>
               <li>
                 <Arrow
                   style={{

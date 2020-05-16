@@ -1,0 +1,72 @@
+.stage_form {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stage_form .circle_right {
+  width: 191px;
+  height: 191px;
+  background: var(--lineaire_blue);
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 20%;
+  transform: translate(20%, 0);
+}
+.stage_form.hero_stage.hero_medicament {
+  background-image: none !important;
+  height: auto !important;
+  width: auto !important;
+}
+.stage_form.hero_stage.hero_medicament .dropdown_title {
+  font-size: 14px !important;
+  width: 210px;
+}
+.stage_form.hero_stage.hero_medicament .dropdown_stage .menu {
+  width: 210px !important;
+}
+.stage_form.hero_stage.hero_medicament .dropdown_stage.lg .menu,
+.stage_form.hero_stage.hero_medicament .dropdown_stage.lg .dropdown_title {
+  width: 250px !important;
+}
+.stage_form.hero_stage.hero_medicament .dropdown_stage.sm .menu,
+.stage_form.hero_stage.hero_medicament .dropdown_stage.sm .dropdown_title {
+  width: 100px !important;
+}
+.stage_form.hero_stage.hero_medicament .dropdown_stage.sm .dropdown_title {
+  padding: 0 0.75rem;
+}
+.stage_form.hero_stage.hero_medicament .dropdown_stage .menu .item {
+  font-size: 14px !important;
+}
+.stage_form .item_dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stage_form .item_dropdown.lg p {
+  max-width: 250px !important;
+}
+
+.stage_form .item_dropdown p {
+  margin: 0.5rem 0;
+  font-size: 16px;
+  color: #046489;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  max-width: 210px;
+}
+.stage_form .dropdown_stage {
+  margin: 0 !important;
+}
+.stage_form .form_dropwdown {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  width: 975px;
+  padding: 4rem 2rem;
+  border: 1px solid #dbdbdb;
+  background: #fcfcfc;
+}

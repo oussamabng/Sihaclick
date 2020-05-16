@@ -21,7 +21,7 @@ export default function BestDoctors() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 8000,
-    arrows: true,
+    arrows: false,
     adaptiveHeight: true,
     appendDots: (dots) => <ul>{dots}</ul>,
     customPaging: (i) => (

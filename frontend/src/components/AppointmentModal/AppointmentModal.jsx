@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Form, Modal, Button, Icon } from "semantic-ui-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 //? import css
 import "./AppointmentModal.css";
 
 const AppointmentModal = (props) => {
   const { setShow, show } = props;
+  const [startDate, setstartDate] = useState("");
   const [open, setOpen] = useState(null);
   useEffect(() => {
     setOpen(show);
   }, [show]);
+  const handleChange = (date) => {
+    setstartDate(date);
+  };
   return (
     <Modal
       size="tiny"
@@ -26,19 +32,13 @@ const AppointmentModal = (props) => {
             className="sha _margin_vertical_sm"
             placeholder="Mohamed Charif"
           />
-          <div className="number_age_field">
-            <div class="minus">
-              <span>-</span>
-            </div>
-            <Form.Input
-              label="Ages"
-              type="number"
-              className="sha _margin_vertical_sm age_input"
-              placeholder="19 ans"
+          <div className="birthday_picker">
+            <label htmlFor="datepicker">Birthday</label>
+            <DatePicker
+              id="datepicker"
+              selected={startDate}
+              onChange={handleChange}
             />
-            <div class="plus">
-              <span>+</span>
-            </div>
           </div>
           <Form.TextArea
             rows={6}

@@ -124,6 +124,10 @@
   color: #04698d;
   background: #04698d;
 }
+.sidebar_dons .form .input,
+.sidebar_dons.blue .form .input {
+  padding-bottom: 1rem !important;
+}
 .type_content .ui.radio.checkbox input:checked + label::before {
   border: none !important;
 }

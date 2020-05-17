@@ -104,6 +104,13 @@
   font-weight: 400;
   cursor: pointer;
 }
+.fixed_stage_form
+  .type_content
+  .react-datepicker__input-container
+  .example-custom-input.disabled {
+  opacity: 0.45 !important;
+  cursor: default !important;
+}
 .fixed_stage_form.sidebar_dons.blue {
   height: auto !important;
   position: relative;
@@ -133,4 +140,17 @@
   position: absolute;
   z-index: 15;
   transform: translate(40%, 40%);
+}
+.fixed_stage_form {
+  position: relative;
+}
+.fixed_stage_form .circle_left_left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 277px;
+  height: 277px;
+  border-radius: 50%;
+  background-color: rgba(19, 194, 212, 0.39);
+  transform: translate(-80%, -50%);
 }

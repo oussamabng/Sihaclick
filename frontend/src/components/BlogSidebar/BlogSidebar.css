@@ -1,0 +1,63 @@
+._blog_sidebar {
+  margin: 2rem 0;
+  padding: 1.5rem 1rem;
+  border-radius: 5px;
+  background: #f6f6f6;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+._blog_sidebar .input {
+  width: 90%;
+}
+._blog_sidebar .input input {
+  margin-right: 0.5rem;
+}
+._blog_sidebar .new_ar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+._blog_sidebar h1 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--black);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+._blog_sidebar .img_card_blog_new {
+  background-color: gray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 140px;
+  width: 100%;
+  border-radius: 5px;
+}
+._blog_sidebar .card .content > h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  font-family: "Poppins", sans-serif;
+}
+._blog_sidebar .card .meta_new_blog {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em;
+}
+._blog_sidebar .card .meta_new_blog p {
+  margin: 0;
+  font-size: 10px;
+  color: var(--black);
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+._blog_sidebar .card .meta_new_blog h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #13c2d4;
+  font-family: "Raleway", sans-serif;
+}

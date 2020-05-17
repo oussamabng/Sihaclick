@@ -69,4 +69,41 @@
   padding: 4rem 2rem;
   border: 1px solid #dbdbdb;
   background: #fcfcfc;
+  transition: background ease-in 0.2s;
+}
+.fixed_stage_form .row {
+  transition: background ease-in 0.2s;
+}
+.stage_form .form_dropwdown.locked,
+.fixed_stage_form .row {
+  background: rgba(252, 252, 250, 0.5);
+  transition: background ease-in 0.2s;
+}
+.stage_form .stage_input {
+  height: 50px;
+  width: 270px;
+  background: white;
+  border: 1px solid #046489;
+  border-radius: 5px;
+}
+.stage_form .stage_input input {
+  color: #046489;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+.stage_form .stage_input input:focus {
+  color: #046489;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+.stage_form .stage_input input::placeholder {
+  color: rgba(4, 100, 137, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+}
+.stage_form .confirmed_btn.button {
+  opacity: 1 !important;
+  background: #14909e;
 }

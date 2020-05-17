@@ -1,23 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
 
 //? import css
 import "./HeroStage.css";
 
+//? import options
+import Status from "../../methods/Status.js";
+
 import Background from "../../assets/stage_user.png";
 import { ReactComponent as Arrow } from "../../assets/arrow_big.svg";
-const trigger = (
-  <span className="dropdown_title">
-    <p>.</p>
-    Status <Arrow />
-  </span>
-);
-const HeroStage = () => {
-  const options = [
-    { key: 0, text: "étudiant" },
-    { key: 1, text: "diplomé" },
-    { key: 2, text: "résident" },
-  ];
+
+const HeroStage = (props) => {
+  const [type, setType] = useState("Status");
+  useEffect(() => {
+    setType(props.type);
+  }, [props]);
+  const trigger = (
+    <span className="dropdown_title">
+      <p>.</p>
+      {type} <Arrow />
+    </span>
+  );
   return (
     <div className="hero_medicament hero_stage hero_annuaire">
       <div className="circle_left"></div>
@@ -38,8 +41,10 @@ const HeroStage = () => {
             </p>
             <Dropdown
               trigger={trigger}
-              options={options}
+              options={Status}
               className="dropdown_stage"
+              onChange={props.handleType}
+              value={type}
             />
           </div>
           <div

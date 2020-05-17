@@ -1,0 +1,39 @@
+.blog_navigation ul {
+  flex-wrap: wrap !important;
+  padding: 1rem 0;
+}
+.blog_navigation ul li {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 2rem;
+  padding: 0.5rem 0;
+}
+.blog_navigation ul li:hover {
+  color: #046489;
+}
+.blog_navigation .dropdown i {
+  display: none;
+}
+.blog_navigation .dropdown .menu {
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #d4d4d4;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+.blog_navigation .dropdown .menu .item {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  box-shadow: none;
+}
+
+.blog_navigation .dropdown .menu .item.active,
+.blog_navigation .dropdown .menu .item.selected,
+.blog_navigation .dropdown .menu .item:hover {
+  color: #046489;
+  text-decoration: underline;
+  background: transparent;
+}

@@ -1,0 +1,116 @@
+.update_profile {
+  padding: 4rem 8rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update_profile ._header {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 2rem;
+  margin-bottom: 4rem;
+}
+.update_profile ._header .img_profile {
+  background: white;
+  border: 2px solid #13c2d4;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.update_profile ._header .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 4rem;
+  padding-top: 1rem;
+}
+.update_profile ._header .info h1 {
+  font-size: 24px;
+  color: #046489;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+.update_profile ._header .info span,
+.update_profile .info_data .confirm_edit span {
+  font-size: 12px;
+  color: #13c2d4;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: underline;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+.update_profile ._header .info .lists {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.update_profile ._header .info .lists p {
+  margin: 1rem;
+  font-size: 14px;
+  font-weight: 700;
+  color: #046489;
+  font-family: "Poppins", sans-serif;
+}
+.update_profile ._header .info .lists p.active {
+  color: white;
+  padding: 0.5rem 0.75rem;
+  background: #046489;
+  border-radius: 5px;
+}
+.update_profile .info_data {
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid rgba(112, 112, 112, 0.2);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
+}
+.update_profile .info_data p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #a4a4a4;
+  font-family: "Poppins", sans-serif;
+  margin: 0 2rem;
+  white-space: nowrap;
+  min-width: 130px;
+}
+.update_profile .info_data .confirm_edit p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #046489;
+  font-family: "Poppins", sans-serif;
+  padding: 1.15rem 1rem;
+  margin-right: 1rem;
+}
+.update_profile .info_data .confirm_edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  width: 100%;
+}
+.update_profile .input_update_profile input,
+.update_profile .input_update_profile input:focus {
+  padding: 1rem 1rem;
+  background: white;
+  border: 1px solid #046489;
+  box-shadow: 0 3px 6px 0 rgba(4, 105, 141, 0.16);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #046489;
+  font-family: "Poppins", sans-serif;
+  margin-right: 1rem;
+}
+.update_profile .confirm_edit i.icon {
+  color: #13c2d4 !important;
+  cursor: pointer;
+}

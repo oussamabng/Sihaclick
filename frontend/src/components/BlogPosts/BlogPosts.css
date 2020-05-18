@@ -1,0 +1,29 @@
+.grid_cars_blg.ui.grid > .column {
+  max-width: 400px;
+  margin: 0 2rem !important;
+}
+.grid_cars_blg.ui.grid {
+  margin: 1rem 4rem;
+  display: flex;
+  justify-content: center !important;
+}
+.Title_blogs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 4rem;
+}
+.Title_blogs h1 {
+  font-weight: 900;
+  font-size: 24px;
+  font-family: "Raleway", sans-serif;
+  color: var(--black);
+  margin: 0 2rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.Title_blogs .line {
+  height: 1px;
+  background: #d9d8d8;
+  width: 100%;
+}

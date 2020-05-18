@@ -1,0 +1,98 @@
+.profile_sidebar {
+  height: 100%;
+  width: 260px;
+  background: #f1f5f6;
+  position: fixed;
+  left: 0;
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+.profile_sidebar .data_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profile_sidebar .data_profile .button {
+  width: 178px;
+  margin: 1rem 0;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #13c2d4;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+.profile_sidebar .data_profile .button .icon {
+  margin: 0 0.25rem 0 0;
+  width: 1.18em;
+  height: 1em;
+}
+.profile_sidebar .data_profile h2 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #046489;
+  font-family: "Poppins", sans-serif;
+  padding-left: 26px;
+  margin: 0;
+}
+.profile_sidebar .data_profile h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  font-family: "Poppins", sans-serif;
+}
+.profile_sidebar .data_profile h4 .icon,
+.profile_sidebar .data_profile h4 svg {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--black);
+  stroke: var(--black);
+}
+.profile_sidebar .data_profile h4 svg path {
+  fill: var(--black);
+}
+.profile_sidebar .data_profile .special {
+  display: flex;
+  align-items: center;
+}
+.profile_sidebar .data_profile h4 svg {
+  margin: 0 0.25rem 0 0;
+  width: 1.18em;
+  height: 1em;
+}
+.profile_sidebar .data_profile a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  font-family: "Poppins", sans-serif;
+  margin-left: 26px !important;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  width: 100%;
+  cursor: pointer !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+.profile_sidebar .data_profile a svg {
+  visibility: hidden;
+  transform: rotate(-90deg);
+}
+.profile_sidebar .data_profile a:hover,
+.profile_sidebar .data_profile a.active {
+  background: #13c2d4;
+  color: white;
+}
+.profile_sidebar .data_profile a:hover svg,
+.profile_sidebar .data_profile a.active svg {
+  visibility: visible;
+}

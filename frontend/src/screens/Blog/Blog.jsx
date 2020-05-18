@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Grid } from "semantic-ui-react";
 
 import HeaderOnScroll from "../../components/HeaderOnScroll/HeaderOnScroll.jsx";
@@ -9,10 +9,52 @@ import BlogSidebar from "../../components/BlogSidebar/BlogSidebar.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 
 const Blog = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    setData([
+      {
+        type: "santé",
+        typeMaladie: "maladies chroniques",
+        title: "nous sommes les premiers qui ont presenter cette solution.",
+        desc: " Lorem Ipsum passages, and more recently with",
+        date: "12 Avril 2020",
+        liked: false,
+      },
+      {
+        type: "santé",
+        typeMaladie: "maladies chroniques",
+        title: "nous sommes les premiers qui ont presenter cette solution.",
+        desc:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with",
+        date: "12 Avril 2020",
+        liked: false,
+      },
+      {
+        type: "santé",
+        typeMaladie: "maladies chroniques",
+        title: "nous sommes les premiers qui ont presenter cette solution.",
+        desc:
+          "Lorem Ipsum is simply dummy text of  It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with",
+        date: "12 Avril 2020",
+        liked: false,
+      },
+      {
+        type: "santé",
+        typeMaladie: "maladies chroniques",
+        title: "nous sommes les premiers qui ont presenter cette solution.",
+        desc:
+          "Lorem Ipsum is simply Lorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplyLorem Ipsum is simplydummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with",
+        date: "12 Avril 2020",
+        liked: false,
+      },
+    ]);
+    //* tempData
+  }, []);
   return (
     <>
       <HeaderOnScroll header={false} isLogin={false} />
       <NavigationBlog />
+
       <Grid
         stackable
         columns={2}
@@ -23,11 +65,14 @@ const Blog = () => {
         <Grid.Column width={12}>
           {/* HERO SECTION AND BLOG POSTS */}
           <HeroBlog />
-          <BlogPosts />
+          <div className="Title_blogs">
+            <h1>Les Plus Apercus</h1>
+            <div className="line"></div>
+          </div>
+          <BlogPosts data={data} />
         </Grid.Column>
         <Grid.Column width={4}>
           <BlogSidebar />
-          {/* SIDEBAR BLOG */}
         </Grid.Column>
       </Grid>
       <Footer />

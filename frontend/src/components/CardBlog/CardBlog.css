@@ -1,0 +1,75 @@
+.card_blog_ .img_card_blog {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+}
+.card_blog_.card {
+  width: 100% !important;
+  background: white;
+  border: 0;
+  margin-bottom: 4rem !important;
+  border-radius: 5px;
+  box-shadow: 0 1px 20px 0 rgba(4, 105, 141, 0.16);
+}
+.card_blog_ .card_flex p {
+  margin: 0 !important;
+}
+.card_blog_ .card_flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.card_blog_ .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem 2rem !important;
+}
+.card_blog_ .date_card_blog {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.card_blog_ .date_card_blog .line {
+  height: 1px !important;
+  background: #707070 !important;
+  width: 100% !important;
+}
+.card_blog_ .date_card_blog span {
+  color: #555555;
+  font-weight: 500;
+  font-size: 12px;
+  margin: 0 1rem;
+  white-space: nowrap;
+}
+.card_blog_ .content h1 {
+  margin: 0 !important;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  font-family: "Poppins", sans-serif;
+}
+.card_blog_ .content > p {
+  color: #a4a4a4;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 1rem 0 !important;
+}
+.card_blog_ .card_flex span {
+  font-size: 16px;
+  color: #046489;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+.card_blog_ .card_flex p {
+  font-weight: 400;
+  color: #13c2d4;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}

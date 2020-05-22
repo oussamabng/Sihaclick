@@ -11,6 +11,12 @@ import Stage from "./screens/Stage/Stage.jsx";
 import Blog from "./screens/Blog/Blog.jsx";
 import Profile from "./screens/Profile/Profile.jsx";
 import ProfileUpdate from "./components/ProfileUpdate/ProfileUpdate.jsx";
+import ProfileDoc from "./components/ProfileDoc/ProfileDoc.jsx";
+import ProfileRDVRecenet from "./components/ProfileRDVRecenet/ProfileRDVRecenet.jsx";
+import ProfileRDVAttent from "./components/ProfileRDVAttent/ProfileRDVAttent.jsx";
+import ProfileMedicament from "./components/ProfileMedicament/ProfileMedicament.jsx";
+import ProfileBlood from "./components/ProfileBlood/ProfileBlood.jsx";
+import ProfileStage from "./components/ProfileStage/ProfileStage.jsx";
 
 //? import slick css
 import "slick-carousel/slick/slick.css";
@@ -32,6 +38,57 @@ function App() {
           path="/profile/update"
           component={() => (
             <Profile active="update" componentChild={<ProfileUpdate />} />
+          )}
+        />{" "}
+        <Route
+          exact
+          path="/profile/fav/doctor"
+          component={() => (
+            <Profile active="doc" componentChild={<ProfileDoc />} />
+          )}
+        />
+        <Route
+          exact
+          path="/profile/rdv/recent"
+          component={() => (
+            <Profile
+              active="rdv_recent"
+              componentChild={<ProfileRDVRecenet />}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/profile/rdv/attent"
+          component={() => (
+            <Profile
+              active="rdv_attent"
+              componentChild={<ProfileRDVAttent />}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/profile/medicament"
+          component={() => (
+            <Profile
+              active="medicament"
+              componentChild={<ProfileMedicament />}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/profile/blood"
+          component={() => (
+            <Profile active="blood" componentChild={<ProfileBlood />} />
+          )}
+        />
+        <Route
+          exact
+          path="/profile/stage"
+          component={() => (
+            <Profile active="stage" componentChild={<ProfileStage />} />
           )}
         />
       </Switch>

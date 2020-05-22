@@ -1,0 +1,76 @@
+.doctor_info.profile .label_part .text_with_icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24px;
+  color: var(--black);
+  font-weight: 700;
+}
+.doctor_info.profile .label_part .text_with_icon .icon {
+  color: var(--lighter-bleu);
+  margin: 0 1rem;
+}
+.other_info.intro {
+  margin: 2rem 0;
+  flex-direction: column !important;
+}
+.other_info.intro p {
+  color: #a4a4a4;
+  font-weight: 400;
+  font-size: 14px;
+  max-width: 500px;
+}
+.second_part_profile_doc {
+  margin: 6rem 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.hero_doctor.profile {
+  height: 250px;
+}
+.doctor_profile_fav .label_part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #046489;
+  font-weight: 600;
+}
+.doctor_profile_fav .label_part p {
+  padding: 0.5rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+  margin: 0 0.75rem;
+}
+.doctor_profile_fav .coords_list {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.doctor_profile_fav .coords_list li {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bleu_darker);
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.doctor_profile_fav .coords_list li .icon {
+  font-size: 1.4rem;
+  color: var(--lighter-bleu);
+  margin: 0 0.75rem;
+}
+.doctor_profile_fav .coords_list li .icon.phone {
+  transform: rotate(90deg);
+}
+.doctor_profile_fav .action_doctor_btn {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.doctor_profile_fav .action_doctor_btn .button {
+  margin: 1rem 0;
+}

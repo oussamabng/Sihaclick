@@ -1,0 +1,8 @@
+.slider_profile {
+  padding: 4rem 2rem;
+}
+.arrows_profile {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

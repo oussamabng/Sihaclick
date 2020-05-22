@@ -1,13 +1,15 @@
 .stage_card {
   width: 320px;
-  height: 130px;
+  height: 160px;
   border: 2px solid #eeeeee;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.03);
-  padding: 0.5rem 1rem;
+  padding: 2rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 2rem 0rem;
+  position: relative;
+  margin-bottom: 0;
 }
 ._best_doc._event._stage .slick-slide {
   margin: 0 2rem;
@@ -46,4 +48,31 @@
   color: #13c2d4;
   font-size: 14px;
   display: flex;
+}
+.btn_stage {
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transform: translate(0, -50%);
+}
+.btn_stage .button {
+  color: white;
+  background-color: #046489;
+  font-size: 12px;
+}
+
+.btn_stage .button:hover {
+  color: white;
+  background-color: #07455e;
+}
+.btn_stage.profile .button {
+  background: #5dba47;
+}
+.btn_stage.profile.app .button {
+  background: var(--red);
+}
+.btn_stage.profile {
+  justify-content: flex-end !important;
+  transform: translate(-10%, -50%);
 }

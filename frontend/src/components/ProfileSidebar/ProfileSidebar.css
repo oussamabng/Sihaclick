@@ -96,3 +96,6 @@
 .profile_sidebar .data_profile a.active svg {
   visibility: visible;
 }
+.profile_sidebar {
+  z-index: 50 !important;
+}

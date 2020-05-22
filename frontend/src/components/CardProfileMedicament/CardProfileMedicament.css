@@ -1,0 +1,18 @@
+.card_don.other.profile .under_content span {
+  color: #046489 !important;
+}
+.card_don.other.profile .under_content > p {
+  margin: 0.75rem 0;
+}
+.card_don.other.profile .card {
+  box-shadow: 0 0px 15px 0px rgba(4, 100, 137, 0.15);
+}
+.card_don.other.profile {
+  padding: 2rem;
+}
+.slider_profile.bld .slick-list {
+  height: 230px !important;
+}
+.slider_profile.bld .slick-slide {
+  margin: 0 0.2rem !important;
+}

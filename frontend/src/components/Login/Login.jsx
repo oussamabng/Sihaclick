@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, Modal, Button, Icon } from "semantic-ui-react";
+import { Form, Modal, Button, Icon, Message } from "semantic-ui-react";
+import axios from "axios";
 
 //? import css
 import "./Login.css";
@@ -11,6 +12,86 @@ import { ReactComponent as Facebook } from "../../assets/facebook_login.svg";
 const Login = (props) => {
   const { setShow, show } = props;
   const [open, setOpen] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailErr] = useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
+  const [setErr, setIsErr] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
+
+  const handleInput = (e, { name, value }) => {
+    if (emailError) {
+      setEmailErr(false);
+      setEmailErrorMessage("");
+    }
+    if (setErr) {
+      setIsErr(false);
+      setErrMessage("");
+    }
+    if (passwordError) {
+      setPasswordError(false);
+      setPasswordErrorMessage("");
+    }
+    switch (name) {
+      case "email":
+        setEmail(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleLogin = () => {
+    setIsLoading(true);
+    axios
+      .create({
+        headers: {
+          post: {
+            "Content-Type": "application/json",
+          },
+        },
+      })
+      .request({
+        url: "https://sihaclik.com/api/chaab/login",
+        method: "post",
+        data: { email, password },
+      })
+      .then((res) => {
+        console.log(res);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.response);
+        setIsLoading(false);
+        if (err.response.data.errors) {
+          console.log("errors");
+          let errors = err.response.data.errors;
+          errors.map((elm) => {
+            switch (elm.param) {
+              case "email":
+                setEmailErr(true);
+                setEmailErrorMessage(elm.msg);
+                break;
+              case "password":
+                setPasswordError(true);
+                setPasswordErrorMessage(elm.msg);
+                break;
+              default:
+                break;
+            }
+          });
+        } else {
+          setIsErr(true);
+          setErrMessage(err.response.data.error.message);
+        }
+      });
+  };
 
   useEffect(() => {
     setOpen(show);
@@ -34,16 +115,51 @@ const Login = (props) => {
             </div>
           </div>
           <h3>Lorem Ipsum is simply dummy text of the printing </h3>
-          <Form>
-            <Form.Input
-              label="Nom d'utilisateur ou email"
-              type="text"
-              className="sha"
-            />
-            <Form.Input label="Mot de pass" type="password" />
+          <Form error={setErr}>
+            <Message error content={errMessage} />
+            <div
+              style={{
+                position: "relative",
+              }}
+            >
+              <Form.Input
+                label="Nom d'utilisateur ou email"
+                type="text"
+                value={email}
+                name="email"
+                className={emailError ? "sha err" : "sha"}
+                onChange={handleInput}
+              />
+              {emailError && (
+                <p className="error_msg">
+                  <Icon name="info circle" />
+                  {emailErrorMessage}
+                </p>
+              )}
+            </div>
+            <div
+              style={{
+                position: "relative",
+              }}
+            >
+              <Form.Input
+                label="Mot de pass"
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleInput}
+                className={emailError ? "err" : ""}
+              />
+              {passwordError && (
+                <p className="error_msg">
+                  <Icon name="info circle" />
+                  {passwordErrorMessage}
+                </p>
+              )}
+            </div>
             <div className="form_actions_modal">
               <p>Mot de pass oublier ?</p>
-              <Button>
+              <Button loading={isLoading} onClick={handleLogin}>
                 S'identifier
                 <Icon name="long arrow alternate right" />
               </Button>

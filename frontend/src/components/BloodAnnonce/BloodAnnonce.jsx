@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Checkbox, Button, Icon } from "semantic-ui-react";
+import axios from "axios";
 
 //? import css
 import "./BloodAnnonce.css";
@@ -10,6 +11,22 @@ import BloodCard from "../../components/BloodCard/BloodCard.jsx";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 
 const BloodAnnonce = () => {
+  useEffect(() => {
+    const options = {
+      headers: { "Content-Type": "application/json" },
+    };
+    axios
+      .get(
+        "https://sihaclik.com/api/public/donnation/blood/all/all/0/10",
+        options
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className="blood_annonce ">
       <SidebarDons isBlood />

@@ -31,11 +31,17 @@ const ProfileSidebar = (props) => {
         <h4 className="special">
           <Date /> Rendez-vous
         </h4>
-        <Link href="">
+        <Link
+          to="/profile/rdv/recent/"
+          className={active === "rdv_recent" ? "active" : ""}
+        >
           Rendez-vous recent
           <Arrow />
         </Link>
-        <Link href="">
+        <Link
+          to="/profile/rdv/attent"
+          className={active === "rdv_attent" ? "active" : ""}
+        >
           Rendez-vous en attente
           <Arrow />
         </Link>
@@ -54,27 +60,36 @@ const ProfileSidebar = (props) => {
           <Icon name="heart outline" />
           Liste des Favoris
         </h4>
-        <Link href="">
+        <Link
+          to="/profile/fav/doctor"
+          className={active === "doc" ? "active" : ""}
+        >
           Ahmed Razen
           <Arrow />
         </Link>
-        <Link href="">
-          Mohamed Nazim
-          <Arrow />
-        </Link>{" "}
+
         <h4>
           <Icon name="exchange" />
           Historique d'échange
         </h4>
-        <Link href="">
+        <Link
+          to="/profile/medicament"
+          className={active === "medicament" ? "active" : ""}
+        >
           Médicament et materiel
           <Arrow />
         </Link>
-        <Link href="">
+        <Link
+          to="/profile/blood"
+          className={active === "blood" ? "active" : ""}
+        >
           done de Sang
           <Arrow />
         </Link>
-        <Link href="">
+        <Link
+          to="/profile/stage"
+          className={active === "stage" ? "active" : ""}
+        >
           Demande de Stage
           <Arrow />
         </Link>

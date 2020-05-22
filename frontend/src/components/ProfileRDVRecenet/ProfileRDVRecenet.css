@@ -1,0 +1,21 @@
+.profile_rdv {
+  padding: 4rem 8rem;
+}
+.profile_rdv .title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.profile_rdv .title p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #046489;
+  white-space: nowrap;
+  margin: 0;
+  padding-right: 4rem;
+}
+.profile_rdv .title .line {
+  background: #70707041;
+  height: 1px;
+  width: 100%;
+}

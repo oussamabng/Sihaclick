@@ -1,0 +1,100 @@
+.card_rdv_recent {
+  padding: 1rem;
+  border-radius: 5px;
+  background: #f8f8f8;
+  border: 1px solid #e1e1e1;
+  margin: 2rem 0rem;
+  min-width: 600px;
+  position: relative;
+}
+.card_rdv {
+  display: flex;
+  align-items: flex-end;
+}
+.card_rdv .img_doc {
+  width: 140px;
+  height: 140px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.profile_rdv .grid .column {
+  margin-right: 8rem;
+}
+.card_rdv .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 1rem;
+}
+.card_rdv .action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+.card_rdv .info h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0.5rem 0;
+}
+.card_rdv .info span {
+  font-weight: 700;
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 0.5rem;
+}
+.card_rdv .info p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555555;
+  margin-bottom: 0.5rem;
+}
+.card_rdv .info p .icon {
+  color: #13c2d4;
+}
+
+.card_rdv .action .button {
+  padding: 0.5rem 1rem !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  min-width: 120px;
+  border-radius: 5px;
+  background-color: var(--red);
+  margin: 1rem 0;
+  min-height: 30px;
+}
+.card_rdv .action.gray .button {
+  background: #bfbfbf;
+}
+.card_rdv .action span {
+  font-size: 17px;
+  color: #13c2d4;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+.card_rdv .action p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #046489;
+  text-align: center;
+  white-space: nowrap;
+}
+.card_rdv .action.att .annuler {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+.card_rdv .action.att .annuler p {
+  font-size: 12px;
+  text-decoration: underline;
+  font-weight: 600;
+  color: var(--red);
+  padding: 0.5rem;
+}
+.card_rdv .action.att .annuler p .icon {
+  text-decoration: none !important;
+}

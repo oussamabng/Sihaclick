@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Modal, Button, Icon, Message } from "semantic-ui-react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 //? import css
 import "./Login.css";
@@ -10,6 +11,7 @@ import { ReactComponent as Google } from "../../assets/google_icon.svg";
 import { ReactComponent as Facebook } from "../../assets/facebook_login.svg";
 
 const Login = (props) => {
+  const history = useHistory();
   const { setShow, show } = props;
   const [open, setOpen] = useState(null);
   const [email, setEmail] = useState("");
@@ -65,6 +67,8 @@ const Login = (props) => {
       .then((res) => {
         console.log(res);
         setIsLoading(false);
+        localStorage.setItem("x-token", res.data);
+        return history.push("/profile/update");
       })
       .catch((err) => {
         console.log(err.response);

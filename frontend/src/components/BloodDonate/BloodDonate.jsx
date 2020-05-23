@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Grid, Button } from "semantic-ui-react";
+import axios from "axios";
 
 //? import css
 import BloodCard from "../../components/BloodCard/BloodCard.jsx";
@@ -8,6 +9,27 @@ import BloodCard from "../../components/BloodCard/BloodCard.jsx";
 import "./BloodDonate.css";
 
 export default function BloodDonate() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .create({
+        headers: {
+          get: {
+            "Content-Type": "application/json",
+          },
+        },
+      })
+      .request({
+        url: "https://sihaclik.com/api/public/donnation/blood/all/all/0/12",
+        method: "get",
+      })
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  }, []);
   return (
     <div className="_best_doc blood">
       <div className="circle_blood"></div>
@@ -28,30 +50,13 @@ export default function BloodDonate() {
           </h3>
         </div>{" "}
         <Grid stackable columns={3} className="_blood_grid ">
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>{" "}
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>{" "}
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>{" "}
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>{" "}
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>{" "}
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>{" "}
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>{" "}
-          <Grid.Column>
-            <BloodCard />
-          </Grid.Column>
+          {data.map((elm) => {
+            return (
+              <Grid.Column>
+                <BloodCard data={elm} />
+              </Grid.Column>
+            );
+          })}
         </Grid>
         <div
           style={{

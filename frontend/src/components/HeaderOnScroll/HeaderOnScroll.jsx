@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Icon, Image } from "semantic-ui-react";
+import axios from "axios";
 
 //? import css
 import "./HeaderOnScroll.css";
@@ -10,7 +11,6 @@ import { ReactComponent as Comment } from "../../assets/comment.svg";
 import { ReactComponent as Notification } from "../../assets/notification.svg";
 
 //? import user img
-import User from "../../assets/alex.jpg";
 
 //? import Login modal
 import Login from "../../components/Login/Login.jsx";
@@ -19,12 +19,39 @@ export default function HeaderOnScroll(props) {
   const [isShow, setShow] = useState(false);
   const { isLogin, header } = props;
   const [show, setSHOW] = useState(false);
+  const [image, setImage] = useState("");
+
   const handleModal = () => {
     setSHOW((prevState) => !prevState);
   };
   useEffect(() => {
     setShow(header);
   }, [header]);
+  useEffect(() => {
+    if (isLogin) {
+      axios
+        .create({
+          headers: {
+            get: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("x-token")}`,
+            },
+          },
+        })
+        .request({
+          url: "https://sihaclik.com/api/chaab/get-chaab",
+          method: "get",
+        })
+        .then((res) => {
+          if (res.data.photo_id) {
+            setImage("https://sihaclik.com/" + res.data.photo.path);
+          }
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });
+    }
+  }, [isLogin]);
   return (
     <div
       className="_home_header shadow x"
@@ -62,7 +89,7 @@ export default function HeaderOnScroll(props) {
           >
             <Comment />
             <Notification />
-            <Image src={User} />
+            <Image src={image} />
           </div>
         )}
         {!isLogin && (

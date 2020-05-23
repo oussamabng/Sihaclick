@@ -17,6 +17,7 @@ import ProfileRDVAttent from "./components/ProfileRDVAttent/ProfileRDVAttent.jsx
 import ProfileMedicament from "./components/ProfileMedicament/ProfileMedicament.jsx";
 import ProfileBlood from "./components/ProfileBlood/ProfileBlood.jsx";
 import ProfileStage from "./components/ProfileStage/ProfileStage.jsx";
+import Signup from "./screens/Signup/Signup.jsx";
 
 //? import slick css
 import "slick-carousel/slick/slick.css";
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/stage" component={Stage} />
         <Route exact path="/blog" component={Blog} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/signup" component={Signup} />
         <Route
           exact
           path="/profile/update"

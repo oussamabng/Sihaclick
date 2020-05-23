@@ -1,0 +1,24 @@
+.hero_signup .contents .texts span {
+  max-width: 600px;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+.hero_signup .contents .texts {
+  position: relative;
+}
+.hero_signup .contents .texts p {
+  font-size: 38px !important;
+}
+.hero_signup .plus_title {
+  position: absolute;
+  right: -5%;
+  top: 0;
+}
+.hero_signup .plus_title .up,
+.hero_signup .plus_title .down {
+  background: rgba(255, 255, 255, 0.14);
+}
+.hero_signup .hero_ann {
+  transform: translate(0%, 50%);
+}

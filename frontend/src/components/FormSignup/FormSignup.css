@@ -1,0 +1,50 @@
+.form_signup ._best_doc .title_best_doc {
+  padding-top: 0 !important;
+}
+.modal_login.form_signup .row .form .field {
+  margin: 1rem;
+}
+.form_signup .ui.form .fields {
+  margin: 0;
+}
+.form_signup .ui.form .input {
+  min-width: 300px;
+}
+.form_signup .ui.form .input input {
+}
+.modal_login.form_signup .row .form .field .input {
+  border: 1px solid #e4e4e4;
+}
+.modal_login.form_signup .row .form .field.spec .input {
+  border: 1px solid #046489;
+}
+.modal_login.form_signup ._checkbox {
+  margin: 1rem;
+  min-width: 100%;
+}
+.modal_login.form_signup ._checkbox .checkbox {
+  width: 100%;
+  margin-top: 2rem;
+}
+.modal_login.form_signup ._checkbox span {
+  text-decoration: underline;
+  color: #13c2d4;
+  font-weight: 700;
+}
+.modal_login.form_signup .field .button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  background: #13c2d4;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+.modal_login.form_signup .field .button p {
+  margin: 0;
+}
+.modal_login.form_signup .field .button svg {
+  transform: rotate(-90deg);
+}

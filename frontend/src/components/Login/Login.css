@@ -108,7 +108,18 @@
 .modal_login .row .form .field.err .input {
   border: 1px solid var(--red);
 }
-.ui.error.message {
+.ui.segment:first-child,
+.ui.segment:last-child {
+  margin: auto !important;
+}
+.ui.segment {
+  border: none !important;
+  box-shadow: none !important;
+  margin: auto !important;
+  padding: auto !important;
+}
+.update_profile.ui.segment {
+  padding: 4rem 8rem !important;
 }
 .form_actions_modal {
   display: flex;

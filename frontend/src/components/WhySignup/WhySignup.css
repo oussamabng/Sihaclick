@@ -1,0 +1,57 @@
+.why_signup {
+  padding: 0rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.why_signup .steps {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 5px;
+  background: #046489;
+  margin: 2rem 0;
+}
+.ui.segment {
+  padding: 0 !important;
+  background: transparent;
+}
+.why_signup .steps .label {
+  background: #13c2d4;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 1px 6px 0 rgba(19, 194, 212, 0.45);
+}
+.why_signup .contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 100%;
+}
+.why_signup .contents .text h1 {
+  color: #046489;
+  font-size: 32px;
+  font-weight: 900;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+}
+.why_signup .contents .text p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #a4a4a4;
+  max-width: 350px;
+}
+.why_signup .contents {
+  margin: 0 4rem;
+}
+.why_signup .contents .hav_text.inverted {
+  display: flex;
+  justify-content: flex-end;
+}
+.why_signup .contents .hav_text {
+  padding: 3rem 0;
+}

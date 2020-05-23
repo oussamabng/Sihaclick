@@ -20,7 +20,7 @@ import "./Home.css";
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(true);
   const [slider, setSlider] = useState(null);
 
   useEffect(() => {
@@ -28,9 +28,6 @@ export default function Home() {
       let isTop = window.scrollY < 960;
       isTop ? setIsScrolled(true) : setIsScrolled(false);
     });
-    return () => {
-      window.removeEventListener("scroll");
-    };
   }, []);
   const next = () => {
     slider.slickNext();

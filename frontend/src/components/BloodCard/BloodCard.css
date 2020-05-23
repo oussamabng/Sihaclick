@@ -1,5 +1,5 @@
 .blood_card.card {
-  width: 300px;
+  width: 320px;
   height: 150px;
   box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.11);
   border-radius: 13px;
@@ -48,6 +48,7 @@
 .blood_card .place,
 .blood_card .date_info h4 {
   font-size: 12px;
+  white-space: nowrap;
   color: var(--black);
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -58,7 +59,7 @@
   align-items: center;
 }
 .blood_card .date_info p {
-  font-size: 12px;
+  font-size: 10px;
   color: var(--red);
   font-family: "Poppins", sans-serif;
   font-weight: 600;

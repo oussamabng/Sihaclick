@@ -12,7 +12,16 @@ import { ReactComponent as AB } from "../../assets/ab.svg";
 import { ReactComponent as Plaquette } from "../../assets/plaquette.svg";
 
 const BloodModal = (props) => {
-  const { setShow, show, isPlaquette, isPositive, typeBlood } = props;
+  const {
+    setShow,
+    show,
+    isPlaquette,
+    isPositive,
+    typeBlood,
+    name,
+    lastName,
+    phone,
+  } = props;
   const [open, setOpen] = useState(null);
   useEffect(() => {
     setOpen(show);
@@ -54,15 +63,15 @@ const BloodModal = (props) => {
         <div className="col">
           <div className="item_info">
             <h1>Nom :</h1>
-            <p>Mohamed </p>
+            <p>{name} </p>
           </div>
           <div className="item_info">
             <h1>Prénom :</h1>
-            <p>Nadir </p>
+            <p>{lastName} </p>
           </div>
           <div className="item_info">
             <h1>Numéro de Télephone :</h1>
-            <p>+213 985 848 846</p>
+            <p>{phone}</p>
           </div>
         </div>
       </div>

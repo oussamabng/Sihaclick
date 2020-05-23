@@ -4,17 +4,20 @@ import { Dropdown } from "semantic-ui-react";
 //? import css
 import "./HeroStage.css";
 
-//? import options
-import Status from "../../methods/Status.js";
-
 import Background from "../../assets/stage_user.png";
 import { ReactComponent as Arrow } from "../../assets/arrow_big.svg";
 
 const HeroStage = (props) => {
+  const [data, setData] = useState([]);
   const [type, setType] = useState("Status");
   useEffect(() => {
+    let tempArr = [];
     setType(props.type);
-  }, [props]);
+    props.data.map((elm) => {
+      tempArr.push({ key: elm.id, text: elm.name, value: elm.name });
+    });
+    setData(tempArr);
+  }, [props.type, props.data]);
   const trigger = (
     <span className="dropdown_title">
       <p>.</p>
@@ -41,7 +44,7 @@ const HeroStage = (props) => {
             </p>
             <Dropdown
               trigger={trigger}
-              options={Status}
+              options={data}
               className="dropdown_stage"
               onChange={props.handleType}
               value={type}

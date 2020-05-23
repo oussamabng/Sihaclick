@@ -18,7 +18,7 @@ const trigger1 = (
 );
 
 const StageSimpleForm = (props) => {
-  const { type } = props; //* type if etudiant or resident or diplomé
+  const { type, data } = props; //* type if etudiant or resident or diplomé
   //? years input
   const [years, setYears] = useState(null);
   const [choosenYear, setChoosenYear] = useState(null);
@@ -35,9 +35,24 @@ const StageSimpleForm = (props) => {
   const [isLocked, setIsLocked] = useState(true);
 
   useEffect(() => {
+    let diplomeArr = [];
+    let etudiantArr = [];
+    let residentArr = [];
+    data.length > 0 &&
+      data[1].types.map((elm) => {
+        diplomeArr.push({ key: elm.id, value: elm.name, text: elm.name });
+      });
+    data.length > 0 &&
+      data[0].types.map((elm) => {
+        etudiantArr.push({ key: elm.id, value: elm.name, text: elm.name });
+      });
+    data.length > 0 &&
+      data[2].types.map((elm) => {
+        residentArr.push({ key: elm.id, value: elm.name, text: elm.name });
+      });
     let temp = [];
     //? case DIPLOME
-    if (type === "diplomé") {
+    if (type === "Diplômé") {
       setIsLocked(false);
       window.scrollTo({
         top: 583,
@@ -45,7 +60,7 @@ const StageSimpleForm = (props) => {
         behavior: "smooth",
       });
       setChoosenYear(2020);
-      setSpecialities(Diplome);
+      diplomeArr.length > 0 && setSpecialities(diplomeArr);
       let initialYear = parseInt(new Date().getFullYear());
       for (let i = 0; i <= 4; i++) {
         temp.push({ key: i, text: String(initialYear), value: initialYear });
@@ -53,7 +68,7 @@ const StageSimpleForm = (props) => {
       }
     }
     //? case RESIDENT
-    else if (type === "résident") {
+    else if (type === "Résident") {
       setIsLocked(false);
       window.scrollTo({
         top: 583,
@@ -61,14 +76,14 @@ const StageSimpleForm = (props) => {
         behavior: "smooth",
       });
       setChoosenYear(2020);
-      setSpecialities(Resident);
+      setSpecialities(residentArr);
       let initialYear = parseInt(new Date().getFullYear());
       for (let i = initialYear; i <= new Date().getFullYear() + 5; i++) {
         temp.push({ key: i, text: String(i), value: i });
       }
     }
     //? case ETUDIANT
-    else if (type === "étudiant") {
+    else if (type === "Etudiant") {
       setIsLocked(false);
       window.scrollTo({
         top: 583,
@@ -76,7 +91,7 @@ const StageSimpleForm = (props) => {
         behavior: "smooth",
       });
       setChoosenYear(2021);
-      setSpecialities(Etudiant);
+      setSpecialities(etudiantArr);
       let initialYear = parseInt(new Date().getFullYear()) + 1;
       for (let i = initialYear; i <= new Date().getFullYear() + 7; i++) {
         temp.push({ key: i, text: String(i), value: i });
@@ -93,7 +108,7 @@ const StageSimpleForm = (props) => {
       }
     }
     setYears(temp);
-  }, [type]); //* all about year handling
+  }, [type, data]); //* all about year handling
 
   const triggerYears = (
     <span className="dropdown_title">
@@ -135,14 +150,14 @@ const StageSimpleForm = (props) => {
         </div>
         <div className="item_dropdown lg">
           <p>
-            {type === "étudiant" &&
+            {type === "Etudiant" &&
               "Vous souhaitez effectuer ce stage dans le cadre:"}
-            {type === "résident" && "Précisez la spécialité :"}
-            {type === "diplomé" && "Précisez la spécialité :"}
+            {type === "Résident" && "Précisez la spécialité :"}
+            {type === "Diplômé" && "Précisez la spécialité :"}
             {type === "Status" &&
               "Vous souhaitez effectuer ce stage dans le cadre:"}
           </p>
-          {type === "étudiant" && (
+          {type === "Etudiant" && (
             <Dropdown
               disabled={isLocked}
               trigger={trigger1}
@@ -158,7 +173,7 @@ const StageSimpleForm = (props) => {
               className="dropdown_stage lg"
             />
           )}
-          {(type === "résident" || type === "diplomé") && (
+          {(type === "Résident" || type === "Diplômé") && (
             <Input
               disabled={isLocked}
               type="text"

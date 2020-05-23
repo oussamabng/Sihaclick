@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Button } from "semantic-ui-react";
 import Slider from "react-slick";
+import axios from "axios";
 
 //? import css
 import "./News.css";
@@ -13,6 +14,7 @@ import Arrow from "../../components/Arrow/Arrow.jsx";
 
 export default function News() {
   const [slider, setSlider] = useState(null);
+  const [data, setData] = useState([]);
   const settings = {
     dots: false,
     infinite: true,
@@ -24,7 +26,31 @@ export default function News() {
     centerMode: true,
     centerPadding: "0px",
   };
-
+  useEffect(() => {
+    let url = "https://sihaclik.com/api/public/news/all/all/0/12";
+    axios
+      .create({
+        headers: {
+          get: {
+            "Content-Type": "application/json",
+          },
+        },
+      })
+      .request({
+        url,
+        method: "get",
+      })
+      .then((res) => {
+        setData(res.data);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+    return () => {
+      setData([]);
+    };
+  }, []);
   return (
     <div className="_best_doc _news">
       <Container>
@@ -47,32 +73,37 @@ export default function News() {
         </div>
       </Container>
       <div className="slider_news">
-        <div className="arrows">
-          <Arrow isRight={false} slider={slider} />
-          <Arrow isRight slider={slider} />
-        </div>
+        {data.length > 4 && (
+          <div className="arrows">
+            <Arrow isRight={false} slider={slider} />
+            <Arrow isRight slider={slider} />
+          </div>
+        )}
         <div className="blur_field right"></div>
         <div className="blur_field left"></div>
-        <Slider ref={(c) => setSlider(c)} {...settings}>
-          <div className="slider_doc">
-            <NewCard />
+        {data.length > 4 ? (
+          <Slider ref={(c) => setSlider(c)} {...settings}>
+            {data.map((elm) => (
+              <div className="slider_doc">
+                <NewCard data={elm} />
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "1rem",
+            }}
+          >
+            {data.map((elm) => (
+              <div className="slider_doc">
+                <NewCard data={elm} />
+              </div>
+            ))}
           </div>
-          <div className="slider_doc">
-            <NewCard />
-          </div>
-          <div className="slider_doc">
-            <NewCard />
-          </div>
-          <div className="slider_doc">
-            <NewCard />
-          </div>
-          <div className="slider_doc">
-            <NewCard />
-          </div>
-          <div className="slider_doc">
-            <NewCard />
-          </div>
-        </Slider>
+        )}
         <div className="under_new_slider">
           <Button
             content="Voir tous"

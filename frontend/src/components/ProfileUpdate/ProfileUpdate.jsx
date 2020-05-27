@@ -2,10 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Input, Icon, Checkbox, Segment } from "semantic-ui-react";
 import axios from "axios";
 
+import { login } from "../../actions/authActions.js";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 //? import css
 import "./ProfileUpdate.css";
+import { withRouter } from "react-router-dom";
 
-const ProfileUpdate = () => {
+const ProfileUpdate = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fullName, setFullName] = useState("");
   const [isUpdate, setIsUpdate] = useState(false);
@@ -29,12 +34,14 @@ const ProfileUpdate = () => {
   };
   useEffect(() => {
     setIsLoading(true);
+    props.login({});
+    console.log({ tokenX: props.token });
     axios
       .create({
         headers: {
           get: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("x-token")}`,
+            Authorization: `Bearer ${props.token}`,
           },
         },
       })
@@ -190,4 +197,13 @@ const ProfileUpdate = () => {
   );
 };
 
-export default ProfileUpdate;
+ProfileUpdate.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
+};
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+  isLogin: state.auth.isLogin,
+});
+
+export default connect(mapStateToProps, { login })(ProfileUpdate);

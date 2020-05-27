@@ -33,6 +33,11 @@
   transform: rotate(-180deg);
   transition: transform ease 0.3s;
 }
+.tesdeg {
+  position: absolute;
+  top: 70%;
+  right: 5%;
+}
 .sidebar_dons .accordion {
   border: none !important;
   box-shadow: none !important;
@@ -73,6 +78,12 @@
   font-weight: 700;
   background: #fbfbfb;
   border: 1px solid #e4e4e4 !important;
+}
+.sidebar_dons .content_sidebar .ui.selection.active.dropdown .menu {
+  border: none !important;
+}
+.sidebar_dons .content_sidebar .dropdown.selection .text {
+  color: rgba(218, 62, 57, 0.8) !important;
 }
 .sidebar_dons .content_sidebar .dropdown .default.text {
   color: rgba(218, 62, 57, 0.5) !important;

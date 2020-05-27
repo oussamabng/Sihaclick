@@ -14,7 +14,17 @@ import "./SidebarDons.css";
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
 const SidebarDons = (props) => {
-  const { isBlood, isAnnuaire } = props;
+  const {
+    wilaya,
+    commune,
+    handleChange,
+    isBlood,
+    isAnnuaire,
+    isPositive,
+    typeBlood,
+    handlePositive,
+    handleType,
+  } = props;
   const [activeIndex, setActive] = useState(0);
   const [activeChecked, setactiveChecked] = useState(false);
   const handleChecked = () => {
@@ -23,6 +33,28 @@ const SidebarDons = (props) => {
   const handleClick = () => {
     setActive((prevState) => !prevState);
   };
+  const friendOptions = [
+    {
+      key: 1,
+      text: "A",
+      value: "A",
+    },
+    {
+      key: 2,
+      text: "B",
+      value: "B",
+    },
+    {
+      key: 3,
+      text: "AB",
+      value: "AB",
+    },
+    {
+      key: 4,
+      text: "O",
+      value: "O",
+    },
+  ];
   return (
     <div className={isBlood ? "sidebar_dons" : "sidebar_dons blue"}>
       {isAnnuaire && (
@@ -71,12 +103,25 @@ const SidebarDons = (props) => {
             >
               <div className="content_sidebar">
                 {isBlood && (
-                  <>
+                  <div
+                    style={{
+                      position: "relative",
+                    }}
+                  >
                     <p>Groupe sanguin</p>
-                    <Dropdown placeholder="A" openOnFocus selection icon={null}>
-                      <Arrow />
-                    </Dropdown>
-                  </>
+                    <Dropdown
+                      value={typeBlood}
+                      onChange={handleType}
+                      openOnFocus
+                      selection
+                      icon={null}
+                      options={friendOptions}
+                      style={{
+                        display: "relative",
+                      }}
+                    ></Dropdown>
+                    <Arrow className="tesdeg" />
+                  </div>
                 )}
                 {isBlood && (
                   <div
@@ -85,14 +130,14 @@ const SidebarDons = (props) => {
                     <Checkbox
                       radio
                       label="Positive +"
-                      checked={activeChecked}
-                      onChange={handleChecked}
+                      checked={isPositive}
+                      onChange={handlePositive}
                     />
                     <Checkbox
                       radio
                       label="Négative -"
-                      checked={!activeChecked}
-                      onChange={handleChecked}
+                      checked={!isPositive}
+                      onChange={handlePositive}
                     />
                   </div>
                 )}
@@ -103,8 +148,20 @@ const SidebarDons = (props) => {
                       placeholder="Médicament"
                     />
                   )}
-                  <Form.Input label="wilaya" placeholder="Alger centre" />
-                  <Form.Input label="Commune" placeholder="Cheraga" />
+                  <Form.Input
+                    label="wilaya"
+                    placeholder="Alger centre"
+                    name="wilaya"
+                    value={wilaya}
+                    onChange={handleChange}
+                  />
+                  <Form.Input
+                    label="Commune"
+                    placeholder="Cheraga"
+                    name="commune"
+                    value={commune}
+                    onChange={handleChange}
+                  />
                 </Form>
               </div>
             </Transition>

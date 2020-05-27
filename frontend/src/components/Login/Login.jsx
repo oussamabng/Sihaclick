@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Form, Modal, Button, Icon, Message } from "semantic-ui-react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
+//? redux part
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login } from "../../actions/authActions";
 
 //? import css
 import "./Login.css";
@@ -66,7 +70,12 @@ const Login = (props) => {
       })
       .then((res) => {
         console.log(res);
+        console.log(props.isLogin);
         setIsLoading(false);
+        const auth = {
+          token: res.data,
+        };
+        props.login(auth);
         localStorage.setItem("x-token", res.data);
         return history.push("/profile/update");
       })
@@ -179,5 +188,12 @@ const Login = (props) => {
     </Modal>
   );
 };
-
-export default Login;
+Login.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
+};
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+  isLogin: state.auth.isLogin,
+});
+export default connect(mapStateToProps, { login })(withRouter(Login));

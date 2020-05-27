@@ -28,6 +28,7 @@ function NewCard(props) {
       );
     }
   }, [date]);
+
   console.log({ time });
   return (
     <div className="_new_card">

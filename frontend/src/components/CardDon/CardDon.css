@@ -52,6 +52,7 @@
   z-index: 90;
   bottom: 0;
   white-space: nowrap;
+  transform: translate(0%, 50%);
 }
 .btn_don_other.button:hover {
   background-color: #084a64;
@@ -63,6 +64,9 @@
 }
 .card_don .card .image {
   border: none;
+}
+.card_don.other .card {
+  margin: 0 !important;
 }
 body.dimmed.dimmable {
   visibility: 1 !important;

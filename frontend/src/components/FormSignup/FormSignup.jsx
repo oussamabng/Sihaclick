@@ -1,15 +1,327 @@
-import React from "react";
-import { Container, Form, Checkbox } from "semantic-ui-react";
+import React,{useEffect, useState} from "react";
+import { Container, Form, Checkbox,Dropdown, Segment} from "semantic-ui-react";
 //? import css
 import "./FormSignup.css";
 import WhySignup from "../../components/WhySignup/WhySignup.jsx";
 
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
+import Axios from "axios";
+
+import ModalNextSignUp from "../ModalNextSignUp/ModalNextSignUp.jsx";
 
 export default function FormSignup() {
+  const [wilayas,setWilayas] = useState([]);
+  const [communes,setCommunes] = useState([]);
+  const [wilaya,setWilaya] = useState('');
+  const [wilayaErr,setWilayaErr] = useState(false);
+  const [commune,setCommune] = useState('');
+  const [communeErr,setCommuneErr] = useState('');
+  const [email,setEmail] = useState('');
+  const [emailErr,setEmailErr] = useState(false);
+  const [phone,setPhone] = useState("");
+  const [phoneErr,setPhoneErr] = useState(false);
+  const [lastname,setLastname] = useState("");
+  const [lastNameErr,setLastnameErr] = useState(false);
+  const [name,setName] = useState("");
+  const [nameErr,setNameErr] = useState(false);
+  const [password,setPassword] = useState("");
+  const [passErr,setPassErr] = useState(false);
+  const [confirm,setConfirm] = useState("");
+  const [isLoading,setIsLoading] = useState(null);
+  const [btnLoading,setBtnLoading] = useState(false);
+  const [communeId,setCommuneId] = useState(null);
+  const [typeBlood,setTypeBlood] = useState("");
+  const [isPositive,setIsPositive] = useState(false);
+  const [acceptNotif,setAcceptNotif] = useState(false);
+  const [acceptRules,setAcceptRule] = useState(false);
+
+  //? for modal
+  const [show,setShow] = useState(false);
+
+  const handleChangeWilaya = (e,{value})=>{
+    if (wilayaErr) setWilayaErr(false);
+    setWilaya(value)
+  }
+  const handleType = (e, { value }) => {
+    setTypeBlood(value);
+  };
+  const handleRules =()=>{
+    setAcceptRule(prevState=>!prevState)
+  }
+  const handlePositive = () => {
+    setIsPositive((prevState) => !prevState);
+  };
+  const handleAccept = () => {
+    setAcceptNotif((prevState) => !prevState);
+  };
+  const handleCommune = (e,{value})=>{
+    if (communeErr) setCommuneErr(false);
+    setCommune(value)
+    setCommuneId(communes.filter(elm=>elm.value.toLowerCase().includes(commune.toLowerCase()))[0].key)
+  }
+  const handleSignup = ()=>{
+    let body = {
+      lastname,
+      name,
+      email,
+      blood_group: {
+        rhesus: true, 
+        group: "O",
+        id: 4
+      },
+      password,
+      confirm,
+      phone,
+      chaab:{
+        address:{
+          address:null,
+          commune:{
+            id:communeId
+          }
+        }
+      }
+    }
+    let instance = Axios.create({
+      baseURL:"https://sihaclik.com/api/",
+      responseType:"json",
+      headers:{
+        "Content-Type":"application/json"
+      }
+    });
+    let instance2 = Axios.create({
+      baseURL:"https://sihaclik.com/api/",
+      responseType:"json",
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    if (typeBlood.length>0 && acceptRules){
+      instance2.get("public/blood_group")
+      .then(res=>{
+        let r = isPositive?1:0
+      let data =  res.data.filter(elm=>elm.group.toLowerCase().includes(typeBlood.toLowerCase()) && elm.rhesus === r )[0]
+      let body_complete = {
+        lastname,
+        name,
+        email,
+        blood_group: {
+          rhesus: data.rhesus, 
+          group: data.group,
+          id: data.id
+        },
+        password,
+        confirm,
+        phone,
+        chaab:{
+        blood_notification:acceptNotif,
+        language:true, 
+          address:{
+            address:null,
+            commune:{
+              id:communeId
+            }
+          }
+        }
+      }
+      setBtnLoading(true)
+    instance.post("chaab/signup/",body_complete)
+    .then(res=>{
+      console.log(res);
+      setBtnLoading(false)
+      console.log({key:data});
+    })
+    .catch(err=>{
+      console.log(err.response)
+      if (err.response.data.errors){
+        if (!wilaya.length>0){
+          setWilayaErr(true)
+        }
+        let next = true;
+        if (!password === confirm){
+          setPassErr(true);
+          next = false
+        }
+        err.response.data.errors.map(elm=>{
+          switch (elm.param) {
+            case "name":
+              setNameErr(true);
+              next = false
+              break;
+            case "lastname":
+              setLastnameErr(true);
+              next = false
+              break;
+            case "email":
+              setEmailErr(true);
+              next = false
+              break;
+            case "phone":
+              setPhoneErr(true);
+              next = false
+              break;
+            case "password" || "confirm":
+              setPassErr(true);
+              next = false
+              break;
+            case "chaab.address.commune.id":
+              setCommuneErr(true);
+              next = false
+              break;
+            default:
+              break;
+          }
+        })
+        if (next){
+          setShow(true)
+        }
+      }
+      setBtnLoading(false)
+    })
+      })
+      .catch(err=>{
+        console.log(err.response)
+      })
+    }
+   
+    if (!typeBlood.length>0){
+      setBtnLoading(true)
+    instance.post("chaab/signup/",body)
+    .then(res=>{
+      console.log(res);
+      setBtnLoading(false)
+    })
+    .catch(err=>{
+      console.log(err.response)
+      if (err.response.data.errors){
+        if (!wilaya.length>0){
+          setWilayaErr(true)
+        }
+        let next = true;
+        if (!password === confirm){
+          setPassErr(true);
+          next = false
+        }
+        err.response.data.errors.map(elm=>{
+          switch (elm.param) {
+            case "name":
+              setNameErr(true);
+              next = false
+              break;
+            case "lastname":
+              setLastnameErr(true);
+              next = false
+              break;
+            case "email":
+              setEmailErr(true);
+              next = false
+              break;
+            case "phone":
+              setPhoneErr(true);
+              next = false
+              break;
+            case "password" || "confirm":
+              setPassErr(true);
+              next = false
+              break;
+            case "chaab.address.commune.id":
+              setCommuneErr(true);
+              next = false
+              break;
+            default:
+              break;
+          }
+        })
+        if (next){
+          setShow(true)
+        }
+      }
+      setBtnLoading(false)
+    })
+    }
+  }
+  const handleInput = (e,{name,value})=>{
+    switch (name) {
+      case "name":
+        if (nameErr) setNameErr(false)
+        setName(value)
+        break;
+      case "lastname":
+        if (lastNameErr) setLastnameErr(false);
+        setLastname(value);
+        break;
+      case "phone":
+        if (phoneErr) setPhoneErr(false);
+        setPhone(value);
+        break;
+      case "email":
+        if (emailErr) setEmailErr(false);
+        setEmail(value);
+        break;
+      case "password":
+        if (passErr) setPassErr(false);
+        setPassword(value);
+        break;
+      case "confirm":
+        if (passErr) setPassErr(false);
+        setConfirm(value);
+        break;
+      default:
+        break;
+    }
+  }
+  useEffect(()=>{
+    let instance = Axios.create({
+      baseURL:"https://sihaclik.com/api/",
+      responseType:"json",
+      headers:{
+        "Content-Type":"application/json"
+      }
+    });
+    setIsLoading(true)
+    instance.get("public/wilaya")
+    .then(res=>{
+      let tempArrWilaya = []
+      res.data.map(elm=>{
+        tempArrWilaya.push({key:elm.id,value:elm.nom,text:elm.nom});
+      })
+     setWilayas(tempArrWilaya);
+     setIsLoading(false);
+    })
+    .catch(err=>{
+      console.log(err.response);
+      setIsLoading(false);
+
+    })
+  },[])
+  useEffect(()=>{
+    if (wilaya.length>0){
+      let instance = Axios.create({
+        baseURL:"https://sihaclik.com/api/",
+        responseType:"json",
+        headers:{
+          "Content-Type":"application/json"
+        }
+      });
+      instance.get("public/wilaya")
+      .then(res=>{
+        let tempArrCommunes = []
+        let adr = res.data.filter(elm=>elm.nom.toLowerCase().includes(wilaya.toLowerCase()))
+        if (adr.length>0){
+          adr[0].communes.map(elm=>{
+            tempArrCommunes.push({key:elm.id,text:elm.nom,value:elm.nom});
+          })
+          setCommunes(tempArrCommunes)
+        }
+      })
+      .catch(err=>{
+        console.log(err.response);
+      })
+    }
+  },[wilaya])
+ // console.log({result:communes.filter(elm=>elm.value.toLowerCase().includes(commune.toLowerCase()))})
   return (
     <Container className="form_signup modal_login">
-      <div className="_best_doc row">
+      <Segment loading={isLoading} className="_best_doc row">
         <div className="title_best_doc">
           <div className="line_title"></div>
           <p>sing-up</p>
@@ -19,25 +331,28 @@ export default function FormSignup() {
             <Form.Input
               type="text"
               label="Nom"
-              placeholder="Mohamed Achori"
-              className="spec"
+              className={nameErr?" err":""}
+              onChange={handleInput}
+              name="name"
             />
             <Form.Input
               type="text"
               label="Prénom"
-              placeholder="Mohamed Achori"
-              className="spec"
+              className={lastNameErr?" err":""}
+              onChange={handleInput}
+              name="lastname"
             />
           </Form.Group>
           <Form.Group>
             <Form.Input
               type="text"
               label="Adresse Mail"
-              placeholder="exemple@sihaclick.com"
+              onChange={handleInput}
+              name="email"
+              className={emailErr && "err"}
             />
             <Form.Input
               type="text"
-              placeholder="Mohamed Achori"
               style={{
                 visibility: "hidden",
               }}
@@ -47,50 +362,82 @@ export default function FormSignup() {
             <Form.Input
               type="password"
               label="Mot de passe"
-              placeholder="Mohamed Achori"
+              onChange={handleInput}
+              name="password"
+              className={passErr && "err"}
+
             />
             <Form.Input
               type="password"
               label="Confirmer Mot de passe"
-              placeholder="Mohamed Achori"
+              onChange={handleInput}
+              name="confirm"
+              className={passErr && "err"}
+
             />
           </Form.Group>
           <Form.Group>
             <Form.Input
               type="text"
               label="Numéro de telephone"
-              placeholder="+213 0587 954 458"
+              onChange={handleInput}
+              className={phoneErr&& "err"}
+              name="phone"
             />
             <Form.Input
               type="text"
-              placeholder="Mohamed Achori"
               style={{
                 visibility: "hidden",
               }}
             />
           </Form.Group>{" "}
           <Form.Group>
-            <Form.Input type="text" label="Wilaya" placeholder="Alger" />
-            <Form.Input type="text" label="Comune" placeholder="Alger" />
+          <div
+          className="content_sidebar field"
+                    style={{
+                      position: "relative",
+                    }}
+                  >
+                    <p>Wilaya</p>
+                    <Dropdown
+                      value={wilaya}
+                      openOnFocus
+                      selection
+                      icon={null}
+                      onChange={handleChangeWilaya}
+                      options={wilayas}
+                      style={{
+                        display: "relative",
+                      }}
+                      className={wilayaErr&& "err"}
+                    ></Dropdown>
+                    <Arrow className="tesdeg" />
+                  </div>
+                  <div
+          className="content_sidebar field"
+                    style={{
+                      position: "relative",
+                    }}
+                  >
+                    <p>Commune</p>
+                    <Dropdown
+                      value={commune}
+                      openOnFocus
+                      onChange={handleCommune}
+                      selection
+                      icon={null}
+                      options={communes}
+                      style={{
+                        display: "relative",
+                      }}
+                      className={communeErr&& "err"}
+
+                    ></Dropdown>
+                    <Arrow className="tesdeg" />
+                  </div>
           </Form.Group>
           <Form.Group>
-            <div className="_checkbox type_content blue">
-              <Checkbox
-                radio
-                label={
-                  <label>
-                    <p>
-                      J’ai lu et j’accepte{" "}
-                      <span>les conditions d’utilisation .</span>
-                    </p>
-                  </label>
-                }
-                checked
-              />
-            </div>
-          </Form.Group>
-          <Form.Group>
-            <Form.Button>
+            <Form.Button loading={btnLoading} onClick={handleSignup}>
               <p
                 style={{
                   visibility: "hidden",
@@ -103,7 +450,15 @@ export default function FormSignup() {
             </Form.Button>
           </Form.Group>
         </Form>
-      </div>
+        <ModalNextSignUp show={show} setShow={setShow}
+         acceptNotif={acceptNotif} handleType={handleType}
+          handlePositive={handlePositive} handleAccept={handleAccept}  
+          isPositive={isPositive} typeBlood={typeBlood}
+          acceptRules={acceptRules} handleRules={handleRules}
+          handleSubmit={handleSignup}
+          btnLoading={btnLoading} 
+          />
+      </Segment>
       <WhySignup />
     </Container>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Icon, Image } from "semantic-ui-react";
+import { Icon, Image ,Dropdown} from "semantic-ui-react";
 import axios from "axios";
+
 
 //? import css
 import "./HeaderOnScroll.css";
@@ -10,25 +11,32 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Comment } from "../../assets/comment.svg";
 import { ReactComponent as Notification } from "../../assets/notification.svg";
 
-//? import user img
+//? redux 
+import {open,logout} from "../../actions/authActions.js";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter,useHistory } from "react-router-dom";
 
 //? import Login modal
 import Login from "../../components/Login/Login.jsx";
 
-export default function HeaderOnScroll(props) {
+ const HeaderOnScroll = (props)=>{
+  const history = useHistory();
   const [isShow, setShow] = useState(false);
-  const { isLogin, header } = props;
-  const [show, setSHOW] = useState(false);
+  const {header} = props;
   const [image, setImage] = useState("");
+  const trigger = <Image src={image} />
 
-  const handleModal = () => {
-    setSHOW((prevState) => !prevState);
-  };
+  const handleLogout = ()=>{
+    props.logout();
+    return history.push("/")
+  }
+
   useEffect(() => {
     setShow(header);
   }, [header]);
   useEffect(() => {
-    if (isLogin) {
+    if (props.isLogin) {
       axios
         .create({
           headers: {
@@ -51,7 +59,7 @@ export default function HeaderOnScroll(props) {
           console.log(err.response);
         });
     }
-  }, [isLogin]);
+  }, [props.isLogin]);
   return (
     <div
       className="_home_header shadow x"
@@ -80,7 +88,7 @@ export default function HeaderOnScroll(props) {
             17 Rue Hadad Said, Ain Benian - Alger
           </li>
         </ul>
-        {isLogin && (
+        {props.isLogin && (
           <div
             className="home_action login"
             style={{
@@ -89,10 +97,28 @@ export default function HeaderOnScroll(props) {
           >
             <Comment />
             <Notification />
-            <Image src={image} />
+            <Dropdown
+                trigger={trigger}
+                pointing="top right"
+                icon={null}
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    text="Account"
+                    icon="user"
+                    to="/admin/profile"
+                  />
+
+                  <Dropdown.Item
+                    text="Sign Out"
+                    icon="sign out"
+                    onClick={handleLogout}
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
           </div>
         )}
-        {!isLogin && (
+        {!props.isLogin && (
           <div
             className="home_action"
             style={{
@@ -103,7 +129,7 @@ export default function HeaderOnScroll(props) {
             <p
               href="/signin"
               className="_margin_horizontal_sm blue"
-              onClick={handleModal}
+              onClick={()=>props.open()}
             >
               Sign in
             </p>
@@ -112,8 +138,25 @@ export default function HeaderOnScroll(props) {
             </a>
           </div>
         )}
-        {show && <Login setShow={handleModal} show={show} />}
+        {props.isOpen && <Login setShow={props.open} show={props.isOpen} />}
       </div>
     </div>
   );
 }
+HeaderOnScroll.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
+  isOpen:PropTypes.bool.isRequired,
+  open:PropTypes.func.isRequired,
+  logout:PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  isOpen: state.auth.isOpen,
+  isLogin: state.auth.isLogin,
+  token: state.auth.token,
+});
+
+export default connect(mapStateToProps, { open , logout})(
+  withRouter(HeaderOnScroll)
+);

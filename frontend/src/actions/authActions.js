@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "./types";
+import { LOGIN, LOGOUT,OPEN } from "./types";
 
 export const login = (token) => (dispatch) => {
   dispatch({
@@ -10,5 +10,10 @@ export const login = (token) => (dispatch) => {
 export const logout = () => (dispatch) => {
   dispatch({
     type: LOGOUT,
+  });
+};
+export const open = () => (dispatch) => {
+  dispatch({
+    type: OPEN,
   });
 };

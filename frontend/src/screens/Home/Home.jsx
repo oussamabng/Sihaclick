@@ -13,13 +13,14 @@ import Event from "../../components/Event/Event.jsx";
 import Stage from "../../components/Stage/Stage.jsx";
 import AddEmail from "../../components/AddEmail/AddEmail.jsx";
 
+
 //? import css
 import "./Home.css";
 
 //? import Arrow
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
-export default function Home() {
+const  Home = (props) =>{
   const [isScrolled, setIsScrolled] = useState(true);
   const [slider, setSlider] = useState(null);
 
@@ -57,3 +58,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

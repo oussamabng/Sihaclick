@@ -26,6 +26,19 @@
 
   background: #f8f8f8 !important;
 }
+.filter_btn .button {
+  width: 100%;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 1rem;
+  background: #04698d;
+  color: white;
+}
+.filter_btn.blood .button {
+  color: white;
+  background: var(--red);
+}
 .sidebar_dons .accordion .title svg {
   width: 15px;
   height: 15px;
@@ -48,7 +61,7 @@
   transform: rotate(0deg);
   transition: transform ease 0.3s;
 }
-.sidebar_dons .accordion svg path {
+.sidebar_dons svg path {
   stroke: #13c2d4;
 }
 .sidebar_dons .accordion .content {

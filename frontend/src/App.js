@@ -22,6 +22,7 @@ import Signup from "./screens/Signup/Signup.jsx";
 import { Provider } from "react-redux";
 import { store, persistor } from "./store.js";
 import { PersistGate } from "redux-persist/integration/react";
+
 //? import slick css
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

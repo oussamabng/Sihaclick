@@ -14,6 +14,15 @@
   flex-direction: column !important;
   align-items: flex-start !important;
 }
+._rtl {
+  direction: rtl !important;
+}
+.info._rtl h1 {
+  text-align: right !important;
+}
+.my_hero.arabe {
+  flex-direction: row-reverse !important;
+}
 ._hero_section .info h1 {
   font-size: 46px;
   font-family: "Raleway", sans-serif;
@@ -61,6 +70,10 @@
   position: absolute !important;
   bottom: 0;
   right: 8rem;
+}
+.hero_img.arabe {
+  right: auto !important;
+  left: 8rem;
 }
 ._hero_section .slick-slider,
 ._hero_section .slick-list,

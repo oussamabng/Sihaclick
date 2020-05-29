@@ -25,7 +25,8 @@ const CardDon = (props) => {
     setShow((prevState) => !prevState);
   };
   useEffect(() => {
-    setName(data.matter_donnation.name);
+    if (data){
+      setName(data.matter_donnation.name);
     let time = new Date().toISOString();
     let serverDate = data.created_at.slice(0, 10).split("-");
     let serverTime = data.created_at.slice(11, 19).split(":");
@@ -57,6 +58,7 @@ const CardDon = (props) => {
     }
     if (data.matter_donnation.drug_donnation) {
       setExp(data.matter_donnation.drug_donnation.expired_date);
+    }
     }
     return () => {
       console.log("cleanup");

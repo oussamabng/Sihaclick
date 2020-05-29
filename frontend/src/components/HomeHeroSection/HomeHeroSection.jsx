@@ -1,12 +1,16 @@
 import React from "react";
 import { Button, Image } from "semantic-ui-react";
 import Slider from "react-slick";
+import { connect } from "react-redux";
+import { selectLanguage } from "../../actions/languageAction";
+import { languages } from '../../languages'
 
 //? import css
 import "./HomeHeroSection.css";
 
 import Test from "../../assets/hero_section.png";
-export default function HomeHeroSection(props) {
+
+const   HomeHeroSection =(props)=>{
   const { setSlider } = props;
   const settings = {
     dots: true,
@@ -26,7 +30,7 @@ export default function HomeHeroSection(props) {
       </div>
     ),
   };
-
+  const { hero_section } = props.selectedLanguage.home;
   return (
     <div className="_hero_section">
       <Slider
@@ -37,74 +41,34 @@ export default function HomeHeroSection(props) {
         }}
       >
         {" "}
-        <div className="my_hero">
+        <div className={props.selectedLanguage.isFrench?"my_hero":"my_hero arabe"}>
           {" "}
-          <div className="info">
+          <div className={props.selectedLanguage.isFrench?"info":"info _rtl"}>
             <h1>
-              <b>Prenez </b>
-              votre Rendez
+              <b>{hero_section.b[0]}</b>
+              {hero_section.h1[0]}
               <br />
-              -vous En ligne <b>Maintenant</b>
+              {hero_section.h1[1]} <b>{hero_section.b[1]}</b>
             </h1>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever
+            {hero_section.p}
             </p>
             <Button
               className="hero_btn"
-              content="Prendre un Rendez-vous"
+              content={hero_section.btn}
               icon="right arrow"
               labelPosition="right"
             />
           </div>
-          <Image src={Test} className="hero_img" />
+          <Image src={Test} className={props.selectedLanguage.isFrench?"hero_img":"hero_img arabe"} />
         </div>
-        <div className="my_hero">
-          <div className="info">
-            <h1>
-              <b>Prenez </b>
-              votre Rendez
-              <br />
-              -vous En ligne <b>Maintenant</b>
-            </h1>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever
-            </p>
-            <Button
-              className="hero_btn"
-              content="Prendre un Rendez-vous"
-              icon="right arrow"
-              labelPosition="right"
-            />
-          </div>
-          <Image src={Test} className="hero_img" />
-        </div>
-        <div className="my_hero">
-          <div className="info">
-            <h1>
-              <b>Prenez </b>
-              votre Rendez
-              <br />
-              -vous En ligne <b>Maintenant</b>
-            </h1>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever
-            </p>
-            <Button
-              className="hero_btn"
-              content="Prendre un Rendez-vous"
-              icon="right arrow"
-              labelPosition="right"
-            />
-          </div>
-          <Image src={Test} className="hero_img" />
-        </div>
-      </Slider>
+       </Slider>
     </div>
   );
 }
+const mapStateToProps = state => {
+  return { 
+    selectedLanguage: state.language,
+  }
+}
+export default connect(mapStateToProps, { selectLanguage })(HomeHeroSection)

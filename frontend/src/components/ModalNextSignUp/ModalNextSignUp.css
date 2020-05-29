@@ -1,0 +1,78 @@
+.modal_signup .title_signup {
+  font-size: 16px;
+  color: var(--bleu_darker);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  padding: 2rem 0;
+}
+.modal_signup.modal_login {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.circle_hey {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  border-radius: 50%;
+  width: 95px;
+  height: 195px;
+  border-radius: 0% 100% 100% 0% / 100% 50% 50% 0% !important;
+  background-color: rgba(19, 194, 212, 0.25);
+}
+.modal_signup.modal_login .dropdown {
+  width: 100% !important;
+}
+.modal_signup.sidebar_dons .content_sidebar {
+  padding: 1rem 0 !important;
+  width: 100%;
+}
+.modal_signup.modal_login .title_signup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.modal_signup.sidebar_dons .content_sidebar div p {
+  font-size: 16px !important;
+}
+.modal_signup.sidebar_dons .content_sidebar div {
+  width: 100% !important;
+}
+.modal_signup.sidebar_dons .type_content {
+  padding: 1rem 0 !important;
+}
+.modal_signup.sidebar_dons .type_content {
+  margin: 0;
+}
+.modal_signup ._checkbox .checkbox {
+  margin: 0;
+}
+.btn_signup_modal .button,
+.btn_signup_modal .button:hover,
+.btn_signup_modal .button:focus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 270px;
+  padding: 1rem 2rem;
+  color: white;
+  background: var(--lighter-bleu);
+}
+.btn_signup_modal .button svg path {
+  stroke: white;
+}
+.btn_signup_modal .button svg {
+  transform: rotate(-90deg);
+}
+.btn_signup_modal .button p {
+  margin: 0;
+}
+.btn_signup_modal {
+  padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

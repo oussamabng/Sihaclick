@@ -14,8 +14,8 @@
   margin: 2rem 0;
 }
 .ui.segment {
-  padding: 0 !important;
-  background: transparent;
+  padding: auto !important;
+  background: auto !important;
 }
 .why_signup .steps .label {
   background: #13c2d4;

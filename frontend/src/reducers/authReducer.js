@@ -1,11 +1,11 @@
-import { LOGIN, LOGOUT } from "../actions/types";
+import { LOGIN, LOGOUT,OPEN } from "../actions/types";
 
 const initialState = {
   token: "",
   user: {},
   isLogin: false,
+  isOpen:false
 };
-console.log({ initialState });
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -28,6 +28,18 @@ export default function (state = initialState, action) {
       return {
         ...state,
       };
+      case OPEN:
+        if (!state.isOpen){
+          return {
+            ...state,
+            isOpen:true
+          };
+        }else {
+          return{
+            ...state,
+            isOpen:false
+          }
+        }   
     default:
       return state;
   }

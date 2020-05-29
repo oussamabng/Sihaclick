@@ -10,7 +10,7 @@ import Footer from "../../components/Footer/Footer.jsx";
 const Blood = () => {
   return (
     <>
-      <HeaderOnScroll header={false} isLogin={false} />
+      <HeaderOnScroll header={false} />
       <Navigation />
       <HeroBlood />
       <BloodAnnonce />

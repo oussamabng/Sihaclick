@@ -5,7 +5,7 @@ import { useHistory, withRouter } from "react-router-dom";
 //? redux part
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { login } from "../../actions/authActions";
+import { login,logout,open } from "../../actions/authActions";
 
 //? import css
 import "./Login.css";
@@ -69,15 +69,14 @@ const Login = (props) => {
         data: { email, password },
       })
       .then((res) => {
-        console.log(res);
-        console.log(props.isLogin);
         setIsLoading(false);
         const auth = {
           token: res.data,
         };
         props.login(auth);
-        localStorage.setItem("x-token", res.data);
-        return history.push("/profile/update");
+        console.log(window.location.pathname)
+        window.location.pathname !== "/" ? history.push(window.location.pathname) : history.push("/profile/update/")
+        props.open()
       })
       .catch((err) => {
         console.log(err.response);
@@ -191,9 +190,13 @@ const Login = (props) => {
 Login.propTypes = {
   isLogin: PropTypes.bool.isRequired,
   token: PropTypes.string.isRequired,
+  logout:PropTypes.func.isRequired,
+  login:PropTypes.func.isRequired,
+  open:PropTypes.func.isRequired
 };
 const mapStateToProps = (state) => ({
   token: state.auth.token,
   isLogin: state.auth.isLogin,
 });
-export default connect(mapStateToProps, { login })(withRouter(Login));
+
+export default connect(mapStateToProps, { login,logout,open })(withRouter(Login));

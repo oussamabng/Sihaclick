@@ -33,7 +33,6 @@ export default function BloodCard(props) {
     setShow((prevState) => !prevState);
   };
   useEffect(() => {
-    console.log({ data });
     let time = new Date().toISOString();
     let serverDate = data.created_at.slice(0, 10).split("-");
     let serverTime = data.created_at.slice(11, 19).split(":");
@@ -46,16 +45,20 @@ export default function BloodCard(props) {
     ];
     setCommune(data.user.chaab.address.commune.nom);
     setWilaya(data.user.chaab.address.commune.wilaya.nom);
-    data.blood_donnation.emergency === 1
+    if (data.blood_donnation){
+      data.blood_donnation.emergency === 1
       ? setEmergency(true)
       : setEmergency(false);
+    }
     setTypeBlood(data.user.blood_group.group);
     data.user.blood_group.rhesus === 1
       ? setIsPositive(true)
       : setIsPositive(false);
-    data.blood_donnation.require === 1
+    if (data.blood_donnation){
+      data.blood_donnation.require === 1
       ? setIsPlaquette(true)
       : setIsPlaquette(false);
+    }
     setName(data.user.name);
     setLastName(data.user.lastname);
     setPhone(data.user.phone);

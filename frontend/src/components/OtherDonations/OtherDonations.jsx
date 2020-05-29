@@ -14,6 +14,7 @@ import "./OtherDonations.css";
 
 //? import card
 import CardDon from "../../components/CardDon/CardDon.jsx";
+import { Link } from "react-router-dom";
 
 const OtherDonations = () => {
   const [show, setShow] = useState(false);
@@ -245,6 +246,8 @@ const OtherDonations = () => {
           <Button
             className="inverted"
             content="afficher tous les dons"
+            as={Link}
+            to="/medicament"
             icon="plus"
             labelPosition="left"
           />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 
 //? import css
@@ -6,59 +6,74 @@ import "./Header.css";
 
 //? import Login modal
 import Login from "../../components/Login/Login.jsx";
-
+import { languages } from '../../languages'
+import { selectLanguage } from "../../actions/languageAction";
+import {open} from "../../actions/authActions.js";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 //? import logo
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
-export default function Header() {
-  const [show, setShow] = useState(false);
-  const handleModal = () => {
-    setShow((prevState) => !prevState);
-  };
+const Header = (props)=>{
+  
+  props.selectLanguage(languages.french)
+  const { navs,dropdown } = props.selectedLanguage.header;
   return (
     <header className="_home_header">
       <div className="navbar">
         <Logo className="white" />
         <div className="navigation">
-          {show && <Login setShow={handleModal} show={show} />}
+          {props.isOpen && <Login setShow={()=>props.open()} show={props.isOpen} />}
           <Menu pointing secondary>
-            <Menu.Item name="Accueil" className="border" />
-            <Menu.Item name="Professionnels de santé" />
+            <Menu.Item name={navs[0]} className="border" />
+            <Menu.Item name={navs[1]} />
             <Menu.Menu>
-              <Menu.Item name="Dons" className="dons" />
+              <Menu.Item name={navs[2]} className="dons" />
               <div className="dropdown">
                 <ul>
                   <li>
-                    <a href="/blood">Echange de sang</a>
+                    <a href="/blood">{dropdown[0]}</a>
                   </li>
                   <li>
-                    <a href="/medicament">Echange de médicament</a>
+                    <a href="/medicament">{dropdown[1]}</a>
                   </li>
                   <li>
-                    <a href="/">Echange de livres</a>
+                    <a href="/">{dropdown[2]}</a>
                   </li>{" "}
                   <li>
-                    <a href="/">Echange de materielle</a>
+                    <a href="/">{dropdown[3]}</a>
                   </li>
                 </ul>
               </div>
             </Menu.Menu>
-            <Menu.Item name="Actualité" />
-            <Menu.Item name="Médias" />
-            <Menu.Item name="à Propos" />
-            <Menu.Item name="Contacts" />
+            <Menu.Item name={navs[3]}/>
+            <Menu.Item name={navs[4]} />
+            <Menu.Item name={navs[5]} />
+            <Menu.Item name={navs[6]} />
           </Menu>
         </div>
         <div className="home_action">
           <Icon name="search" />
-          <p className="_margin_horizontal_sm " onClick={handleModal}>
-            Sign in
+          <p className="_margin_horizontal_sm " onClick={()=>props.open()}>
+            {props.selectedLanguage.isFrench?"Sign in":"تسجيل الدخول"}
           </p>
           <a href="/signup" className="btn _margin_horizontal_sm">
-            Sign up
+            {props.selectedLanguage.isFrench?"Sign up":"سجل"}
           </a>
         </div>
       </div>
     </header>
   );
 }
+Header.prototype ={
+  open : PropTypes.func.open,
+  isOpen : PropTypes.bool.isOpen
+}
+const mapStateToProps = state => {
+  return { 
+    selectedLanguage: state.language,
+    isOpen:state.auth.isOpen
+  }
+}
+export default connect(mapStateToProps, { selectLanguage,open })(withRouter(Header))

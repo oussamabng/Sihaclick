@@ -20,10 +20,12 @@ const SidebarDons = (props) => {
     handleChange,
     isBlood,
     isAnnuaire,
+    name,
     isPositive,
     typeBlood,
     handlePositive,
     handleType,
+    setIsClicked
   } = props;
   const [activeIndex, setActive] = useState(0);
   const [activeChecked, setactiveChecked] = useState(false);
@@ -60,7 +62,7 @@ const SidebarDons = (props) => {
       {isAnnuaire && (
         <Accordion>
           <Accordion.Title active={activeIndex} onClick={handleClick}>
-            Recherche Simple <Arrow />
+            Recherche Par Filtre <Arrow />
           </Accordion.Title>
           <Accordion.Content active={activeIndex}>
             <Transition
@@ -146,6 +148,9 @@ const SidebarDons = (props) => {
                     <Form.Input
                       label="Nom de Médicament"
                       placeholder="Médicament"
+                      name="name"
+                      value={name}
+                      onChange={handleChange}
                     />
                   )}
                   <Form.Input
@@ -162,6 +167,9 @@ const SidebarDons = (props) => {
                     value={commune}
                     onChange={handleChange}
                   />
+                  <Form.Button onClick={()=>setIsClicked(true)} className={isBlood?"filter_btn blood":"filter_btn"}>
+                    Filter
+                  </Form.Button>
                 </Form>
               </div>
             </Transition>

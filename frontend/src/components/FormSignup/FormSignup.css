@@ -18,15 +18,15 @@
 .modal_login.form_signup .row .form .field.spec .input {
   border: 1px solid #046489;
 }
-.modal_login.form_signup ._checkbox {
+.modal_signup ._checkbox {
   margin: 1rem;
   min-width: 100%;
 }
-.modal_login.form_signup ._checkbox .checkbox {
+.modal_signup ._checkbox .checkbox {
   width: 100%;
   margin-top: 2rem;
 }
-.modal_login.form_signup ._checkbox span {
+.modal_signup ._checkbox span {
   text-decoration: underline;
   color: #13c2d4;
   font-weight: 700;
@@ -45,6 +45,37 @@
 .modal_login.form_signup .field .button p {
   margin: 0;
 }
+.modal_login.form_signup .field.err .input,
+.modal_login.form_signup .row .form .field.spec.err .input,
+.modal_login.form_signup .content_sidebar .dropdown.err {
+  border: 1px solid var(--red) !important;
+}
 .modal_login.form_signup .field .button svg {
   transform: rotate(-90deg);
+}
+.modal_login.form_signup .content_sidebar .dropdown {
+  background-color: #fbfbfb;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(4, 100, 137, 0.75);
+  padding: 1rem 1.5rem;
+  height: 49.43px;
+  min-width: 298px;
+}
+.modal_login.form_signup .content_sidebar {
+  margin: 0.75rem 1rem !important;
+}
+.modal_login.form_signup .content_sidebar p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #046489;
+  margin-left: 1rem !important;
+  margin-bottom: 6px;
+  display: block;
+  margin: 0 0 0.28571429rem 0;
+}
+
+.ui.segment {
+  padding: auto !important;
+  background: auto !important;
 }

@@ -6,15 +6,19 @@ import axios from "axios";
 //? import css
 import "./News.css";
 
+//? import redux
+import {get_news} from "../../actions/newsActions.js"
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 //? import card
 import NewCard from "../../components/NewCard/NewCard.jsx";
 
 //? import arrow
 import Arrow from "../../components/Arrow/Arrow.jsx";
 
-export default function News() {
+const News = (props)=>{
   const [slider, setSlider] = useState(null);
-  const [data, setData] = useState([]);
   const settings = {
     dots: false,
     infinite: true,
@@ -41,14 +45,13 @@ export default function News() {
         method: "get",
       })
       .then((res) => {
-        setData(res.data);
-        console.log(res);
+        props.get_news(res.data)
       })
       .catch((err) => {
         console.log(err.response);
       });
     return () => {
-      setData([]);
+      props.get_news([])
     };
   }, []);
   return (
@@ -73,7 +76,7 @@ export default function News() {
         </div>
       </Container>
       <div className="slider_news">
-        {data.length > 4 && (
+        {props.data_news.length > 4 && (
           <div className="arrows">
             <Arrow isRight={false} slider={slider} />
             <Arrow isRight slider={slider} />
@@ -81,9 +84,9 @@ export default function News() {
         )}
         <div className="blur_field right"></div>
         <div className="blur_field left"></div>
-        {data.length > 4 ? (
+        {props.data_news.length > 4 ? (
           <Slider ref={(c) => setSlider(c)} {...settings}>
-            {data.map((elm) => (
+            {props.data_news.map((elm) => (
               <div className="slider_doc">
                 <NewCard data={elm} />
               </div>
@@ -97,7 +100,7 @@ export default function News() {
               padding: "1rem",
             }}
           >
-            {data.map((elm) => (
+            {props.data_news.map((elm) => (
               <div className="slider_doc">
                 <NewCard data={elm} />
               </div>
@@ -119,3 +122,10 @@ export default function News() {
     </div>
   );
 }
+News.propTypes = {
+  data_news: PropTypes.array.isRequired,
+};
+const mapStateToProps = (state) => ({
+  data_news:state.news.data_news
+});
+export default connect(mapStateToProps, { get_news })(News);

@@ -7,3 +7,4 @@ export const FETCH_DRUGS = "FETCH_DRUGS"
 export const FETCH_BLOOD_DISTANCE = "FETCH_BLOOD_DISTANCE"
 export const OPEN = "OPEN";
 export const FETCH_NEWS = "FETCH_NEWS"
+export const FETCH_DOC = "FETCH_DOC";

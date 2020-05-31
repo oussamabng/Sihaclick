@@ -30,16 +30,26 @@ const ModalNextSignUp = (props) => {
         },
       ];
     const [open, setOpen] = useState(null);
-    const { setShow,handleRules,handleSubmit,btnLoading,acceptRules, show,typeBlood,isPositive,handlePositive,handleType ,handleAccept,acceptNotif} = props;
+    const { setShow,submitErr,handleSubmitErr,handleRules,handleSubmit,btnLoading,acceptRules, show,typeBlood,isPositive,handlePositive,handleType ,handleAccept,acceptNotif} = props;
     useEffect(() => {
         setOpen(show);
       }, [show]);
+      const handleNextSubmit = ()=>{
+        if (submitErr ){
+          handleSubmitErr()
+        }else{
+        handleSubmit()
+        }
+      }
     return (
         <Modal
         closeIcon
         size="small"
         open={open}
-        onClose={()=>setShow(false)}
+        onClose={()=>{
+          handleRules()
+          setShow(false);
+        }}
         className="modal_login modal_signup sidebar_dons"
       >
           <div className="circle_hey"></div>
@@ -94,7 +104,7 @@ const ModalNextSignUp = (props) => {
                       onClick={handleAccept}
                     />
             </div>
-             <div className="_checkbox type_content blue">
+             <div className={submitErr?"_checkbox type_content":"_checkbox type_content blue"}>
               <Checkbox
                 radio
                 checked={acceptRules}
@@ -110,7 +120,7 @@ const ModalNextSignUp = (props) => {
               />
             </div>
             <div className="btn_signup_modal">
-             <Button loading={btnLoading} onClick={handleSubmit}>
+             <Button loading={btnLoading} onClick={handleNextSubmit}>
              <p
                 style={{
                   visibility: "hidden",

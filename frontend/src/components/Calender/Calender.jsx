@@ -5,10 +5,15 @@ import Slider from "react-slick";
 //? import arrow
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
+import {connect} from "react-redux";
+import PropTypes from "prop-types"
+import {set_doc} from "../../actions/doctorAction";
+
 //? import css
 import "./Calender.css";
 
-const Calender = () => {
+const Calender = (props) => {
+  const {data} = props
   const settings = {
     dots: false,
     infinite: true,
@@ -33,62 +38,13 @@ const Calender = () => {
           <Arrow />
         </div>
         <Slider {...settings}>
-          <div className="day_item">
+          {data.pds.work_time.map((elm,index)=>(
+            <div className="day_item" key={index}>
             <p>8</p>
-            <p>Sam</p>
+            <p>{elm.day.name.slice(0,3)}</p>
           </div>
-          <div className="day_item">
-            <p>8</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>8</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>8</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>8</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>8</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>8</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>9</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>9</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>9</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>9</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>9</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>9</p>
-            <p>Sam</p>
-          </div>
-          <div className="day_item">
-            <p>9</p>
-            <p>Sam</p>
-          </div>
+          ))}
+        
         </Slider>
       </div>
       <div className="_calender">
@@ -108,109 +64,44 @@ const Calender = () => {
         </div>
         <Table celled collapsing>
           <Table.Body>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
+            
+          {data.pds.work_time.map((elm,index = 8)=>{
+            let array = [8,9,10,11,12,13,14,15,16,17,18]
+            let start = parseInt(elm.start_time.split(":")[0])
+            let end = parseInt(elm.end_time.split(":")[0])
+            console.log({index})
+              return(
+           <Table.Row key={index}>
+          <>
+             {
+               array.map(elm=>{
+                 console.log({elm,start,end})
+                 
+                if (start<=elm) if (end<=elm) return (<Table.Cell  ></Table.Cell>)
+                else return(
+                  <Table.Cell className="here"  ></Table.Cell>
+                )
+               })
+             }
+             </>
             </Table.Row>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell className="here"></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell className="here"></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-              <Table.Cell></Table.Cell>
-            </Table.Row>
+             )
+})}
           </Table.Body>
         </Table>
       </div>
     </div>
   );
 };
-
-export default Calender;
+Calender.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
+  set_doc : PropTypes.func.isRequired,
+  data:PropTypes.array.isRequired
+};
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+  isLogin: state.auth.isLogin,
+  data :state.doc.data,
+});
+export default connect(mapStateToProps, { set_doc })(Calender) ;

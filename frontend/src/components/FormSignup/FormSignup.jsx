@@ -30,14 +30,22 @@ export default function FormSignup() {
   const [isLoading,setIsLoading] = useState(null);
   const [btnLoading,setBtnLoading] = useState(false);
   const [communeId,setCommuneId] = useState(null);
-  const [typeBlood,setTypeBlood] = useState("");
+  const [typeBlood,setTypeBlood] = useState("A");
   const [isPositive,setIsPositive] = useState(false);
   const [acceptNotif,setAcceptNotif] = useState(false);
   const [acceptRules,setAcceptRule] = useState(false);
-
+  const [submitErr,setsubmitErr] = useState(false);
+  
+  const handleSubmitErr = ()=>{
+    setsubmitErr(prevState=>!prevState)
+  }
   //? for modal
   const [show,setShow] = useState(false);
 
+  function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
   const handleChangeWilaya = (e,{value})=>{
     if (wilayaErr) setWilayaErr(false);
     setWilaya(value)
@@ -46,6 +54,7 @@ export default function FormSignup() {
     setTypeBlood(value);
   };
   const handleRules =()=>{
+    if (submitErr) setsubmitErr(false);
     setAcceptRule(prevState=>!prevState)
   }
   const handlePositive = () => {
@@ -60,15 +69,11 @@ export default function FormSignup() {
     setCommuneId(communes.filter(elm=>elm.value.toLowerCase().includes(commune.toLowerCase()))[0].key)
   }
   const handleSignup = ()=>{
+    console.log("handleSignup");
     let body = {
       lastname,
       name,
       email,
-      blood_group: {
-        rhesus: true, 
-        group: "O",
-        id: 4
-      },
       password,
       confirm,
       phone,
@@ -124,6 +129,7 @@ export default function FormSignup() {
         }
       }
       setBtnLoading(true)
+
     instance.post("chaab/signup/",body_complete)
     .then(res=>{
       console.log(res);
@@ -133,47 +139,31 @@ export default function FormSignup() {
     .catch(err=>{
       console.log(err.response)
       if (err.response.data.errors){
-        if (!wilaya.length>0){
-          setWilayaErr(true)
-        }
-        let next = true;
-        if (!password === confirm){
-          setPassErr(true);
-          next = false
-        }
+      
         err.response.data.errors.map(elm=>{
           switch (elm.param) {
             case "name":
               setNameErr(true);
-              next = false
               break;
             case "lastname":
               setLastnameErr(true);
-              next = false
               break;
             case "email":
               setEmailErr(true);
-              next = false
               break;
             case "phone":
               setPhoneErr(true);
-              next = false
               break;
             case "password" || "confirm":
               setPassErr(true);
-              next = false
               break;
             case "chaab.address.commune.id":
               setCommuneErr(true);
-              next = false
               break;
             default:
               break;
           }
         })
-        if (next){
-          setShow(true)
-        }
       }
       setBtnLoading(false)
     })
@@ -183,7 +173,8 @@ export default function FormSignup() {
       })
     }
    
-    if (!typeBlood.length>0){
+    if (!acceptRules){
+      console.log("first step")
       setBtnLoading(true)
     instance.post("chaab/signup/",body)
     .then(res=>{
@@ -191,13 +182,43 @@ export default function FormSignup() {
       setBtnLoading(false)
     })
     .catch(err=>{
+      let next = true
       console.log(err.response)
       if (err.response.data.errors){
         if (!wilaya.length>0){
           setWilayaErr(true)
         }
-        let next = true;
-        if (!password === confirm){
+        if (!validateEmail(email)){
+          setEmailErr(true);
+          next = false
+        }
+        if (!communeId){
+          setCommuneErr(true);
+          next = false
+        }
+        if (phone.length===10){
+          if (phone[1] === "5" || phone[1] === "6" || phone[1] === "7"){
+            console.log("valid numb");
+          }else{
+            setPhoneErr(true);
+            next = false;
+          }
+        }else{
+          console.log("more than 10 or less")
+          setPhoneErr(true);
+          next = false
+        }
+        if (name.length<4){
+          setNameErr(true);
+          next = false;
+        }
+        if (lastname.length<4){
+          setLastnameErr(true);
+          next = false
+        }
+        if (password === confirm){
+          
+        }else{
           setPassErr(true);
           next = false
         }
@@ -457,6 +478,8 @@ export default function FormSignup() {
           acceptRules={acceptRules} handleRules={handleRules}
           handleSubmit={handleSignup}
           btnLoading={btnLoading} 
+          handleSubmitErr={handleSubmitErr}
+          submitErr={submitErr}
           />
       </Segment>
       <WhySignup />

@@ -89,13 +89,13 @@
   border-radius: 4px;
   margin: 0 0.75rem;
 }
-.doctor_info .other_info {
+.other_info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 0.5rem 0;
 }
-.doctor_info .other_info h1 {
+.other_info h1 {
   color: #046489;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
@@ -103,14 +103,14 @@
   white-space: nowrap;
 }
 
-.doctor_info .other_info p {
+.other_info p {
   font-size: 18px;
   font-family: "Poppins", sans-serif;
   color: var(--black);
   font-weight: 500;
   margin: 0.5rem 0 !important;
 }
-.doctor_info .other_info .title {
+.other_info .title {
   height: 4px;
   width: 47px;
   background: #13c2d4;
@@ -142,7 +142,7 @@
 }
 .exp_doc_info .other_info p {
   margin: 0 !important;
-  font-size: 12px;
+  font-size: 14px;
 }
 .exp_doc_info .other_info h1 {
   font-size: 16px;

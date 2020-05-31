@@ -1,33 +1,35 @@
 import React from "react";
-import { Icon, Image } from "semantic-ui-react";
+import { Icon, Image ,Rating} from "semantic-ui-react";
 
 //? import css
 import "./DoctorInfo.css";
 
 import Stage from "../../assets/stage.png";
 
-//? import img doctor
-import Doctor from "../../assets/doctor.jpg";
+import {connect} from "react-redux";
+import PropTypes from "prop-types"
+import {set_doc} from "../../actions/doctorAction";
 
-const DoctorInfo = () => {
+const DoctorInfo = (props) => {
   return (
     <div className="doctor_info">
       <div className="header_part">
         <div
           className="doctor_img"
           style={{
-            backgroundImage: `url(${Doctor})`,
+            backgroundImage: `url(https://sihaclik.com/${props.data.photo.path})`,
           }}
         />
         <div className="label_part">
           <p>18 Km</p>
-          <p>20 Vu</p>
+          <p>20 Vu</p> 
+          <Rating icon='star' size="huge" defaultRating={0} maxRating={1} />
         </div>
       </div>
       <div className="info_doc">
         <div className="text_with_icon">
           <Icon name="user" />
-          <h1>Mohamed Chafik</h1>
+          <h1>{props.data.name} {props.data.lastname}</h1>
         </div>
         <div className="text_with_icon">
           <Icon
@@ -36,69 +38,72 @@ const DoctorInfo = () => {
               visibility: "hidden",
             }}
           />
-          <h4>Médecin Géneraliste </h4>
+          <h4>{props.data.pds.name}</h4>
         </div>
         <div className="text_with_icon ">
           <Icon name="phone" />
           <div className="phones">
-            <h4>0552 123 456</h4>
-            <h4>0552 123 456</h4>
+          {props.data.pds.fix && <h4>{props.data.pds.fix}</h4>}
+            {props.data.pds.fax && <h4>{props.data.pds.fax}</h4>}
           </div>
         </div>
         <div className="text_with_icon mar">
           <Icon name="mail outline" />
-          <h4>Mohamedchafik@gmail.com</h4>
+          <h4>{props.data.email}</h4>
         </div>
         <div className="text_with_icon mar">
           <Icon name="map marker alternate" />
-          <h4>Cheraga, Alegr</h4>
+          <h4>{props.data.pds.address.address + " "+ props.data.pds.address.commune.nom + "," + props.data.pds.address.commune.wilaya.nom}</h4>
         </div>
       </div>
-      <div className="other_info">
-        <h1>Service/ Paramettre :</h1>
-        <p> Échographie</p>
-      </div>
+     
       <div className="other_info">
         <h1>Autre :</h1>
         <div className="title"></div>
         <p> Échographie</p>
       </div>
+      { !props.data.pds.pds_options.structur.name
+      ?
       <div className="other_info">
         <h1>Structure :</h1>
-        <p>(Cabinet privé / Cabinet de groupe / Clinique privée)</p>
+        <p>(
+          {props.data.pds.pds_options.structur.map((elm,index)=>
+            (props.data.pds.pds_options.structur[index+1])?
+            elm.name+"/"
+            :elm.name
+          )}
+          )</p>
       </div>
-      <div className="other_info">
-        <h1>Consultation a domicile</h1>
+    :  
+    <div className="other_info">
+        <h1>Structure :</h1>
+        <p>
+          {props.data.pds.pds_options.structur.name}
+          </p>
       </div>
+    }
+     
+        {props.data.pds.pds_options.at_home && 
+        <div className="other_info">
+        {props.data.pds.pds_options.at_home===1 && <h1>Consultation a domicile</h1>}
+        </div>
+        }
       <div className="other_info">
         <h1>Ouvert après :</h1>
-        <p>17h ou WE ou jrs fériés</p>
+          <p>{props.data.pds.work_time[0].start_time.split(":")[0]+"h"} {props.data.pds.pds_options.holidays===1 && "ou jours fériés"}</p>
       </div>
+      {props.data.pds.pds_options.convontions && props.data.pds.pds_options.convontions.length>0 &&
       <div className="other_info">
-        <h1>Conventions :</h1>
-        <p>(CNAS, CASNOS, CAMSSP)</p>
-      </div>
-      <div className="other_info">
-        <h1>Experience :</h1>
-        <div className="title"></div>
-        <div className="exp_doc_info">
-          <Image src={Stage} />
-          <div className="other_info">
-            <h1>Mitidia Dialise :</h1>
-            <p>Médecin Géneraliste</p>
-            <p>2004-2015</p>{" "}
-          </div>
-        </div>
-        <div className="exp_doc_info">
-          <Image src={Stage} />
-          <div className="other_info">
-            <h1>Mitidia Dialise :</h1>
-            <p>Médecin Géneraliste</p>
-            <p>2004-2015</p>{" "}
-          </div>
-        </div>
-      </div>
-      <div className="other_info">
+      <h1>Conventions :</h1> <p>
+        (
+      {props.data.pds.pds_options.convontions.map((elm,index)=>
+      props.data.pds.pds_options.convontions[index+1] ? elm.name+"," : elm.name
+      )}
+        )
+      </p>
+    </div>
+    }
+     <div className="other_info">
         <h1>Activités bénévoles :</h1>
         <div className="title"></div>
         <div className="exp_doc_info">
@@ -113,10 +118,28 @@ const DoctorInfo = () => {
       </div>
       <div className="other_info">
         <h1>Langue :</h1>
-        <h3>Francais - Arabe - Anglais </h3>
+          <div className="other_info">{props.data.pds.languages.map(elm=>
+            (
+              <h3 style={{
+                margin:"0.5rem 0"
+              }}>
+              {elm.name}
+              </h3>
+            ))}</div>
       </div>
     </div>
   );
 };
+DoctorInfo.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
+  set_doc : PropTypes.func.isRequired,
+  data:PropTypes.array.isRequired
+};
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+  isLogin: state.auth.isLogin,
+  data :state.doc.data,
+});
+export default connect(mapStateToProps, { set_doc })(DoctorInfo) ;
 
-export default DoctorInfo;

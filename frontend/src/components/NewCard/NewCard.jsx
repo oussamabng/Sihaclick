@@ -7,29 +7,12 @@ import { useEffect, useState } from "react";
 
 function NewCard(props) {
   const [time, setTime] = useState("");
-  const { image, title, organsator, date } = props.data;
+  const { image, title, organsator, date,created_at } = props.data;
   useEffect(() => {
-    let dateServer = date.split("-");
-    let currentDate = new Date().toLocaleDateString("en-US").split("/");
-    console.log({ dateServer, currentDate });
-    if (parseInt(dateServer[0]) - parseInt(currentDate[2]) > 0) {
-      setTime(
-        String(parseInt(dateServer[0]) - parseInt(currentDate[2])) +
-          " years ago"
-      );
-    } else if (parseInt(dateServer[1]) - parseInt(currentDate[0] > 0)) {
-      setTime(
-        String(parseInt(dateServer[1]) - parseInt(currentDate[0])) +
-          " months ago"
-      );
-    } else if (parseInt(dateServer[2]) - parseInt(currentDate[1]) > 0) {
-      setTime(
-        String(parseInt(dateServer[2]) - parseInt(currentDate[1])) + " days ago"
-      );
-    }
-  }, [date]);
+   setTime(created_at)
+   //!TODO set exemple 5 years ago
+  }, [created_at]);
 
-  console.log({ time });
   return (
     <div className="_new_card">
       <Card className="card_doc new_card">
@@ -49,7 +32,7 @@ function NewCard(props) {
             <p>
               <Icon name="plus" /> Plus
             </p>
-            <p>{date}</p>
+            <p>{time}</p>
           </div>
         </Card.Content>
       </Card>

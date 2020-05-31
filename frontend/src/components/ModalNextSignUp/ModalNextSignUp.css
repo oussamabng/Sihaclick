@@ -76,3 +76,6 @@
   justify-content: center;
   align-items: center;
 }
+.modal_signup.sidebar_dons ._checkbox span {
+  color: #da3e39 !important;
+}

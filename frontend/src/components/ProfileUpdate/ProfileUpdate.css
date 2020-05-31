@@ -27,6 +27,16 @@
   margin: 0 4rem;
   padding-top: 1rem;
 }
+.update_profile ._header .info .dropdown {
+  background-color: var(--bleu_darker);
+  color: white;
+}
+.update_profile ._header .info .dropdown .menu .item span {
+  color: var(--bleu_darker) !important;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
 .update_profile ._header .info h1 {
   font-size: 24px;
   color: #046489;
@@ -98,7 +108,8 @@
   width: 100%;
 }
 .update_profile .input_update_profile input,
-.update_profile .input_update_profile input:focus {
+.update_profile .input_update_profile input:focus,
+.droplangue.dropdown.ui.selection {
   padding: 1rem 1rem;
   background: white;
   border: 1px solid #046489;
@@ -113,4 +124,7 @@
 .update_profile .confirm_edit i.icon {
   color: #13c2d4 !important;
   cursor: pointer;
+}
+.droplangue.dropdown.ui.selection i {
+  display: none;
 }

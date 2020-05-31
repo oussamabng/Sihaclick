@@ -70,7 +70,7 @@ export default function BloodCard(props) {
     } else {
       setTime("Il ya " + String(minusTime) + " h");
     }
-  }, []);
+  }, [data]);
   return (
     <div>
       <Card className="blood_card">

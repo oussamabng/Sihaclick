@@ -13,6 +13,37 @@ import { ReactComponent as Upload } from "../../assets/upload.svg";
 const AddAnnonce = (props) => {
   const { setShow, show } = props;
   const [open, setOpen] = useState(null);
+  const [image,setImage] = useState(null);
+  const [imagePreview,setImagePreview] = useState(null);
+  const [selectedFile,setSelectedFile] = useState();
+  const [fileErr,setFileErr] = useState(false);
+  
+  useEffect(() => {
+    if (!selectedFile) {
+      setImagePreview(null);
+      return;
+    }
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setImagePreview(objectUrl);
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
+
+  const onSelectFile = (e)=>{
+    if (fileErr) setFileErr(false)
+    let es = e.target.files[0];
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+
+    if (es.type === "image/png" || es.type === "image/jpeg") {
+      setSelectedFile(es);
+      setImagePreview(es);
+    } else {
+      setFileErr(true);
+    }
+    
+  }
   useEffect(() => {
     setOpen(show);
   }, [show]);
@@ -30,15 +61,22 @@ const AddAnnonce = (props) => {
             <div
               className="doctor_img card_don_img"
               style={{
-                backgroundImage: `url(${Teva})`,
+                backgroundImage: imagePreview && `url(${imagePreview})`,
               }}
             />
           </div>
-
+          <label htmlFor="input_annonce">
           <p>
             <Upload />
             Upload photo
           </p>
+          </label>
+          <input style={{
+            visibility:"hidden"
+          }} type="file" id="input_annonce" onChange={onSelectFile} />
+          {fileErr && <p className="error_upload">
+            Please add a valid image
+            </p>}
         </div>
         <div className="col">
           <Form>
@@ -49,14 +87,14 @@ const AddAnnonce = (props) => {
               placeholder="Mohamed Charif"
             />
             <Form.Input
-              label="Nom et Prénom"
+              label="Nom de médicament"
               type="text"
               className="sha _margin_vertical_sm"
-              placeholder="Mohamed Charif"
+              placeholder="médicament"
             />
             <Form.TextArea
               rows={6}
-              label="Remarque"
+              label="Description"
               type="text"
               className="_margin_vertical_sm"
               placeholder="Ajouter une description ."
@@ -67,10 +105,10 @@ const AddAnnonce = (props) => {
                   <span>-</span>
                 </div>
                 <Form.Input
-                  label="Ages"
+                  label="Contité"
                   type="number"
                   className="sha _margin_vertical_sm age_input"
-                  placeholder="19 ans"
+                  placeholder="1"
                 />
                 <div class="plus">
                   <span>+</span>

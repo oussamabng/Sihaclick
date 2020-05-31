@@ -4,11 +4,13 @@ import BloodReducer from "./BloodReducer";
 import languageReducer from "./languageReducer";
 import newsReducer from "./newsReducer"
 import drugsReducer from "./drugsReducer";
+import doctorReducer from "./doctorReducer";
 
 export default combineReducers({
   auth: authReducer,
   blood: BloodReducer,
   drugs:drugsReducer,
   language:languageReducer,
-  news : newsReducer
+  news : newsReducer,
+  doc:doctorReducer
 });

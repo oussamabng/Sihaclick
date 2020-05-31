@@ -4,32 +4,33 @@ import { ReactComponent as Arrow } from "../../assets/arrow_big.svg";
 import { ReactComponent as ArrowMin } from "../../assets/arrow.svg";
 
 import Etudiant from "../../methods/Etudiant.js";
-import Diplome from "../../methods/Diplome.js";
-import Resident from "../../methods/Resident.js";
 import TypeStage from "../../methods/TypeStage.js";
-//? import css
+  //? import css
 import "./StageSimpleForm.css";
 
-const trigger1 = (
-  <span className="dropdown_title">
-    <p>.</p>
-    Stage de fin d’étude <Arrow />
-  </span>
-);
+
 
 const StageSimpleForm = (props) => {
-  const { type, data } = props; //* type if etudiant or resident or diplomé
+  const { type, data,typeActor,setActor,handleStageType,handleSpec,typeStageEtudiant,speciality,specialitiz ,setChoosenYear,choosenYear,handleYear} = props; //* type if etudiant or resident or diplomé
+  const trigger1 = (
+    <span className="dropdown_title">
+      <p>.</p>
+      {typeStageEtudiant} <Arrow />
+    </span>
+  );
+  const triggerSpeciality = (
+    <span className="dropdown_title">
+      <p>.</p>
+      {speciality} <Arrow />
+    </span>
+  )
   //? years input
   const [years, setYears] = useState(null);
-  const [choosenYear, setChoosenYear] = useState(null);
-  const handleYear = (e, { value }) => {
-    setChoosenYear(value);
-  };
+
   //? type speciality
-  const [speciality, setSpeciality] = useState("Médecine");
   const [specialities, setSpecialities] = useState(null);
   const handleSpeciality = (e, { value }) => {
-    setSpeciality(value);
+    setActor(value);
   };
   //? if no choice yet lock it
   const [isLocked, setIsLocked] = useState(true);
@@ -119,7 +120,7 @@ const StageSimpleForm = (props) => {
   const SpecialityTrigger = (
     <span className="dropdown_title">
       <p>.</p>
-      {speciality} <Arrow />
+      {typeActor} <Arrow />
     </span>
   );
   //? handle confirm
@@ -144,7 +145,7 @@ const StageSimpleForm = (props) => {
             trigger={SpecialityTrigger}
             options={specialities}
             className="dropdown_stage"
-            value={speciality}
+            value={typeActor}
             onChange={handleSpeciality}
           />
         </div>
@@ -159,6 +160,8 @@ const StageSimpleForm = (props) => {
           </p>
           {type === "Etudiant" && (
             <Dropdown
+            value={typeStageEtudiant}
+            onChange={handleStageType}
               disabled={isLocked}
               trigger={trigger1}
               options={TypeStage}
@@ -170,19 +173,22 @@ const StageSimpleForm = (props) => {
               disabled={isLocked}
               trigger={trigger1}
               options={TypeStage}
+              onChange={handleStageType}
+              value={typeStageEtudiant}
               className="dropdown_stage lg"
             />
           )}
           {(type === "Résident" || type === "Diplômé") && (
-            <Input
-              disabled={isLocked}
-              type="text"
-              className="stage_input"
-              placeholder={"Biochimie"}
-            />
+            <Dropdown
+            disabled={isLocked}
+            trigger={triggerSpeciality}
+            options={specialitiz}
+            onChange={handleSpec}
+            className="dropdown_stage lg"
+          />
           )}
         </div>
-        <div className="item_dropdown sm">
+        {typeStageEtudiant==="Stage de fin d’étude" && <div className="item_dropdown sm">
           <p>Précisez l’année:</p>
           <Dropdown
             disabled={isLocked}
@@ -192,7 +198,7 @@ const StageSimpleForm = (props) => {
             onChange={handleYear}
             className="dropdown_stage sm"
           />
-        </div>
+        </div>}
       </div>
       <Button
         disabled={isLocked}

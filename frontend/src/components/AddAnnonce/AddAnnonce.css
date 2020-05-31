@@ -26,7 +26,7 @@
 .add_annonce_modal > .row .col {
   align-items: center !important;
 }
-.add_annonce_modal > .row .picture_part > p {
+.add_annonce_modal > .row .picture_part > label > p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,13 +40,18 @@
   top: 0;
   z-index: 1;
 }
+.error_upload {
+  font-size: 16px;
+  color: var(--red);
+  font-weight: 500;
+}
 .add_annonce_modal .number_age_field {
   width: 60%;
 }
 .add_annonce_modal .form .field.age_input {
   width: 50% !important;
 }
-.add_annonce_modal > .row .picture_part > p > svg {
+.add_annonce_modal > .row .picture_part > label > p > svg {
   margin-right: 1rem;
 }
 .add_annonce_modal .form {

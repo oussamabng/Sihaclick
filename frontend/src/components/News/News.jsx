@@ -53,7 +53,7 @@ const News = (props)=>{
     return () => {
       props.get_news([])
     };
-  }, []);
+}, []);
   return (
     <div className="_best_doc _news">
       <Container>

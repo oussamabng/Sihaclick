@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { Container, Form, Checkbox,Dropdown, Segment} from "semantic-ui-react";
+import { Container, Form,Dropdown, Segment} from "semantic-ui-react";
 //? import css
 import "./FormSignup.css";
 import WhySignup from "../../components/WhySignup/WhySignup.jsx";
@@ -43,7 +43,7 @@ export default function FormSignup() {
   const [show,setShow] = useState(false);
 
   function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
   const handleChangeWilaya = (e,{value})=>{
@@ -163,6 +163,7 @@ export default function FormSignup() {
             default:
               break;
           }
+                  return true
         })
       }
       setBtnLoading(false)
@@ -251,10 +252,12 @@ export default function FormSignup() {
             default:
               break;
           }
+          return true
         })
         if (next){
           setShow(true)
         }
+        return true
       }
       setBtnLoading(false)
     })
@@ -304,6 +307,7 @@ export default function FormSignup() {
       let tempArrWilaya = []
       res.data.map(elm=>{
         tempArrWilaya.push({key:elm.id,value:elm.nom,text:elm.nom});
+        return true
       })
      setWilayas(tempArrWilaya);
      setIsLoading(false);
@@ -330,6 +334,7 @@ export default function FormSignup() {
         if (adr.length>0){
           adr[0].communes.map(elm=>{
             tempArrCommunes.push({key:elm.id,text:elm.nom,value:elm.nom});
+            return true
           })
           setCommunes(tempArrCommunes)
         }

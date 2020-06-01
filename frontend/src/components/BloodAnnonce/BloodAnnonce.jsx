@@ -38,6 +38,7 @@ const BloodAnnonce = (props) => {
         break;
       case "distance":
         (props.isLogin)?setDistance(prevState=>!prevState):props.open()
+        break;
       default:
         break;
     }
@@ -85,6 +86,7 @@ const BloodAnnonce = (props) => {
       let communesX = elm.communes
       let com = (communesX.filter(elm=>elm.nom.toLowerCase().includes(commune.toLowerCase())))
       if(com.length>0) codeCommune = com[0]
+      return true
       //? get code of commune and wilaya
      })
       instance.get(`public/donnation/blood/["${typeBlood}${isPositive?"+":"-"}"]/blood/all/${wilaya.length>0?code:commune.length>0?codeCommune.wilaya_id:"all"}/${commune.length>0?codeCommune.id:"all"}/0/12`)
@@ -102,12 +104,12 @@ const BloodAnnonce = (props) => {
       setIsClicked(false)
     })
    }
-  }, [isClicked]);
+  }, [isClicked,commune,isPositive,props,typeBlood,wilaya]);
   useEffect(()=>{
     if (distance){
         props.sort_blood_distance(props.data_blood)
     }
-  },[distance])
+  },[distance,props])
   return (
     <Segment loading={isLoading} className="blood_annonce">
       <SidebarDons

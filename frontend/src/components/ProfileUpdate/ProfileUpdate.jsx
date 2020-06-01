@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
 
 //? import css
 import "./ProfileUpdate.css";
-import { withRouter } from "react-router-dom";
 
 const ProfileUpdate = (props) => {
   const friendOptions = [
@@ -104,10 +103,10 @@ const ProfileUpdate = (props) => {
       setLastname(value)
     }
   };
-  const handleChangeInputLanguage =(e,{name,value})=>{
-    console.log(e.currentTarget);
-    console.log({name,value});
-  }
+ // const handleChangeInputLanguage =(e,{name,value})=>{
+   // console.log(e.currentTarget);
+   // console.log({name,value});
+ // }
   useEffect(() => {
     setIsLoading(true);
     props.login({});
@@ -148,7 +147,7 @@ const ProfileUpdate = (props) => {
       .catch((err) => {
         console.log(err.reponse);
       });
-  }, []);
+  }, [props]);
   const handleUpdate = (e) => {
     //update mail
     let name = e.currentTarget.attributes["name"].value;

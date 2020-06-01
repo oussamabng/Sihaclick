@@ -20,7 +20,7 @@ const MedicamentAnnonce = (props) => {
   const [wilaya, setWilaya] = useState("");
   const [commune, setCommune] = useState("");
   const [name,setName] = useState("");
-  const [isLoading,setIsLoading] = useState(false);
+ // const [isLoading,setIsLoading] = useState(false);
   const handleChange = (e, { value, name }) => {
     switch (name) {
       case "wilaya":
@@ -51,7 +51,7 @@ const MedicamentAnnonce = (props) => {
     .catch(err=>{
       console.log(err.response)
     })
-  }, [wilaya,name,commune])
+  }, [wilaya,name,commune,props])
   return (
     <div className="blood_annonce medicament_annonce">
       <SidebarDons isBlood={false} commune={commune}

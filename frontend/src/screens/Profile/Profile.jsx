@@ -17,7 +17,7 @@ const Profile = (props) => {
     else{
       history.push("/profile/update")
     }
-  },[])
+  },[props.isLogin,history])
   return (
     <>
       <HeaderOnScroll header={false} isLogin={props.isLogin} />

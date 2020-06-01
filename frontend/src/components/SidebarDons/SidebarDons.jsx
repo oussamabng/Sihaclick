@@ -67,7 +67,7 @@ const SidebarDons = (props) => {
           <Accordion.Content active={activeIndex}>
             <Transition
               duration={{ hide: 300, show: 300 }}
-              visible={activeIndex}
+              visible={activeChecked}
               onHide={handleChecked}
             >
               <div className="content_sidebar">

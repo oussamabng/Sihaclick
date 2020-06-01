@@ -1,4 +1,4 @@
-import { createStore, compose, applyMiddleware,combineReducers } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -13,7 +13,6 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-let reducers = combineReducers(Object.assign({}, { Intl }))
 export const store = createStore(
   persistedReducer,
   initialState,

@@ -15,6 +15,7 @@ const HeroStage = (props) => {
     setType(props.type);
     props.data.map((elm) => {
       tempArr.push({ key: elm.id, text: elm.name, value: elm.name });
+      return true
     });
     setData(tempArr);
   }, [props.type, props.data]);

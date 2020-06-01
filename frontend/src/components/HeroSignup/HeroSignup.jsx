@@ -1,11 +1,9 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
 
 //? import css
 import "./HeroSignup.css";
 
 import Background from "../../assets/signup.png";
-import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
 const HeroSignup = () => {
   return (

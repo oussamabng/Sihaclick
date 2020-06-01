@@ -53,6 +53,7 @@ const Stage = (props) => {
       let tempArrWilaya = []
       res.data.map(elm=>{
         tempArrWilaya.push({key:elm.id,value:elm.nom,text:elm.nom});
+        return true
       })
      setWilayas(tempArrWilaya);
     })
@@ -73,6 +74,7 @@ const Stage = (props) => {
       let tempArrWilaya = []
       res.data.map(elm=>{
         tempArrWilaya.push({key:elm.id,value:elm.name,text:elm.name});
+        return true
       })
      setSpecialitiz(tempArrWilaya);
      setspeciality(tempArrWilaya[0].value)
@@ -100,6 +102,7 @@ const Stage = (props) => {
         if (adr.length>0){
           adr[0].communes.map(elm=>{
             tempArrCommunes.push({key:elm.id,text:elm.nom,value:elm.nom});
+            return true
           })
           setCommunes(tempArrCommunes)
         }
@@ -319,9 +322,6 @@ setTwelve(true)
       case "janvier":
         setJanvier(prevState=>!prevState);
         break;
-        case "janvier":
-          setJanvier(prevState=>!prevState);
-          break;
            case "février":
               setFevrier(prevState=>!prevState);
               break;
@@ -470,7 +470,7 @@ setTwelve(true)
      
      }
      else if (type === "Diplômé" || type === "Résident"){
-       var body = {
+        body = {
         internship:{
           intern_type:{
             id :intern_type

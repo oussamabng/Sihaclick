@@ -97,6 +97,7 @@ const Login = (props) => {
               default:
                 break;
             }
+            return true
           });
         } else {
           setIsErr(true);

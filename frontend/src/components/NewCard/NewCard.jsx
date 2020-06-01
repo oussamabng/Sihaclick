@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 function NewCard(props) {
   const [time, setTime] = useState("");
-  const { image, title, organsator, date,created_at } = props.data;
+  const { image, title, organsator,created_at } = props.data;
   useEffect(() => {
    setTime(created_at)
    //!TODO set exemple 5 years ago

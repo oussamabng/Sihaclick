@@ -4,7 +4,6 @@ import { Card, Button, Image } from "semantic-ui-react";
 //? import icon
 import { ReactComponent as Medicament } from "../../assets/Medicament.svg";
 
-import Teva from "../../assets/teva.png";
 
 //? import modal
 import ModalDon from "../../components/ModalDon/ModalDon.jsx";

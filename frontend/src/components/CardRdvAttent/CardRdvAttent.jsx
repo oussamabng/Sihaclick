@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Icon, Button } from "semantic-ui-react";
+import React from "react";
+import { Icon} from "semantic-ui-react";
 
 import Doctor from "../../assets/doctor.jpg";
 
 const CardRdvAttent = () => {
-  const [isPassed, setIsPassed] = useState(true);
+  //const [isPassed, setIsPassed] = useState(true);
   return (
     <div className="card_rdv_recent">
       <div className="card_rdv">

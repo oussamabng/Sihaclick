@@ -7,7 +7,7 @@ import Arrow from "../../components/Arrow/Arrow.jsx";
 import "./Pagination.css";
 
 const Pagination = (props) => {
-  const { number } = props;
+  //const { number } = props;
   return (
     <div className="_pagination">
       <p>Afficher les resultats :</p>

@@ -75,13 +75,14 @@ const Calender = (props) => {
           <>
              {
                array.map(elm=>{
-                 console.log({elm,start,end})
                  
                 if (start<=elm) if (end<=elm) return (<Table.Cell  ></Table.Cell>)
                 else return(
-                  <Table.Cell className="here"  ></Table.Cell>
+                  <Table.Cell className="here"></Table.Cell>
                 )
-               })
+               else return true
+               }
+               )
              }
              </>
             </Table.Row>

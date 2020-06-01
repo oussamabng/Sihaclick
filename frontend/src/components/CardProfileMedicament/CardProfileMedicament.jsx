@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, Button } from "semantic-ui-react";
+import React from "react";
+import { Card } from "semantic-ui-react";
 
 //? import icon
 import { ReactComponent as Medicament } from "../../assets/Medicament.svg";
@@ -10,10 +10,10 @@ import Teva from "../../assets/teva.png";
 import "./CardProfileMedicament.css";
 
 const CardProfileMedicament = () => {
-  const [show, setShow] = useState(false);
-  const handleModal = () => {
-    setShow((prevState) => !prevState);
-  };
+  //const [show, setShow] = useState(false);
+  //const handleModal = () => {
+    //setShow((prevState) => !prevState);
+  //};
   return (
     <div className="card_don other profile">
       <Card>

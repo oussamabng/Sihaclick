@@ -7,13 +7,11 @@ import "./AddAnnonce.css";
 //? import logo
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
-import Teva from "../../assets/teva.png";
 import { ReactComponent as Upload } from "../../assets/upload.svg";
 
 const AddAnnonce = (props) => {
   const { setShow, show } = props;
   const [open, setOpen] = useState(null);
-  const [image,setImage] = useState(null);
   const [imagePreview,setImagePreview] = useState(null);
   const [selectedFile,setSelectedFile] = useState();
   const [fileErr,setFileErr] = useState(false);

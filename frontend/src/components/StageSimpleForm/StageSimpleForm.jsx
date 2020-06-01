@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown, Button, Input } from "semantic-ui-react";
+import { Dropdown, Button } from "semantic-ui-react";
 import { ReactComponent as Arrow } from "../../assets/arrow_big.svg";
 import { ReactComponent as ArrowMin } from "../../assets/arrow.svg";
 
@@ -42,14 +42,19 @@ const StageSimpleForm = (props) => {
     data.length > 0 &&
       data[1].types.map((elm) => {
         diplomeArr.push({ key: elm.id, value: elm.name, text: elm.name });
+        return true
       });
     data.length > 0 &&
       data[0].types.map((elm) => {
         etudiantArr.push({ key: elm.id, value: elm.name, text: elm.name });
+                return true
+
       });
     data.length > 0 &&
       data[2].types.map((elm) => {
         residentArr.push({ key: elm.id, value: elm.name, text: elm.name });
+                return true
+
       });
     let temp = [];
     //? case DIPLOME
@@ -109,7 +114,7 @@ const StageSimpleForm = (props) => {
       }
     }
     setYears(temp);
-  }, [type, data]); //* all about year handling
+  }, [type, data,setChoosenYear]); //* all about year handling
 
   const triggerYears = (
     <span className="dropdown_title">

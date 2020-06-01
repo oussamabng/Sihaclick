@@ -3,7 +3,6 @@ import { Button, Image } from "semantic-ui-react";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { selectLanguage } from "../../actions/languageAction";
-import { languages } from '../../languages'
 
 //? import css
 import "./HomeHeroSection.css";

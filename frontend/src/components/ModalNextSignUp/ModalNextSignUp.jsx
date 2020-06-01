@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Modal, Dropdown, Icon, Message,Checkbox, Button } from "semantic-ui-react";
+import {  Modal, Dropdown,Checkbox, Button } from "semantic-ui-react";
 
 import "./ModalNextSignUp.css"
 //? import arrow

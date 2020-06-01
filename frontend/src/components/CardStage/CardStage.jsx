@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Icon, Image, Button } from "semantic-ui-react";
 
 //? import css

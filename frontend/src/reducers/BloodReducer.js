@@ -13,10 +13,10 @@ export default function (state = initialState, action) {
         sortDistance:false
       };
     case FETCH_BLOOD_DISTANCE:
-      let tempArr = []
-      action.payload.map(blood_don=>{
+      //let tempArr = []
+     // action.payload.map(blood_don=>{
         //TODO 
-      })
+      //})
       return {
         ...state,
         data_blood:action.payload,

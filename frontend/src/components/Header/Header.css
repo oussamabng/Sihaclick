@@ -103,3 +103,20 @@
 ._home_header > .navbar > .navigation > .menu > .menu {
   position: relative;
 }
+._home_header .toggle_action {
+  display: none;
+}
+@media (max-width: 999px) {
+  ._home_header > .navbar > .navigation,
+  ._home_header .home_action {
+    display: none !important;
+  }
+  ._home_header .toggle_action {
+    display: flex !important;
+    z-index: 33;
+    position: relative;
+  }
+  ._home_header .toggle_action svg {
+    cursor: pointer;
+  }
+}

@@ -33,7 +33,7 @@ const OtherDonations = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 8000,
-    arrows: true,
+    arrows: false,
     adaptiveHeight: true,
     appendDots: (dots) => <ul>{dots}</ul>,
     customPaging: (i) => (
@@ -41,6 +41,15 @@ const OtherDonations = () => {
         <div className="loading" />
       </div>
     ),
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   const getMedicament = () => {
     setIsLoading(true);
@@ -109,6 +118,16 @@ const OtherDonations = () => {
         console.log(err.response);
       });
   };
+  const next = () => {
+    if (slider) {
+      slider.slickNext();
+    }
+  };
+  const previous = () => {
+    if (slider) {
+      slider.slickPrev();
+    }
+  };
   const handleItemClick = (e, { name }) => setActiveItem(name);
   useEffect(() => {
     switch (activeItem) {
@@ -126,141 +145,155 @@ const OtherDonations = () => {
     }
   }, [activeItem]);
   return (
-    <div className="_best_doc  other_dons">
-      <Container className="items_container_dons">
-        <Menu widths={3}>
-          <Menu.Item
-            name="Médicament"
-            active={activeItem === "Médicament"}
-            onClick={handleItemClick}
-          />
-          <Menu.Item
-            name="Livres scientifiques"
-            active={activeItem === "Livres scientifiques"}
-            onClick={handleItemClick}
-          />
-          <Menu.Item
-            name="Matériel médical"
-            active={activeItem === "Matériel médical"}
-            onClick={handleItemClick}
-          />
-        </Menu>
-      </Container>
-      <Container className="other_dons_container">
-        {data.length > 4 && (
-          <div className="arr_flex">
-            <Arrow isRight={false} slider={slider} />
-            <Arrow isRight slider={slider} />
-          </div>
-        )}
-        {activeItem === "Médicament" && (
-          <>
-            {data.length > 4 ? (
-              <Segment loading={isLoading}>
-                <Slider ref={(c) => setSlider(c)} {...settings}>
-                  {data.map((elm, index) => (
-                    <CardDon key={index} data={elm} />
-                  ))}
-                </Slider>
-              </Segment>
-            ) : (
-              <Segment loading={isLoading}>
-                <Grid
-                  stackable
-                  columns="equal"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  {data.map((elm, index) => (
-                    <CardDon key={index} data={elm} activeItem={activeItem} />
-                  ))}
-                </Grid>
-              </Segment>
-            )}
-          </>
-        )}
-        {activeItem === "Livres scientifiques" && (
-          <>
-            {data.length > 4 ? (
-              <Segment loading={isLoading}>
-                <Slider ref={(c) => setSlider(c)} {...settings}>
-                  {data.map((elm, index) => (
-                    <CardDon key={index} data={elm} />
-                  ))}
-                </Slider>
-              </Segment>
-            ) : (
-              <Segment loading={isLoading}>
-                <Grid
-                  stackable
-                  columns="equal"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  {data.map((elm, index) => (
-                    <CardDon key={index} data={elm} activeItem={activeItem} />
-                  ))}
-                </Grid>
-              </Segment>
-            )}
-          </>
-        )}
-        {activeItem === "Matériel médical" && (
-          <>
-            {data.length > 4 ? (
-              <Segment loading={isLoading}>
-                <Slider ref={(c) => setSlider(c)} {...settings}>
-                  {data.map((elm, index) => (
-                    <CardDon key={index} data={elm} />
-                  ))}
-                </Slider>
-              </Segment>
-            ) : (
-              <Segment loading={isLoading}>
-                <Grid
-                  stackable
-                  columns="equal"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  {data.map((elm, index) => (
-                    <CardDon key={index} data={elm} activeItem={activeItem} />
-                  ))}
-                </Grid>
-              </Segment>
-            )}
-          </>
-        )}
-        <div
-          className="_btn_other_dons"
-          style={{
-            paddingTop: "4rem",
-          }}
-        >
-          <Button
-            className="inverted"
-            content="afficher tous les dons"
-            as={Link}
-            to="/medicament"
-            icon="plus"
-            labelPosition="left"
-          />
-          <Button
-            content="Ajouter une annonce"
-            icon="plus"
-            labelPosition="left"
-            onClick={handleModal}
-          />
+    <>
+      <div
+        style={{
+          marginLeft: "auto",
+          justifyContent: "flex-end",
+        }}
+        className="arr_dons"
+      >
+        <div className="arrows_dons">
+          <Arrow isRight={false} slider={slider} onClick={previous} />
+          <Arrow isRight slider={slider} onClick={next} />
         </div>
-        {show && <AddAnnonce setShow={handleModal} show={show} />}
-      </Container>
-    </div>
+      </div>
+      <div className="_best_doc  other_dons">
+        <Container className="items_container_dons">
+          <Menu widths={3}>
+            <Menu.Item
+              name="Médicament"
+              active={activeItem === "Médicament"}
+              onClick={handleItemClick}
+            />
+            <Menu.Item
+              name="Livres scientifiques"
+              active={activeItem === "Livres scientifiques"}
+              onClick={handleItemClick}
+            />
+            <Menu.Item
+              name="Matériel médical"
+              active={activeItem === "Matériel médical"}
+              onClick={handleItemClick}
+            />
+          </Menu>
+        </Container>
+        <Container className="other_dons_container">
+          {data.length > 4 && (
+            <div className="arr_flex">
+              <Arrow isRight={false} slider={slider} />
+              <Arrow isRight slider={slider} />
+            </div>
+          )}
+          {activeItem === "Médicament" && (
+            <>
+              {data.length > 4 ? (
+                <Segment loading={isLoading}>
+                  <Slider ref={(c) => setSlider(c)} {...settings}>
+                    {data.map((elm, index) => (
+                      <CardDon key={index} data={elm} />
+                    ))}
+                  </Slider>
+                </Segment>
+              ) : (
+                <Segment loading={isLoading}>
+                  <Grid
+                    stackable
+                    columns="equal"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {data.map((elm, index) => (
+                      <CardDon key={index} data={elm} activeItem={activeItem} />
+                    ))}
+                  </Grid>
+                </Segment>
+              )}
+            </>
+          )}
+          {activeItem === "Livres scientifiques" && (
+            <>
+              {data.length > 4 ? (
+                <Segment loading={isLoading}>
+                  <Slider ref={(c) => setSlider(c)} {...settings}>
+                    {data.map((elm, index) => (
+                      <CardDon key={index} data={elm} />
+                    ))}
+                  </Slider>
+                </Segment>
+              ) : (
+                <Segment loading={isLoading}>
+                  <Grid
+                    stackable
+                    columns="equal"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {data.map((elm, index) => (
+                      <CardDon key={index} data={elm} activeItem={activeItem} />
+                    ))}
+                  </Grid>
+                </Segment>
+              )}
+            </>
+          )}
+          {activeItem === "Matériel médical" && (
+            <>
+              {data.length > 4 ? (
+                <Segment loading={isLoading}>
+                  <Slider ref={(c) => setSlider(c)} {...settings}>
+                    {data.map((elm, index) => (
+                      <CardDon key={index} data={elm} />
+                    ))}
+                  </Slider>
+                </Segment>
+              ) : (
+                <Segment loading={isLoading}>
+                  <Grid
+                    stackable
+                    columns="equal"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {data.map((elm, index) => (
+                      <CardDon key={index} data={elm} activeItem={activeItem} />
+                    ))}
+                  </Grid>
+                </Segment>
+              )}
+            </>
+          )}
+          <div
+            className="_btn_other_dons"
+            style={{
+              paddingTop: "4rem",
+            }}
+          >
+            <Button
+              className="inverted"
+              content="afficher tous les dons"
+              as={Link}
+              to="/medicament"
+              icon="plus"
+              labelPosition="left"
+            />
+            <Button
+              content="Ajouter une annonce"
+              icon="plus"
+              labelPosition="left"
+              onClick={handleModal}
+            />
+          </div>
+          {show && <AddAnnonce setShow={handleModal} show={show} />}
+        </Container>
+      </div>
+    </>
   );
 };
 

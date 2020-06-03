@@ -154,3 +154,9 @@
   background-color: #099aaa;
   color: white;
 }
+@media (max-width: 999px) {
+  .modals.dimmer.visible {
+    padding: 0;
+    width: 95%;
+  }
+}

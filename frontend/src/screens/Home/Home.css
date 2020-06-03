@@ -35,3 +35,6 @@
   right: 2%;
   transform: rotate(-90deg);
 }
+.home > .home_img.blur {
+  filter: blur(3px);
+}

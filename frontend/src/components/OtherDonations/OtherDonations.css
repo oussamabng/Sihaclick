@@ -18,6 +18,9 @@
   box-shadow: 0 0px 3px 1px rgba(175, 175, 175, 0.22);
   width: 534px;
 }
+.arr_dons {
+  display: none;
+}
 body.animating.in.dimmable,
 body.dimmed.dimmable {
   overflow: visible !important;
@@ -66,4 +69,42 @@ body.dimmed.dimmable {
 }
 ._btn_other_dons .button .icon {
   background: transparent !important;
+}
+@media (max-width: 999px) {
+  ._best_doc.blood .circle_blood_bottom,
+  ._best_doc.other_dons .items_container_dons {
+    display: none;
+  }
+  ._best_doc .plus_title.ml-0 {
+    margin: 0 !important;
+    margin-left: 1rem !important;
+  }
+  .other_dons_container .ui.segment {
+    background: transparent !important;
+  }
+  ._btn_other_dons {
+    flex-direction: column;
+  }
+  ._btn_other_dons .button {
+    margin-bottom: 1rem;
+  }
+  ._best_doc.blood,
+  ._best_doc._event {
+    background: #f9fcfc !important;
+  }
+  ._add_email_home {
+    display: none;
+  }
+  .arr_dons {
+    display: flex;
+    background: #f9fcfc !important;
+  }
+  .arr_dons .arrows_dons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .other_dons_container {
+    padding: 2rem 0;
+  }
 }

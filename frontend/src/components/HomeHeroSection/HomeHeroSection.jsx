@@ -9,7 +9,7 @@ import "./HomeHeroSection.css";
 
 import Test from "../../assets/hero_section.png";
 
-const   HomeHeroSection =(props)=>{
+const HomeHeroSection = (props) => {
   const { setSlider } = props;
   const settings = {
     dots: true,
@@ -40,18 +40,22 @@ const   HomeHeroSection =(props)=>{
         }}
       >
         {" "}
-        <div className={props.selectedLanguage.isFrench?"my_hero":"my_hero arabe"}>
+        <div
+          className={
+            props.selectedLanguage.isFrench ? "my_hero" : "my_hero arabe"
+          }
+        >
           {" "}
-          <div className={props.selectedLanguage.isFrench?"info":"info _rtl"}>
+          <div
+            className={props.selectedLanguage.isFrench ? "info" : "info _rtl"}
+          >
             <h1>
               <b>{hero_section.b[0]}</b>
               {hero_section.h1[0]}
               <br />
               {hero_section.h1[1]} <b>{hero_section.b[1]}</b>
             </h1>
-            <p>
-            {hero_section.p}
-            </p>
+            <p>{hero_section.p}</p>
             <Button
               className="hero_btn"
               content={hero_section.btn}
@@ -59,15 +63,41 @@ const   HomeHeroSection =(props)=>{
               labelPosition="right"
             />
           </div>
-          <Image src={Test} className={props.selectedLanguage.isFrench?"hero_img":"hero_img arabe"} />
+          <Image
+            src={Test}
+            className={
+              props.selectedLanguage.isFrench ? "hero_img" : "hero_img arabe"
+            }
+          />
         </div>
-       </Slider>
+      </Slider>
+      <div className="mobile_info">
+        <div
+          className={
+            props.selectedLanguage.isFrench ? "info mobile" : "info _rtl mobile"
+          }
+        >
+          <h1>
+            <b>{hero_section.b[0]}</b>
+            {hero_section.h1[0]}
+            <br />
+            {hero_section.h1[1]} <b>{hero_section.b[1]}</b>
+          </h1>
+          <p>{hero_section.p}</p>
+          <Button
+            className="hero_btn"
+            content={hero_section.btn}
+            icon="right arrow"
+            labelPosition="right"
+          />
+        </div>
+      </div>
     </div>
   );
-}
-const mapStateToProps = state => {
-  return { 
+};
+const mapStateToProps = (state) => {
+  return {
     selectedLanguage: state.language,
-  }
-}
-export default connect(mapStateToProps, { selectLanguage })(HomeHeroSection)
+  };
+};
+export default connect(mapStateToProps, { selectLanguage })(HomeHeroSection);

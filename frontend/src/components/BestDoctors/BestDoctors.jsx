@@ -29,12 +29,25 @@ export default function BestDoctors() {
         <div className="loading" />
       </div>
     ),
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   const next = () => {
-    slider.slickNext();
+    if (slider) {
+      slider.slickNext();
+    }
   };
   const previous = () => {
-    slider.slickPrev();
+    if (slider) {
+      slider.slickPrev();
+    }
   };
   return (
     <div className="_best_doc">
@@ -68,6 +81,7 @@ export default function BestDoctors() {
               marginLeft: "auto",
               display: "flex",
             }}
+            className="arz"
           >
             <div className="arrows">
               <Arrow isRight={false} slider={slider} onClick={previous} />
@@ -91,6 +105,17 @@ export default function BestDoctors() {
               <DoctorCard />
             </div>
           </Slider>
+          <div
+            style={{
+              marginLeft: "auto",
+            }}
+            className="arrows_mobile"
+          >
+            <div className="arrows">
+              <Arrow isRight={false} slider={slider} onClick={previous} />
+              <Arrow isRight slider={slider} onClick={next} />
+            </div>
+          </div>
         </div>
         <div className="shape_slider"></div>
       </Container>

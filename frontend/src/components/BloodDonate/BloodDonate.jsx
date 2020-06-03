@@ -73,10 +73,15 @@ export default function BloodDonate() {
           />
         </div>
         <div className="info">
-          <div className="title_best_doc">
+          <div
+            className="title_best_doc"
+            style={{
+              alignItems: "center",
+            }}
+          >
             <div className="line_title"></div>
             <p>Autres dons</p>
-            <div className="plus_title">
+            <div className="plus_title ml-0">
               <div className="up"></div>
               <div className="down"></div>
             </div>

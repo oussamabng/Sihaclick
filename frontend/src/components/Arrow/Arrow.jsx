@@ -7,10 +7,14 @@ import "./Arrow.css";
 export default function Arrow(props) {
   const { isRight, slider } = props;
   const next = () => {
-    slider.slickNext();
+    if (slider) {
+      slider.slickNext();
+    }
   };
   const previous = () => {
-    slider.slickPrev();
+    if (slider) {
+      slider.slickPrev();
+    }
   };
   return (
     <div

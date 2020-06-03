@@ -83,7 +83,8 @@
   border-bottom: none;
   width: 100%;
 }
-.update_profile .info_data p {
+.update_profile .info_data p,
+.flexLAbel h4 {
   font-size: 14px;
   font-weight: 400;
   color: #a4a4a4;
@@ -91,6 +92,9 @@
   margin: 0 2rem;
   white-space: nowrap;
   min-width: 130px;
+}
+.flexLAbel h4 {
+  padding: 0rem 1rem;
 }
 .update_profile .info_data .confirm_edit p {
   font-size: 14px;
@@ -127,4 +131,61 @@
 }
 .droplangue.dropdown.ui.selection i {
   display: none;
+}
+.flexLAbel h4 {
+  display: none;
+}
+@media (max-width: 999px) {
+  .update_profile .info_data > p {
+    display: none;
+  }
+  .flexLAbel h4 {
+    margin: 0;
+    display: block !important;
+  }
+  .confirm_edit.hide {
+    display: none !important;
+  }
+  .update_profile ._header .info .dropdown {
+    min-width: 160px;
+  }
+  .update_profile ._header .info {
+    margin: 0 2rem;
+  }
+  .update_profile .input_update_profile input,
+  .droplangue.dropdown.ui.selection {
+    max-width: 200px;
+    height: 45px;
+    margin: 1rem 0;
+  }
+  .update_profile .confirm_edit i.icon {
+    position: absolute;
+    right: -20%;
+    top: 48%;
+  }
+  .update_profile .type_content.blue {
+    padding: 0 2rem;
+  }
+  .fullname_mobile {
+    flex-direction: column;
+  }
+  .fullname_mobile .input_update_profile input {
+    max-width: 120px !important;
+    width: 120px !important;
+  }
+  .fullname_mobile div {
+    margin: 0 !important;
+  }
+  .fullname_mobile div i {
+    position: absolute;
+    right: 20%;
+    top: 15%;
+    font-size: 1.5rem !important;
+  }
+}
+.flexLAbel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Icon, Image ,Dropdown} from "semantic-ui-react";
+import { Icon, Image, Dropdown } from "semantic-ui-react";
 import axios from "axios";
-
 
 //? import css
 import "./HeaderOnScroll.css";
@@ -11,26 +10,26 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Comment } from "../../assets/comment.svg";
 import { ReactComponent as Notification } from "../../assets/notification.svg";
 
-//? redux 
-import {open,logout} from "../../actions/authActions.js";
+//? redux
+import { open, logout } from "../../actions/authActions.js";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { withRouter,useHistory } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 
 //? import Login modal
 import Login from "../../components/Login/Login.jsx";
 
- const HeaderOnScroll = (props)=>{
+const HeaderOnScroll = (props) => {
   const history = useHistory();
   const [isShow, setShow] = useState(false);
-  const {header} = props;
+  const { header } = props;
   const [image, setImage] = useState("");
-  const trigger = <Image src={image} />
+  const trigger = <Image src={image} />;
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     props.logout();
-    return history.push("/")
-  }
+    return history.push("/");
+  };
 
   useEffect(() => {
     setShow(header);
@@ -62,7 +61,7 @@ import Login from "../../components/Login/Login.jsx";
   }, [props.isLogin]);
   return (
     <div
-      className="_home_header shadow x"
+      className="_home_header shadow x mobile"
       style={{
         background: isShow ? "#13C2D4" : "white",
       }}
@@ -97,25 +96,17 @@ import Login from "../../components/Login/Login.jsx";
           >
             <Comment />
             <Notification />
-            <Dropdown
-                trigger={trigger}
-                pointing="top right"
-                icon={null}
-              >
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    text="Account"
-                    icon="user"
-                    to="/admin/profile"
-                  />
+            <Dropdown trigger={trigger} pointing="top right" icon={null}>
+              <Dropdown.Menu>
+                <Dropdown.Item text="Account" icon="user" to="/admin/profile" />
 
-                  <Dropdown.Item
-                    text="Sign Out"
-                    icon="sign out"
-                    onClick={handleLogout}
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
+                <Dropdown.Item
+                  text="Sign Out"
+                  icon="sign out"
+                  onClick={handleLogout}
+                />
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         )}
         {!props.isLogin && (
@@ -129,7 +120,7 @@ import Login from "../../components/Login/Login.jsx";
             <p
               href="/signin"
               className="_margin_horizontal_sm blue"
-              onClick={()=>props.open()}
+              onClick={() => props.open()}
             >
               Sign in
             </p>
@@ -142,13 +133,13 @@ import Login from "../../components/Login/Login.jsx";
       </div>
     </div>
   );
-}
+};
 HeaderOnScroll.propTypes = {
   isLogin: PropTypes.bool.isRequired,
   token: PropTypes.string.isRequired,
-  isOpen:PropTypes.bool.isRequired,
-  open:PropTypes.func.isRequired,
-  logout:PropTypes.func.isRequired
+  isOpen: PropTypes.bool.isRequired,
+  open: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -157,6 +148,6 @@ const mapStateToProps = (state) => ({
   token: state.auth.token,
 });
 
-export default connect(mapStateToProps, { open , logout})(
+export default connect(mapStateToProps, { open, logout })(
   withRouter(HeaderOnScroll)
 );

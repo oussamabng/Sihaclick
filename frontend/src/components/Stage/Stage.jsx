@@ -12,13 +12,32 @@ import CardStage from "../../components/CardStage/CardStage.jsx";
 const Stage = () => {
   const [slider, setSlider] = useState(null);
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 8000,
+    arrows: false,
+    adaptiveHeight: true,
     rows: 2,
+    appendDots: (dots) => <ul>{dots}</ul>,
+    customPaging: (i) => (
+      <div className="ft-slick__dots--custom">
+        <div className="loading" />
+      </div>
+    ),
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+          centerMode: true,
+        },
+      },
+    ],
   };
   return (
     <div className="_best_doc _event _stage">
@@ -52,7 +71,12 @@ const Stage = () => {
           <CardStage />
           <CardStage />
         </Slider>
-        <div className="arrow_stage">
+        <div
+          className="arrow_stage"
+          style={{
+            padding: "2rem 0",
+          }}
+        >
           <Arrow isRight={false} slider={slider} />
           <Arrow isRight slider={slider} />
         </div>

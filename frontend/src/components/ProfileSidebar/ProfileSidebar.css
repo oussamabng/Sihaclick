@@ -99,3 +99,21 @@
 .profile_sidebar {
   z-index: 50 !important;
 }
+@media (max-width: 999px) {
+  .profile_sidebar {
+    left: -290px;
+    top: 0;
+    transition: all 0.3s ease;
+  }
+  .profile_sidebar {
+    padding-top: 3rem;
+  }
+  .update_profile.ui.segment {
+    padding: 0 !important;
+  }
+}
+.profile_sidebar.active {
+  left: 0 !important;
+  z-index: 80;
+  transition: all 0.3s ease;
+}

@@ -22,3 +22,38 @@
   width: 300px;
   margin: 0 2.5rem;
 }
+._best_doc .info {
+  position: relative;
+}
+._best_doc .info h3 {
+  max-width: 245px;
+}
+@media (max-width: 999px) {
+  ._best_doc._event > .circle_right {
+    right: 0;
+    left: 100%;
+    transform: translate(-20%, 0%);
+    z-index: 1;
+  }
+  ._best_doc._event {
+    padding: 2rem 0;
+  }
+  ._best_doc._event .slick-slide {
+    margin: 0;
+  }
+  .other_dons_container {
+    padding: 2rem 0 !important;
+  }
+  ._best_doc._event .arr-flex {
+    display: none !important;
+  }
+  ._best_doc._event .arrows_mobile {
+    justify-content: flex-end;
+  }
+  ._best_doc._event .slick-dots {
+    bottom: -9% !important;
+  }
+  .blood_btn {
+    margin: 1rem 0 !important;
+  }
+}

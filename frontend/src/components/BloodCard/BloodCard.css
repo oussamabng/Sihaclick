@@ -99,3 +99,25 @@
 .icon_plq {
   margin-left: 40%;
 }
+@media (max-width: 999px) {
+  ._blood_card_btn {
+    transform: translate(0, 40%);
+  }
+  .blood_card.card {
+    width: 280px;
+  }
+  ._blood_grid .column {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  ._best_doc.blood .circle_blood {
+    top: -10% !important;
+    transform: translate(-92%, 0) !important;
+    z-index: 1;
+    background: rgba(19, 194, 212, 0.12) !important;
+  }
+  ._best_doc .info {
+    z-index: 2;
+  }
+}

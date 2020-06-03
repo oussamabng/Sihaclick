@@ -1,0 +1,31 @@
+.mobile_login_mobile {
+  display: none;
+}
+@media (max-width: 999px) {
+  .mobile_login_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: max-content;
+    padding: 4rem;
+    background: white;
+  }
+  .left_it {
+    padding-left: 0 !important;
+  }
+}
+.mobile_login_mobile svg {
+  width: 30px;
+  height: 30px;
+}
+.mobile_login_mobile .tog path {
+  stroke: #13c2d4;
+}
+.left_it {
+  padding-left: 260px;
+}

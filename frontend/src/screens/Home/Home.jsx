@@ -12,7 +12,8 @@ import OtherDonations from "../../components/OtherDonations/OtherDonations.jsx";
 import Event from "../../components/Event/Event.jsx";
 import Stage from "../../components/Stage/Stage.jsx";
 import AddEmail from "../../components/AddEmail/AddEmail.jsx";
-
+import Backdrop from "../../components/Backdrop/Backdrop.jsx";
+import HeaderMobile from "../../components/HeaderMobile/HeaderMobile.jsx";
 
 //? import css
 import "./Home.css";
@@ -20,10 +21,15 @@ import "./Home.css";
 //? import Arrow
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
-const  Home = (props) =>{
+//? import reddux stuff
+import { handleToggle } from "../../actions/toggleAction";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+
+const Home = (props) => {
   const [isScrolled, setIsScrolled] = useState(true);
   const [slider, setSlider] = useState(null);
-
   useEffect(() => {
     window.addEventListener("scroll", () => {
       let isTop = window.scrollY < 960;
@@ -39,7 +45,11 @@ const  Home = (props) =>{
   return (
     <>
       <div className="home">
-        <div className="home_img">
+        <>{props.isOpen && <Backdrop />}</>
+        <>
+          {props.isOpen && <HeaderMobile click={() => props.handleToggle()} />}{" "}
+        </>
+        <div className={props.isOpen ? "home_img blur" : "home_img"}>
           <HomeHeroSection setSlider={setSlider} />
           <Arrow className="previous_arrow" onClick={previous} />
           <Arrow className="next_arrow" onClick={next} />
@@ -57,6 +67,12 @@ const  Home = (props) =>{
       <Footer isBlood={false} />
     </>
   );
-}
-
-export default Home;
+};
+Home.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  handleToggle: PropTypes.func.isRequired,
+};
+const mapStateToProps = (state) => ({
+  isOpen: state.toggle.isOpen,
+});
+export default connect(mapStateToProps, { handleToggle })(withRouter(Home));

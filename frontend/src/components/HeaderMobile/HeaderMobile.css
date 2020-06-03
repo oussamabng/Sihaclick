@@ -1,0 +1,70 @@
+.header-mobile {
+  position: relative;
+  z-index: 120;
+  height: 100%;
+  padding: 2rem 3rem;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+.header-mobile p {
+  margin: 0;
+}
+.mobile_login_mobile {
+  padding: 3rem 2rem !important;
+}
+.header-mobile i {
+  color: white;
+}
+.header-mobile .parent_row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 85%;
+}
+.header-mobile .parent_row .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.header-mobile .row .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.header-mobile .hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  visibility: hidden;
+}
+.header-mobile .not_hidden {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+.header-mobile .parent_row ul {
+  padding: 0;
+  margin: 0;
+}
+.header-mobile .parent_row ul li {
+  margin: 1.5rem 0;
+}
+.header-mobile .btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+}
+.header-mobile .btns .button {
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  background: #13c2d4;
+  border-radius: 4px;
+  margin: 1rem 0;
+}

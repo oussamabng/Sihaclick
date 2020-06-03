@@ -78,3 +78,23 @@
   text-decoration: underline;
   z-index: 12;
 }
+@media (max-width: 999px) {
+  ._news .info .plus_title {
+    display: none !important;
+  }
+  .under_new_slider a {
+    position: relative !important;
+    text-align: center;
+  }
+  .under_new_slider {
+    flex-direction: column;
+    width: 85%;
+  }
+  ._best_doc._news .icon.button {
+    margin-bottom: 1.5rem;
+  }
+  ._best_doc._news .slider_news .blur_field.right,
+  ._best_doc._news .slider_news .blur_field.left {
+    display: none;
+  }
+}

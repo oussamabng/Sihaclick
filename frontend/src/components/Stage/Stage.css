@@ -2,3 +2,23 @@
   display: flex;
   justify-content: flex-end;
 }
+@media (max-width: 999px) {
+  ._best_doc._event > .circle_right {
+    display: none;
+  }
+  ._best_doc._event .stage_card {
+    margin: 0rem 1rem;
+  }
+  ._best_doc._event .slick-slide {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  ._best_doc._event .info {
+    margin-bottom: 1rem;
+  }
+
+  ._best_doc._event {
+    padding: 0rem;
+    padding-bottom: 1rem;
+  }
+}

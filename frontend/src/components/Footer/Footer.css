@@ -210,3 +210,8 @@
     margin: 0.35rem 0;
   }
 }
+@media (max-width: 999px) {
+  ._footer > .navigation {
+    display: none !important;
+  }
+}

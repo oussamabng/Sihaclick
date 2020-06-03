@@ -1,5 +1,6 @@
 ._home_header > .navbar > .home_action .blue {
   color: var(--bleu_darker) !important;
+  min-width: max-content;
 }
 ._home_header.shadow {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
@@ -8,12 +9,24 @@
   position: sticky;
   top: 0;
   z-index: 30;
+  min-height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 116px;
 }
-
+._home_header > .navbar {
+  width: 100%;
+}
 ._home_header > .navbar > .coords_list {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+._home_header > .navbar > svg {
+  width: 160px;
+  height: 60px;
+  min-width: max-content;
 }
 ._home_header > .navbar > .coords_list li {
   display: flex;
@@ -36,6 +49,9 @@
 ._home_header > .navbar > .coords_list li .icon.phone {
   transform: rotate(90deg);
 }
+._home_header > .navbar > .home_action {
+  min-width: max-content;
+}
 ._home_header > .navbar > .home_action.login .image {
   width: 60px;
   height: 60px;
@@ -45,5 +61,17 @@
   margin-right: 0;
 }
 ._home_header > .navbar > .home_action.login svg {
+  width: 30px;
   margin: 0 2rem;
+  height: 30px;
+}
+@media (max-width: 1399px) {
+  .coords_list {
+    visibility: hidden;
+  }
+}
+@media (max-width: 999px) {
+  ._home_header.mobile {
+    display: none !important;
+  }
 }

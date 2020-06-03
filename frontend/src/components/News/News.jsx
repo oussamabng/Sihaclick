@@ -7,7 +7,7 @@ import axios from "axios";
 import "./News.css";
 
 //? import redux
-import {get_news} from "../../actions/newsActions.js"
+import { get_news } from "../../actions/newsActions.js";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -17,7 +17,7 @@ import NewCard from "../../components/NewCard/NewCard.jsx";
 //? import arrow
 import Arrow from "../../components/Arrow/Arrow.jsx";
 
-const News = (props)=>{
+const News = (props) => {
   const [slider, setSlider] = useState(null);
   const settings = {
     dots: false,
@@ -27,8 +27,15 @@ const News = (props)=>{
     autoplay: false,
     autoplaySpeed: 8000,
     arrows: false,
-    centerMode: true,
-    centerPadding: "0px",
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   useEffect(() => {
     let url = "https://sihaclik.com/api/public/news/all/all/0/12";
@@ -45,15 +52,25 @@ const News = (props)=>{
         method: "get",
       })
       .then((res) => {
-        props.get_news(res.data)
+        props.get_news(res.data);
       })
       .catch((err) => {
         console.log(err.response);
       });
     return () => {
-      props.get_news([])
+      props.get_news([]);
     };
-}, []);
+  }, []);
+  const next = () => {
+    if (slider) {
+      slider.slickNext();
+    }
+  };
+  const previous = () => {
+    if (slider) {
+      slider.slickPrev();
+    }
+  };
   return (
     <div className="_best_doc _news">
       <Container>
@@ -73,6 +90,19 @@ const News = (props)=>{
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the
           </h3>
+          <div
+            style={{
+              marginLeft: "auto",
+              margin: "1rem auto",
+              marginRight: "0",
+            }}
+            className="arrows_mobile"
+          >
+            <div className="arrows">
+              <Arrow isRight={false} slider={slider} onClick={previous} />
+              <Arrow isRight slider={slider} onClick={next} />
+            </div>
+          </div>
         </div>
       </Container>
       <div className="slider_news">
@@ -121,11 +151,11 @@ const News = (props)=>{
       </div>
     </div>
   );
-}
+};
 News.propTypes = {
   data_news: PropTypes.array.isRequired,
 };
 const mapStateToProps = (state) => ({
-  data_news:state.news.data_news
+  data_news: state.news.data_news,
 });
 export default connect(mapStateToProps, { get_news })(News);

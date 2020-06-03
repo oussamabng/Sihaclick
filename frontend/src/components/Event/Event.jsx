@@ -13,13 +13,41 @@ import CardEvent from "../../components/CardEvent/CardEvent.jsx";
 const Event = () => {
   const [slider, setSlider] = useState(null);
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 8000,
     arrows: false,
+    adaptiveHeight: true,
+    centerMode: true,
+    centerPadding: "0px",
+    appendDots: (dots) => <ul>{dots}</ul>,
+    customPaging: (i) => (
+      <div className="ft-slick__dots--custom">
+        <div className="loading" />
+      </div>
+    ),
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  const next = () => {
+    if (slider) {
+      slider.slickNext();
+    }
+  };
+  const previous = () => {
+    if (slider) {
+      slider.slickPrev();
+    }
   };
   return (
     <div className="_best_doc _event">
@@ -51,6 +79,19 @@ const Event = () => {
           <CardEvent />
           <CardEvent />
         </Slider>
+        <div
+          style={{
+            marginLeft: "auto",
+            margin: "1rem auto",
+            marginRight: "0",
+          }}
+          className="arrows_mobile"
+        >
+          <div className="arrows">
+            <Arrow isRight={false} slider={slider} onClick={previous} />
+            <Arrow isRight slider={slider} onClick={next} />
+          </div>
+        </div>
         <div
           style={{
             display: "flex",

@@ -10,9 +10,9 @@ import { ReactComponent as Notif } from "../../assets/notification.svg";
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
 const ProfileSidebar = (props) => {
-  const { active } = props;
+  const { active, visible } = props;
   return (
-    <div className="profile_sidebar">
+    <div className={visible ? "profile_sidebar active" : "profile_sidebar"}>
       <div className="data_profile">
         <h2>Mon espace</h2>
         <h4>

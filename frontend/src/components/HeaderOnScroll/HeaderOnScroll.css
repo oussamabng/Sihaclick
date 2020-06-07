@@ -15,6 +15,13 @@
   align-items: center;
   height: 116px;
 }
+._home_header.x.no_sticky {
+  position: relative !important;
+}
+
+.toggle_action_md.fill svg path {
+  stroke: var(--lighter-bleu);
+}
 ._home_header > .navbar {
   width: 100%;
 }
@@ -69,9 +76,25 @@
   .coords_list {
     visibility: hidden;
   }
+  .toggle_action_md.not_home {
+    display: flex !important;
+  }
 }
 @media (max-width: 999px) {
   ._home_header.mobile {
+    display: none !important;
+  }
+  ._home_header .toggle_action_md {
+    display: flex !important;
+  }
+  .home_action .icon,
+  .home_action p,
+  .home_action a {
+    display: none !important;
+  }
+}
+@media (max-width: 799px) {
+  .coords_list {
     display: none !important;
   }
 }

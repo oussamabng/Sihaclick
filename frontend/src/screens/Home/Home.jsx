@@ -30,6 +30,10 @@ import { withRouter } from "react-router-dom";
 const Home = (props) => {
   const [isScrolled, setIsScrolled] = useState(true);
   const [slider, setSlider] = useState(null);
+  const [visible, setVisible] = React.useState(false);
+  const handleVisible = () => {
+    setVisible((prevState) => !prevState);
+  };
   useEffect(() => {
     window.addEventListener("scroll", () => {
       let isTop = window.scrollY < 960;
@@ -44,7 +48,12 @@ const Home = (props) => {
   };
   return (
     <>
-      <div className="home">
+      <div
+        className="home"
+        onClick={() => {
+          if (visible) handleVisible();
+        }}
+      >
         <>{props.isOpen && <Backdrop />}</>
         <>
           {props.isOpen && <HeaderMobile click={() => props.handleToggle()} />}{" "}
@@ -54,9 +63,14 @@ const Home = (props) => {
           <Arrow className="previous_arrow" onClick={previous} />
           <Arrow className="next_arrow" onClick={next} />
         </div>
-        <Header />
+        <Header visible={visible} handleVisible={handleVisible} />
       </div>
-      <HeaderOnScroll header={isScrolled} isLogin={false} />
+      <HeaderOnScroll
+        header={isScrolled}
+        isLogin={false}
+        handleVisible={handleVisible}
+        hide={true}
+      />
       <BestDoctors />
       <News />
       <BloodDonate />

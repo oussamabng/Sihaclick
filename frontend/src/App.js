@@ -18,7 +18,7 @@ import ProfileMedicament from "./components/ProfileMedicament/ProfileMedicament.
 import ProfileBlood from "./components/ProfileBlood/ProfileBlood.jsx";
 import ProfileStage from "./components/ProfileStage/ProfileStage.jsx";
 import Signup from "./screens/Signup/Signup.jsx";
-
+import test from "./test";
 import { Provider } from "react-redux";
 import { store, persistor } from "./store.js";
 import { PersistGate } from "redux-persist/integration/react";
@@ -32,6 +32,7 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <Router>
           <Switch>
+            <Route exact path="/test" component={test} />
             <Route exact path="/" component={Home} />
             <Route exact path="/blood" component={Blood} />
             <Route exact path="/medicament" component={Medicament} />

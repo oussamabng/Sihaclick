@@ -27,6 +27,7 @@ const HeaderMobile = (props) => {
           <div
             style={{
               padding: "2rem 0",
+              paddingBottom: "0",
             }}
             className={isSearch ? "not_hidden" : "hidden"}
           >

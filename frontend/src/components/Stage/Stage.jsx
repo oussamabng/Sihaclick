@@ -33,8 +33,6 @@ const Stage = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: "0px",
-          centerMode: true,
         },
       },
     ],
@@ -58,18 +56,21 @@ const Stage = () => {
           </h3>
         </div>
         <Slider ref={(c) => setSlider(c)} {...settings}>
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
-          <CardStage />
+          <div className="">
+            <CardStage />
+          </div>
+          <div className="">
+            <CardStage />
+          </div>
+          <div className="">
+            <CardStage />
+          </div>
+          <div className="">
+            <CardStage />
+          </div>
+          <div className="">
+            <CardStage />
+          </div>
         </Slider>
         <div
           className="arrow_stage"

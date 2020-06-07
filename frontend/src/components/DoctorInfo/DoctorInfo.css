@@ -147,3 +147,60 @@
 .exp_doc_info .other_info h1 {
   font-size: 16px;
 }
+.doctor_info .header_part .label_part p,
+.doctor_info .info_doc .text_with_icon h1 {
+  white-space: nowrap;
+}
+.mobile_more,
+.only_mobile {
+  display: none;
+  width: 100%;
+  align-items: center;
+}
+.mobile_more {
+  align-items: flex-start !important;
+}
+.only_mobile .action_doctor_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.accordion_dons .content {
+  padding: 0 !important;
+}
+.action_doctor_btn .button:hover,
+.action_doctor_btn .button:focus {
+  color: white;
+  background: #13c2d4;
+}
+@media (max-width: 999px) {
+  .action_doctor_btn .button {
+    margin: 0 !important;
+  }
+  .doctor_info .accordion_dons {
+    width: auto !important;
+  }
+  .doctor_info {
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translate(0%, -5rem);
+  }
+  .interface_doctor .row {
+    width: 100% !important;
+  }
+  .action_doctor_btn {
+    width: 100% !important;
+  }
+  .doctor_info .doctor_img {
+    width: 137px !important;
+    height: 137px !important;
+  }
+  .mobile_more,
+  .only_mobile {
+    display: flex;
+    flex-direction: column;
+  }
+  .doctor_info .header_part .label_part {
+    margin: 0 1rem;
+  }
+}

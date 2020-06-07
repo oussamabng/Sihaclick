@@ -12,6 +12,9 @@ import "./SidebarDons.css";
 
 //? import arrow
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
 const SidebarDons = (props) => {
   const {
@@ -25,8 +28,10 @@ const SidebarDons = (props) => {
     typeBlood,
     handlePositive,
     handleType,
-    setIsClicked
+    setIsClicked,
   } = props;
+  const { filter } = props.selectedLanguage.medicament;
+  const { isFrench } = props.selectedLanguage;
   const [activeIndex, setActive] = useState(0);
   const [activeChecked, setactiveChecked] = useState(false);
   const handleChecked = () => {
@@ -95,7 +100,7 @@ const SidebarDons = (props) => {
       {!isAnnuaire && (
         <Accordion>
           <Accordion.Title active={activeIndex} onClick={handleClick}>
-            {isBlood ? "Recherche de sang" : "Recherche Simple"} <Arrow />
+            {isFrench ? "Recherche par filtre" : "تصفية البحث"} <Arrow />
           </Accordion.Title>
           <Accordion.Content active={activeIndex}>
             <Transition
@@ -143,32 +148,45 @@ const SidebarDons = (props) => {
                     />
                   </div>
                 )}
-                <Form>
+                <Form
+                  style={{
+                    textAlign: isFrench ? "left" : "right",
+                  }}
+                >
                   {!isBlood && (
                     <Form.Input
-                      label="Nom de Médicament"
-                      placeholder="Médicament"
+                      style={{
+                        textAlign: isFrench ? "left" : "right",
+                      }}
+                      label={filter.nom}
                       name="name"
                       value={name}
                       onChange={handleChange}
                     />
                   )}
                   <Form.Input
-                    label="wilaya"
-                    placeholder="Alger centre"
+                    style={{
+                      textAlign: isFrench ? "left" : "right",
+                    }}
+                    label={filter.wilaya}
                     name="wilaya"
                     value={wilaya}
                     onChange={handleChange}
                   />
                   <Form.Input
-                    label="Commune"
-                    placeholder="Cheraga"
+                    style={{
+                      textAlign: isFrench ? "left" : "right",
+                    }}
+                    label={filter.commune}
                     name="commune"
                     value={commune}
                     onChange={handleChange}
                   />
-                  <Form.Button onClick={()=>setIsClicked(true)} className={isBlood?"filter_btn blood":"filter_btn"}>
-                    Filter
+                  <Form.Button
+                    onClick={() => setIsClicked(true)}
+                    className={isBlood ? "filter_btn blood" : "filter_btn"}
+                  >
+                    {isFrench ? "Filter" : filter.action}
                   </Form.Button>
                 </Form>
               </div>
@@ -179,5 +197,12 @@ const SidebarDons = (props) => {
     </div>
   );
 };
-
-export default SidebarDons;
+SidebarDons.prototype = {
+  selectedLanguage: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => {
+  return {
+    selectedLanguage: state.language,
+  };
+};
+export default connect(mapStateToProps, {})(withRouter(SidebarDons));

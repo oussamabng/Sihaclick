@@ -68,3 +68,30 @@
   font-weight: 400;
   font-family: "Poppins", sans-serif;
 }
+@media (max-width: 999px) {
+  .hero_blood > .content_hero_blood > .info h1 {
+    font-size: 24px;
+  }
+
+  .hero_blood > .content_hero_blood > .info p {
+    font-size: 12px;
+  }
+  .hero_blood > .content_hero_blood svg {
+    width: 300px;
+  }
+}
+@media (max-width: 699px) {
+  .hero_blood > .content_hero_blood > .info {
+    max-width: 450px;
+  }
+}
+@media (max-width: 499px) {
+  .hero_blood > .content_hero_blood > .info {
+    max-width: 250px;
+  }
+}
+@media (max-width: 399px) {
+  .hero_blood > .content_hero_blood > .info {
+    max-width: 150px;
+  }
+}

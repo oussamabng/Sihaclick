@@ -59,3 +59,40 @@
   background: #fb2828;
   color: white;
 }
+.filter_mobile_blood {
+  display: none;
+}
+.blood_filter .button {
+  white-space: nowrap !important;
+}
+.sidebar_dons .type_content {
+  width: auto;
+}
+.blood_annonce .grid {
+  justify-content: flex-start;
+}
+@media (max-width: 999px) {
+  .sidebar_dons .type_content {
+    width: 100%;
+  }
+  .blood_annonce.sidebar_dons {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+  .blood_annonce .grid {
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .filter_mobile_blood {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .blood_annonce .grid {
+    padding: 0rem 0;
+    padding-bottom: 4rem;
+  }
+}

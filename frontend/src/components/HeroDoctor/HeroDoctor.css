@@ -14,3 +14,8 @@
   color: white;
   text-transform: uppercase;
 }
+@media (max-width: 999px) {
+  .hero_doctor h1 {
+    font-size: 24px;
+  }
+}

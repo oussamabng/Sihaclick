@@ -56,8 +56,123 @@
 .medicament_annonce .grid .column .card_don.other .card {
   margin: 0 !important;
 }
+.table_blood.right input {
+  text-align: right;
+}
+.table_blood.right .blood_filter {
+  justify-content: flex-end !important;
+}
 .medicament_annonce .grid_center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.blood_filter_mobile {
+  display: none;
+}
+.accordion_dons.right {
+  text-align: right !important;
+  width: 100% !important;
+}
+.accordion_dons.right input {
+  text-align: right !important;
+}
+.accordion_dons.right .blood_filter_mobile {
+  justify-content: flex-end !important;
+}
+@media (max-width: 999px) {
+  .medicament_annonce .table_blood {
+    padding: 0;
+    margin: 0;
+  }
+  .accordion_dons {
+    display: inline-block !important;
+  }
+  .blood_filter_mobile {
+    display: flex;
+  }
+  .blood_filter_mobile svg path {
+    stroke: #13c2d4;
+  }
+  .blood_filter_mobile > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #f5f5f5;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .blood_filter_mobile > div > p {
+    font-size: 14px;
+    color: #046489;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0 0.75rem;
+  }
+  ._pagination > p,
+  .blood_filter {
+    display: none;
+  }
+  ._pagination {
+    justify-content: center;
+  }
+}
+.accordion_dons {
+  text-align: left;
+  margin: 1%;
+  width: 70%;
+}
+.accordion_dons .content.active {
+  max-height: 400px !important;
+}
+.accordion_dons .content {
+  display: block !important;
+  -webkit-transition: max-height 0.3s;
+  -moz-transition: max-height 0.3s;
+  -ms-transition: max-height 0.3s;
+  -o-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+  overflow: hidden;
+  max-height: 0;
+}
+.blood_filter_mobile > div > .arrow {
+  transform: rotate(-180deg);
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+}
+.blood_filter_mobile > div > .arrow.active {
+  transform: rotate(0deg);
+}
+.accordion_dons {
+  display: none;
+}
+
+.accordion_dons .form .input {
+  padding-bottom: 1rem !important;
+}
+.accordion_dons .form {
+  width: 100%;
+}
+.accordion_dons .form .input {
+  font-size: 16px;
+  font-weight: 700;
+}
+.accordion_dons .form .input input {
+  background: #fbfbfb;
+  border: 1px solid #e4e4e4 !important;
+  border-radius: 4px;
+  color: rgba(4, 105, 141, 0.5) !important;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1rem;
+}
+.accordion_dons .form .field label {
+  color: #04698d !important;
+}
+.accordion_dons .form .input input::placeholder {
+  color: rgba(4, 105, 141, 0.5) !important;
 }

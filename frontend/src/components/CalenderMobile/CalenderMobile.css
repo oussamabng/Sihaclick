@@ -1,0 +1,142 @@
+.time_work {
+  max-height: 30px;
+  width: 260px;
+  background: white;
+  border: 1px solid #04698d;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px 0 rgba(4, 105, 141, 0.16);
+  padding: 0.25rem 0.25rem;
+  margin: 0 1rem;
+}
+.days_calender {
+  box-shadow: 0 2px 10px 0 rgba(4, 105, 141, 0.16);
+  background: white;
+  border: 1px solid #04698d;
+  width: 40px;
+  border-radius: 4px;
+  padding: 0.25rem 0.15rem;
+  max-height: 370px;
+}
+.rend {
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+}
+.calender_mb {
+  margin: 0 1rem;
+  max-height: 370px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.days_calender p {
+  text-align: center;
+  font-size: 12px;
+  color: var(--black);
+  font-weight: 700;
+  margin: 0;
+}
+.days_calender .item {
+  margin: 0.5rem 0;
+}
+.flexit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arrow_ {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #13c2d4;
+  position: relative;
+  z-index: 20;
+  border-radius: 50%;
+  margin: 1rem 0;
+  box-shadow: 0 3px 6px 0 rgba(4, 105, 141, 0.16);
+}
+.time_work p {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #046489;
+  font-weight: 700;
+  width: 40px !important;
+}
+.top_calender {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.top_calender .arrow {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #13c2d4;
+  position: relative;
+  z-index: 20;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px 0 rgba(4, 105, 141, 0.16);
+}
+.lis {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leysth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.xxs {
+  margin: 0 1rem;
+}
+.xxs tr {
+  max-width: 280px;
+  height: 50px;
+}
+.xxs tr td {
+  width: 50px;
+  max-width: 50px;
+  border: 1px solid #e2e2e2;
+}
+.xxs tr td.active {
+  background: #fb2828;
+  opacity: 38%;
+  font-weight: 600;
+}
+.leysth .lis svg {
+  transform: rotate(0deg) !important;
+}
+.top_calender .arrow svg {
+  width: 16px;
+  height: 7px;
+  transform: rotate(90deg);
+  margin-left: 0px;
+  transition: transform 0.3 ease-in;
+}
+.top_calender .arrow.end svg {
+  transform: rotate(-90deg);
+  margin-left: 2px;
+  transition: transform 0.3 ease-in;
+}
+.lis .arrow_ svg {
+  transform: rotate(180deg);
+}
+.row_calender {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem 0;
+}
+.all_calender {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

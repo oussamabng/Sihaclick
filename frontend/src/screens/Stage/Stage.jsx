@@ -35,6 +35,8 @@ const Stage = (props) => {
   const [wilaya, setWilaya] = useState("");
   const [commune, setCommune] = useState("");
   const [communeId, setCommuneId] = useState([]);
+  const [file, setFile] = useState(null);
+
   const handleChangeWilaya = (e, { value }) => {
     setWilaya(value);
   };
@@ -417,161 +419,185 @@ const Stage = (props) => {
       });
   }, []);
   const postStage = () => {
-    let intern_type = type === "Diplômé" ? 2 : type === "Résident" ? 3 : 1;
-    let internship_field = data[intern_type].types.filter((elm) =>
-      elm.name.toLowerCase().includes(typeActor.toLowerCase())
-    )[0].id;
-    let internship_type = activeElement;
-    let months = [];
-    janvier && months.push({ id: 1 });
-    fevrier && months.push({ id: 2 });
-    mars && months.push({ id: 3 });
-    avril && months.push({ id: 4 });
-    mai && months.push({ id: 5 });
-    juin && months.push({ id: 6 });
-    juillet && months.push({ id: 7 });
-    aout && months.push({ id: 8 });
-    septembre && months.push({ id: 9 });
-    octobre && months.push({ id: 10 });
-    novembre && months.push({ id: 11 });
-    december && months.push({ id: 12 });
-
-    for (let i = 0; i < communes.length; i++) {
-      const element = communes[i];
-      for (let j = 0; j < commune.length; j++) {
-        const elm = commune[j];
-        if (element.value.toLowerCase().includes(elm.toLowerCase())) {
-          setCommuneId((prevState) => {
-            let tempArray = prevState;
-            tempArray.push({ id: element.key });
-            return tempArray;
-          });
-        }
-      }
-    }
-
-    let college_internship = {
-      college_end: typeStageEtudiant === "Stage de fin d’étude" ? true : false,
-      year:
-        type === "Diplômé"
-          ? year
-          : typeStageEtudiant === "Stage de fin d’étude"
-          ? parseInt(new Date().getFullYear() + 7 - parseInt(year) + 1)
-          : null,
-    };
-    let flexible = flexable;
-    let date = flexableDate;
-    let period = one
-      ? 1
-      : two
-      ? 2
-      : three
-      ? 3
-      : four
-      ? 4
-      : five
-      ? 5
-      : six
-      ? 6
-      : seven
-      ? 7
-      : eight
-      ? 8
-      : nine
-      ? 9
-      : ten
-      ? 10
-      : eleven
-      ? 11
-      : twelve
-      ? 12
-      : 1;
-    let spec = specialitiz.filter((elm) =>
-      elm.value.toLowerCase().includes(speciality.toLowerCase())
-    )[0].key;
-    console.log({
-      intern_type,
-      internship_field,
-      college_internship,
-      months,
-      period,
-      internship_type,
-      flexible,
-      date,
-      communeId,
-      speciality,
-      typeActor,
-      type,
-      spec,
-    });
-
-    if (type === "Etudiant") {
-      var body = {
-        internship: {
-          intern_type: {
-            id: intern_type,
-          },
-          internship_type: {
-            id: internship_type,
-          },
-          internship_field: {
-            id: internship_field,
-          },
-          period,
-          flexible,
-          date,
-          months,
-          commune: communeId,
-          college_internship,
-        },
-      };
-    } else if (type === "Diplômé" || type === "Résident") {
-      body = {
-        internship: {
-          intern_type: {
-            id: intern_type,
-          },
-          internship_type: {
-            id: internship_type,
-          },
-          internship_field: {
-            id: internship_field,
-          },
-          period,
-          flexible,
-          date,
-          commune: communeId,
-          specialist_internship: {
-            speciality: {
-              id: spec,
-            },
-            year: year,
-          },
-        },
-      };
-    }
-    let instance = axios.create({
+    let instanceFile = axios.create({
       baseURL: "https://sihaclik.com/api/",
       responseType: "json",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${props.token}`,
       },
     });
-    let urlType =
-      type === "Etudiant"
-        ? "student"
-        : type === "Diplômé"
-        ? "degre"
-        : "residant";
-    instance
-      .post(`chaab/donnation/internship/${urlType}`, body)
+    var formData = new FormData();
+    formData.append("pdf", file);
+    instanceFile
+      .post("https://sihaclik.com/upload/pdf", formData)
       .then((res) => {
+        let fileID = res.data.id;
         console.log(res);
+        let intern_type = type === "Diplômé" ? 2 : type === "Résident" ? 3 : 1;
+        let internship_field = data[intern_type].types.filter((elm) =>
+          elm.name.toLowerCase().includes(typeActor.toLowerCase())
+        )[0].id;
+        let internship_type = activeElement;
+        let months = [];
+        janvier && months.push({ id: 1 });
+        fevrier && months.push({ id: 2 });
+        mars && months.push({ id: 3 });
+        avril && months.push({ id: 4 });
+        mai && months.push({ id: 5 });
+        juin && months.push({ id: 6 });
+        juillet && months.push({ id: 7 });
+        aout && months.push({ id: 8 });
+        septembre && months.push({ id: 9 });
+        octobre && months.push({ id: 10 });
+        novembre && months.push({ id: 11 });
+        december && months.push({ id: 12 });
+
+        for (let i = 0; i < communes.length; i++) {
+          const element = communes[i];
+          for (let j = 0; j < commune.length; j++) {
+            const elm = commune[j];
+            if (element.value.toLowerCase().includes(elm.toLowerCase())) {
+              setCommuneId((prevState) => {
+                let tempArray = prevState;
+                tempArray.push({ id: element.key });
+                return tempArray;
+              });
+            }
+          }
+        }
+
+        let college_internship = {
+          college_end:
+            typeStageEtudiant === "Stage de fin d’étude" ? true : false,
+          year:
+            type === "Diplômé"
+              ? year
+              : typeStageEtudiant === "Stage de fin d’étude"
+              ? parseInt(new Date().getFullYear() + 7 - parseInt(year) + 1)
+              : null,
+        };
+        let flexible = flexable;
+        let date = flexableDate;
+        let period = one
+          ? 1
+          : two
+          ? 2
+          : three
+          ? 3
+          : four
+          ? 4
+          : five
+          ? 5
+          : six
+          ? 6
+          : seven
+          ? 7
+          : eight
+          ? 8
+          : nine
+          ? 9
+          : ten
+          ? 10
+          : eleven
+          ? 11
+          : twelve
+          ? 12
+          : 1;
+        let spec = specialitiz.filter((elm) =>
+          elm.value.toLowerCase().includes(speciality.toLowerCase())
+        )[0].key;
+        console.log({
+          intern_type,
+          internship_field,
+          college_internship,
+          months,
+          period,
+          internship_type,
+          flexible,
+          date,
+          communeId,
+          speciality,
+          typeActor,
+          type,
+          spec,
+        });
+
+        if (type === "Etudiant") {
+          var body = {
+            internship: {
+              intern_type: {
+                id: intern_type,
+              },
+              internship_type: {
+                id: internship_type,
+              },
+              internship_field: {
+                id: internship_field,
+              },
+              period,
+              flexible,
+              date,
+              months,
+              commune: communeId,
+              college_internship,
+              cv: {
+                id: fileID,
+              },
+            },
+          };
+        } else if (type === "Diplômé" || type === "Résident") {
+          body = {
+            internship: {
+              intern_type: {
+                id: intern_type,
+              },
+              internship_type: {
+                id: internship_type,
+              },
+              internship_field: {
+                id: internship_field,
+              },
+              period,
+              flexible,
+              date,
+              commune: communeId,
+              cv: {
+                id: fileID,
+              },
+              specialist_internship: {
+                speciality: {
+                  id: spec,
+                },
+                year: year,
+              },
+            },
+          };
+        }
+        let instance = axios.create({
+          baseURL: "https://sihaclik.com/api/",
+          responseType: "json",
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${props.token}`,
+          },
+        });
+        let urlType =
+          type === "Etudiant"
+            ? "student"
+            : type === "Diplômé"
+            ? "degre"
+            : "residant";
+        instance
+          .post(`chaab/donnation/internship/${urlType}`, body)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err.response);
+          });
       })
-      .catch((err) => {
-        console.log(err.response);
-      });
+      .catch((err) => console.log(err));
   };
   return (
     <>
@@ -595,6 +621,7 @@ const Stage = (props) => {
         specialitiz={specialitiz}
       />
       <StageFixedForm
+        setFile={setFile}
         isConfirmed={isConfirmed}
         postStage={postStage}
         handleMonths={handleMonths}

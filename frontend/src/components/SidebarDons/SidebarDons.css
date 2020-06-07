@@ -61,7 +61,8 @@
   transform: rotate(0deg);
   transition: transform ease 0.3s;
 }
-.sidebar_dons svg path {
+.sidebar_dons .accordion svg path,
+.sidebar_dons .form svg path {
   stroke: #13c2d4;
 }
 .sidebar_dons .accordion .content {
@@ -112,7 +113,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding: 2rem 0;
 }
 .sidebar_dons .type_content p {
@@ -192,4 +192,9 @@
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+@media (max-width: 999px) {
+  .sidebar_dons {
+    display: none !important;
+  }
 }

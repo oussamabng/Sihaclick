@@ -24,6 +24,7 @@ export default function BloodDonate() {
         method: "get",
       })
       .then((res) => {
+        console.log({ res });
         setData(res.data);
       })
       .catch((err) => {

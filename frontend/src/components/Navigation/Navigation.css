@@ -45,3 +45,8 @@
 ._navigation svg path {
   stroke: #13c2d4;
 }
+@media (max-width: 1399px) {
+  ._navigation {
+    display: none;
+  }
+}

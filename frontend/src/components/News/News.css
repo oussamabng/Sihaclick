@@ -98,3 +98,8 @@
     display: none;
   }
 }
+@media (max-width: 399px) {
+  ._best_doc._news .slider_news .slider_doc {
+    width: 260px !important;
+  }
+}

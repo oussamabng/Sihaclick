@@ -4,6 +4,8 @@ import { Menu, Icon } from "semantic-ui-react";
 //? import css
 import "./Header.css";
 
+import SidebarGeneral from "../SidebarGeneral/SidebarGeneral.jsx";
+
 //? import Login modal
 import Login from "../../components/Login/Login.jsx";
 import { languages } from "../../languages";
@@ -18,12 +20,35 @@ import { ReactComponent as Toggle } from "../../assets/toggle.svg";
 import { handleToggle } from "../../actions/toggleAction";
 
 const Header = (props) => {
-  props.selectLanguage(languages.french);
   const { navs, dropdown } = props.selectedLanguage.header;
+  const { visible, handleVisible } = props;
   return (
     <header className="_home_header">
+      <SidebarGeneral
+        visible={visible}
+        navs={[
+          { isDropdown: false, value: navs[0], list: null },
+          { isDropdown: false, value: navs[1], list: null },
+          {
+            isDropdown: true,
+            value: navs[2],
+            list: [
+              { value: dropdown[0], link: "/blood" },
+              { value: dropdown[1], link: "/medicament" },
+              { value: dropdown[2], link: "/" },
+              { value: dropdown[3], link: "/" },
+            ],
+          },
+          { isDropdown: false, value: navs[3], list: null },
+          { isDropdown: false, value: navs[4], list: null },
+          { isDropdown: false, value: navs[5], list: null },
+          { isDropdown: false, value: navs[6], list: null },
+        ]}
+      />
       <div className="navbar">
-        <Logo className="white" />
+        <div className="logoo">
+          <Logo className="white" />
+        </div>
         <div className="navigation">
           {props.isOpen && (
             <Login setShow={() => props.open()} show={props.isOpen} />
@@ -56,7 +81,7 @@ const Header = (props) => {
             <Menu.Item name={navs[6]} />
           </Menu>
         </div>
-        <div className="home_action">
+        <div className="home_action btns">
           <Icon name="search" />
           <p className="_margin_horizontal_sm " onClick={() => props.open()}>
             {props.selectedLanguage.isFrench ? "Sign in" : "تسجيل الدخول"}
@@ -64,6 +89,14 @@ const Header = (props) => {
           <a href="/signup" className="btn _margin_horizontal_sm">
             {props.selectedLanguage.isFrench ? "Sign up" : "سجل"}
           </a>
+          <div className="toggle_action_md">
+            <Toggle
+              onClick={handleVisible}
+              style={{
+                cursor: "pointer",
+              }}
+            />
+          </div>
         </div>
         <div className="toggle_action">
           <Toggle onClick={props.handleToggle} />

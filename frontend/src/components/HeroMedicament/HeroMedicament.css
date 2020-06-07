@@ -60,3 +60,21 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+@media (max-width: 999px) {
+  .circle_left,
+  .circle_btn {
+    display: none;
+  }
+  .hero_medicament .overlay .info h1 {
+    font-size: 26px;
+  }
+  .hero_medicament .overlay .info p {
+    font-size: 12px;
+  }
+  .hero_medicament .overlay .info {
+    max-width: 85%;
+  }
+}
+.hero_medicament .overlay .info.right {
+  text-align: right !important;
+}

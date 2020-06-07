@@ -9,17 +9,20 @@ import "./HeaderOnScroll.css";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Comment } from "../../assets/comment.svg";
 import { ReactComponent as Notification } from "../../assets/notification.svg";
+import { ReactComponent as Toggle } from "../../assets/toggle.svg";
 
 //? redux
 import { open, logout } from "../../actions/authActions.js";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter, useHistory } from "react-router-dom";
+import { selectLanguage } from "../../actions/languageAction";
 
 //? import Login modal
 import Login from "../../components/Login/Login.jsx";
 
 const HeaderOnScroll = (props) => {
+  const { handleVisible, hide } = props;
   const history = useHistory();
   const [isShow, setShow] = useState(false);
   const { header } = props;
@@ -61,7 +64,15 @@ const HeaderOnScroll = (props) => {
   }, [props.isLogin]);
   return (
     <div
-      className="_home_header shadow x mobile"
+      className={
+        !props.isToggleOpen
+          ? hide
+            ? "_home_header shadow x mobile"
+            : "_home_header shadow x"
+          : hide
+          ? "_home_header shadow x mobile no_sticky"
+          : "_home_header shadow x no_sticky"
+      }
       style={{
         background: isShow ? "#13C2D4" : "white",
       }}
@@ -122,11 +133,22 @@ const HeaderOnScroll = (props) => {
               className="_margin_horizontal_sm blue"
               onClick={() => props.open()}
             >
-              Sign in
+              {props.selectLanguage.isFrench ? "Se connecter" : "تسجيل الدخول"}
             </p>
             <a href="/signup" className="btn _margin_horizontal_sm">
-              Sign up
+              {props.selectLanguage.isFrench ? "S'inscrire " : "تسجيل الحساب"}
             </a>
+
+            {!isShow && (
+              <div className="toggle_action_md fill not_home">
+                <Toggle
+                  onClick={handleVisible}
+                  style={{
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+            )}
           </div>
         )}
         {props.isOpen && <Login setShow={props.open} show={props.isOpen} />}
@@ -140,12 +162,14 @@ HeaderOnScroll.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   open: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
+  selectLanguage: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isOpen: state.auth.isOpen,
   isLogin: state.auth.isLogin,
   token: state.auth.token,
+  selectLanguage: state.language,
 });
 
 export default connect(mapStateToProps, { open, logout })(

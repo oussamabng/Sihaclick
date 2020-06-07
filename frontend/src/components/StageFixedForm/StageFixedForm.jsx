@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Checkbox, Form, Button, Icon,Dropdown } from "semantic-ui-react";
+import { Checkbox, Form, Button, Icon, Dropdown } from "semantic-ui-react";
 import { ReactComponent as ArrowMin } from "../../assets/arrow.svg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,13 +11,61 @@ import "./StageFixedForm.css";
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 
 const StageFixedForm = (props) => {
-  const {postStage,handleMonths,janvier,fevrier,mars,avril,mai,juin,juillet,aout,flexable,handleFlexable,
-    handleDuree,one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,flexableDate,setFlexableDate,commune,
-    wilayas,wilaya,handleChangeWilaya,handleCommune,communes,
-    activeElement,handleIntership,
-    septembre,octobre,novembre,decembre} = props
+  const {
+    postStage,
+    handleMonths,
+    janvier,
+    fevrier,
+    mars,
+    avril,
+    mai,
+    juin,
+    juillet,
+    aout,
+    flexable,
+    handleFlexable,
+    handleDuree,
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    nine,
+    ten,
+    eleven,
+    twelve,
+    flexableDate,
+    setFlexableDate,
+    commune,
+    wilayas,
+    wilaya,
+    handleChangeWilaya,
+    handleCommune,
+    communes,
+    activeElement,
+    handleIntership,
+    septembre,
+    octobre,
+    novembre,
+    decembre,
+    setFile,
+  } = props;
   const [data, setData] = useState([]);
-
+  const [success, setSucces] = useState(false);
+  const [err, setErr] = useState(false);
+  const onFileSelect = (e) => {
+    if (setErr) setErr(false);
+    let file = e.currentTarget.files[0];
+    if (file.type === "application/pdf") {
+      setSucces(true);
+      setFile(file);
+    } else {
+      setErr(true);
+    }
+  };
   const ExampleCustomInput = ({ value, onClick }) => (
     <button
       className={
@@ -27,8 +75,7 @@ const StageFixedForm = (props) => {
       }
       onClick={onClick}
     >
-      {      value?value:"Période non flexible"
-}
+      {value ? value : "Période non flexible"}
     </button>
   );
   useEffect(() => {
@@ -52,7 +99,7 @@ const StageFixedForm = (props) => {
       .catch((err) => {
         console.log({ err: err.response });
       });
-   
+
     return () => {
       setData([]);
     };
@@ -88,102 +135,102 @@ const StageFixedForm = (props) => {
             <p>Durée de stage </p>
           </div>
           <div className="type_content blue">
-          <Checkbox
-               name="one"
-                disabled={!props.isConfirmed}
-                radio
-                checked={one}
-                label="1 month"
-                onChange={handleDuree}
-              />
-              <Checkbox
-               name="two"
-                disabled={!props.isConfirmed}
-                radio
-                checked={two}
-                label="2 month"
-                onChange={handleDuree}
-              />
-                <Checkbox
-               name="three"
-                disabled={!props.isConfirmed}
-                radio
-                checked={three}
-                label="3 month"
-                onChange={handleDuree}
-              />
-                <Checkbox
-               name="four"
-                disabled={!props.isConfirmed}
-                radio
-                checked={four}
-                label="4 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="five"
-                disabled={!props.isConfirmed}
-                radio
-                checked={five}
-                label="5 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="six"
-                disabled={!props.isConfirmed}
-                radio
-                checked={six}
-                label="6 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="seven"
-                disabled={!props.isConfirmed}
-                radio
-                checked={seven}
-                label="7 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="eight"
-                disabled={!props.isConfirmed}
-                radio
-                checked={eight}
-                label="8 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="nine"
-                disabled={!props.isConfirmed}
-                radio
-                checked={nine}
-                label="9 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="ten"
-                disabled={!props.isConfirmed}
-                radio
-                checked={ten}
-                label="10 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="eleven"
-                disabled={!props.isConfirmed}
-                radio
-                checked={eleven}
-                label="11 month"
-                onChange={handleDuree}
-              />
-               <Checkbox
-               name="twelve"
-                disabled={!props.isConfirmed}
-                radio
-                checked={twelve}
-                label="12 month"
-                onChange={handleDuree}
-              />
+            <Checkbox
+              name="one"
+              disabled={!props.isConfirmed}
+              radio
+              checked={one}
+              label="1 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="two"
+              disabled={!props.isConfirmed}
+              radio
+              checked={two}
+              label="2 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="three"
+              disabled={!props.isConfirmed}
+              radio
+              checked={three}
+              label="3 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="four"
+              disabled={!props.isConfirmed}
+              radio
+              checked={four}
+              label="4 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="five"
+              disabled={!props.isConfirmed}
+              radio
+              checked={five}
+              label="5 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="six"
+              disabled={!props.isConfirmed}
+              radio
+              checked={six}
+              label="6 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="seven"
+              disabled={!props.isConfirmed}
+              radio
+              checked={seven}
+              label="7 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="eight"
+              disabled={!props.isConfirmed}
+              radio
+              checked={eight}
+              label="8 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="nine"
+              disabled={!props.isConfirmed}
+              radio
+              checked={nine}
+              label="9 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="ten"
+              disabled={!props.isConfirmed}
+              radio
+              checked={ten}
+              label="10 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="eleven"
+              disabled={!props.isConfirmed}
+              radio
+              checked={eleven}
+              label="11 month"
+              onChange={handleDuree}
+            />
+            <Checkbox
+              name="twelve"
+              disabled={!props.isConfirmed}
+              radio
+              checked={twelve}
+              label="12 month"
+              onChange={handleDuree}
+            />
           </div>
         </div>
         <div className="col">
@@ -195,24 +242,110 @@ const StageFixedForm = (props) => {
             <DatePicker
               selected={flexableDate}
               onChange={(date) => {
-                setFlexableDate(date)
+                setFlexableDate(date);
                 handleFlexable();
               }}
               customInput={<ExampleCustomInput />}
             />
-            <Button disabled={!props.isConfirmed} onClick={handleFlexable}>Période flexible</Button>
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"janvier"} name="janvier" value={janvier}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"février"} name="février" value={fevrier} onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"mars"} name="mars" value={mars}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"avril"} name="avril" value={avril}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"mai"} name="mai" value={mai}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"juin"} name="juin" value={juin}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"juillet"} name="juillet" value={juillet}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"août"} name="août" value={aout}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"septembre"} name="septembre" value={septembre}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"octobre"} name="octobre" value={octobre}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label={"novembre"} name="novembre" value={novembre}  onChange={handleMonths} />
-            <Checkbox disabled={!props.isConfirmed || !flexable} radio label='décembre' name="décembre"  value={decembre} onChange={handleMonths} />
+            <Button disabled={!props.isConfirmed} onClick={handleFlexable}>
+              Période flexible
+            </Button>
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"janvier"}
+              name="janvier"
+              value={janvier}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"février"}
+              name="février"
+              value={fevrier}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"mars"}
+              name="mars"
+              value={mars}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"avril"}
+              name="avril"
+              value={avril}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"mai"}
+              name="mai"
+              value={mai}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"juin"}
+              name="juin"
+              value={juin}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"juillet"}
+              name="juillet"
+              value={juillet}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"août"}
+              name="août"
+              value={aout}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"septembre"}
+              name="septembre"
+              value={septembre}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"octobre"}
+              name="octobre"
+              value={octobre}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label={"novembre"}
+              name="novembre"
+              value={novembre}
+              onChange={handleMonths}
+            />
+            <Checkbox
+              disabled={!props.isConfirmed || !flexable}
+              radio
+              label="décembre"
+              name="décembre"
+              value={decembre}
+              onChange={handleMonths}
+            />
           </div>
         </div>
 
@@ -227,51 +360,49 @@ const StageFixedForm = (props) => {
           </div>
           <div className="type_content blue">
             <Form className="drops_stage">
-            <Form.Group>
-          <div
-          className="content_sidebar field"
+              <Form.Group>
+                <div
+                  className="content_sidebar field"
+                  style={{
+                    position: "relative",
+                  }}
+                >
+                  <p>Wilaya</p>
+                  <Dropdown
+                    value={wilaya}
+                    openOnFocus
+                    selection
+                    icon={null}
+                    onChange={handleChangeWilaya}
+                    options={wilayas}
                     style={{
-                      position: "relative",
+                      display: "relative",
                     }}
-                  >
-                    <p>Wilaya</p>
-                    <Dropdown
-                      value={wilaya}
-                      openOnFocus
-                      selection
-                      icon={null}
-                      onChange={handleChangeWilaya}
-                      options={wilayas}
-                      style={{
-                        display: "relative",
-                      }}
-                    ></Dropdown>
-                    <Arrow className="tesdeg" />
-                  </div>
-                  <div
-          className="content_sidebar field"
+                  ></Dropdown>
+                  <Arrow className="tesdeg" />
+                </div>
+                <div
+                  className="content_sidebar field"
+                  style={{
+                    position: "relative",
+                  }}
+                >
+                  <p>Commune</p>
+                  <Dropdown
+                    value={commune}
+                    openOnFocus
+                    onChange={handleCommune}
+                    selection
+                    multiple
+                    icon={null}
+                    options={communes}
                     style={{
-                      position: "relative",
+                      display: "relative",
                     }}
-                  >
-                    <p>Commune</p>
-                    <Dropdown
-                      value={commune}
-                      openOnFocus
-                      onChange={handleCommune}
-                      selection
-                      multiple
-                      icon={null}
-                      options={communes}
-                      style={{
-                        display: "relative",
-                      }}
-
-                    ></Dropdown>
-                    <Arrow className="tesdeg" />
-                  </div>
-          </Form.Group>
-        
+                  ></Dropdown>
+                  <Arrow className="tesdeg" />
+                </div>
+              </Form.Group>
             </Form>
           </div>
         </div>
@@ -284,13 +415,66 @@ const StageFixedForm = (props) => {
           confirmer la demande
         </p>
       </div>
-
-      <div className="form_btn_stage">
-        <Button disabled={!props.isConfirmed} onClick={postStage}>
-          <p>.</p>
-          Confirmer
-          <ArrowMin />
-        </Button>
+      <div className="form_btn_stage flex">
+        <div className="stage_cv">
+          <div className="upload">
+            <div className="input_btn">
+              <label htmlFor="file_stage">
+                <Icon name="cloud upload" />
+              </label>
+            </div>
+            <div className="action">
+              <h3>Upload your CV</h3>
+              <p>Please select a .pdf,.word file format</p>
+            </div>
+            <div
+              className="action err"
+              style={{
+                visibility: success ? "visible" : err ? "visible" : "hidden",
+              }}
+            >
+              {success && (
+                <p
+                  style={{
+                    color: "#21ba45",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <Icon name="check circle" color="green" />
+                  File Uploaded
+                </p>
+              )}
+              {err && (
+                <p
+                  style={{
+                    color: "#db2828",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <Icon name="times" color="red" />
+                  wrong file
+                </p>
+              )}
+            </div>
+            <input
+              onChange={onFileSelect}
+              style={{
+                display: "none",
+              }}
+              type="file"
+              id="file_stage"
+            />
+          </div>
+          <div className="form_btn_stage">
+            <Button disabled={!props.isConfirmed} onClick={postStage}>
+              <p>.</p>
+              Confirmer
+              <ArrowMin />
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

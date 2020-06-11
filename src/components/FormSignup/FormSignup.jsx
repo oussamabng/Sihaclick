@@ -40,7 +40,7 @@ export default function FormSignup() {
     setsubmitErr((prevState) => !prevState);
   };
   //? for modal
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   function validateEmail(email) {
     const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

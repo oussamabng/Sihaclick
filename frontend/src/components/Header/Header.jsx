@@ -21,7 +21,7 @@ import { handleToggle } from "../../actions/toggleAction";
 
 const Header = (props) => {
   const { navs, dropdown } = props.selectedLanguage.header;
-  const { visible, handleVisible } = props;
+  const { visible, handleVisible, dont } = props;
   return (
     <header className="_home_header">
       <SidebarGeneral
@@ -89,7 +89,7 @@ const Header = (props) => {
           <a href="/signup" className="btn _margin_horizontal_sm">
             {props.selectedLanguage.isFrench ? "Sign up" : "سجل"}
           </a>
-          <div className="toggle_action_md">
+          <div className={dont ? "toggle_action_md hide" : "toggle_action_md"}>
             <Toggle
               onClick={handleVisible}
               style={{
@@ -98,7 +98,7 @@ const Header = (props) => {
             />
           </div>
         </div>
-        <div className="toggle_action">
+        <div className="toggle_action header">
           <Toggle onClick={props.handleToggle} />
         </div>
       </div>

@@ -19,14 +19,12 @@ const Profile = (props) => {
   useEffect(() => {
     if (!props.isLogin) {
       history.push("/");
-    } else {
-      history.push("/profile/update");
     }
   }, [props.isLogin, history]);
   return (
     <>
       <>{visible && <BackdropProfile click={handleVisible} />}</>
-      <HeaderOnScroll header={false} isLogin={props.isLogin} />
+      <HeaderOnScroll isProfile header={false} isLogin={props.isLogin} />
       <HeaderLoginMobile click={handleVisible} />
       <ProfileSidebar active={props.active} visible={visible} />
       <div className="left_it">{props.componentChild}</div>

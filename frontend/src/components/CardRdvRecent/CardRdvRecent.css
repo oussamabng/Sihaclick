@@ -98,3 +98,32 @@
 .card_rdv .action.att .annuler p .icon {
   text-decoration: none !important;
 }
+.action.action.att.mobile {
+  display: none;
+}
+@media (max-width: 799px) {
+  .card_rdv_recent {
+    margin: 0rem 0;
+  }
+  .action.action.att.mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .action.att.mobile span {
+    font-size: 14px;
+    color: #13c2d4;
+    font-weight: 600;
+    margin: 0.5rem 0;
+  }
+  .action.att.mobile p {
+    margin: 0.5rem 0;
+  }
+  .action.att.mobile .annuler p {
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: 600;
+    color: var(--red);
+    padding: 0.5rem;
+  }
+}

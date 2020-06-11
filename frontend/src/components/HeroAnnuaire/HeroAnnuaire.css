@@ -24,6 +24,7 @@
   justify-content: center;
   margin: 1rem 0;
   padding: 1rem 2rem;
+  white-space: nowrap;
 }
 .hero_annuaire .contents .texts .button svg {
   stroke: white;
@@ -45,4 +46,24 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
+}
+@media (max-width: 999px) {
+  .hero_annuaire .contents .texts p {
+    font-size: 18px;
+  }
+  .hero_annuaire .contents .texts {
+    width: 160px;
+  }
+  .hero_annuaire .contents .texts .button {
+    font-size: 12px;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+  }
+  .hero_annuaire .hero_ann {
+    display: block !important;
+    width: 165px !important;
+  }
+  .hero_annuaire {
+    height: 250px;
+  }
 }

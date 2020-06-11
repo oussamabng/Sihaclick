@@ -23,6 +23,29 @@ const ProfileMedicament = () => {
         <div className="loading" />
       </div>
     ),
+    responsive: [
+      {
+        breakpoint: 1399,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 699,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   const next = () => {
     slider.slickNext();

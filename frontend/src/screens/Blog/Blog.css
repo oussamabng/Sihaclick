@@ -1,0 +1,62 @@
+.blog_grid.grid .column.hero {
+  width: 75% !important;
+}
+.blog_grid.grid .column.sidebar {
+  width: 25% !important;
+}
+@media (max-width: 1399px) {
+  .blog_grid.grid .column.hero {
+    width: 65% !important;
+  }
+  .blog_grid.grid .column.sidebar {
+    width: 35% !important;
+  }
+}
+@media (max-width: 999px) {
+  .blog_grid.grid .column.hero {
+    width: 100% !important;
+  }
+  .blog_grid.grid .column.sidebar {
+    display: none;
+  }
+  ._hero_blog .info_card_blog h1 {
+    font-size: 19px !important;
+  }
+  ._hero_blog .info_card_blog p {
+    font-size: 14px !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 290px;
+    height: 60px;
+    white-space: nowrap;
+  }
+  ._hero_blog .info_card_blog {
+    padding: 3rem 2rem;
+  }
+  .slider_blog {
+    margin: 0 !important;
+  }
+  .grid_cars_blg.ui.grid {
+    flex-direction: column;
+  }
+  .arrows_hy {
+    margin: 2rem !important;
+  }
+  ._best_doc .slick-dots {
+    bottom: -11% !important;
+  }
+  .grid_cars_blg.ui.grid {
+    margin: 0rem !important;
+  }
+}
+@media (max-width: 599px) {
+  ._hero_blog .info_card_blog {
+    padding: 0 0.5rem !important;
+  }
+  .card_hero_blog {
+    height: 400px;
+  }
+  .grid_cars_blg.ui.grid .column {
+    width: 100% !important;
+  }
+}

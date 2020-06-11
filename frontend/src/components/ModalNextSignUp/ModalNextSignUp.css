@@ -79,3 +79,15 @@
 .modal_signup.sidebar_dons ._checkbox span {
   color: #da3e39 !important;
 }
+
+@media (max-width: 999px) {
+  .ui.small.modal.modal_signup {
+    padding: 2rem !important;
+  }
+  .circle_hey {
+    display: none;
+  }
+  .modals.dimmer.visible {
+    width: 100%;
+  }
+}

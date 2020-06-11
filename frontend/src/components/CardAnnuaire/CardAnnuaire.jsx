@@ -30,7 +30,7 @@ const CardAnnuaire = () => {
               <Icon name="phone" />
               0552 123 456 - 0552 123 456
             </p>
-            <p>
+            <p className="phone_x">
               <Icon name="map marker alternate" />
               24 Rue hamid mentouri El biar - Alger
             </p>
@@ -41,6 +41,18 @@ const CardAnnuaire = () => {
           </div>
         </div>
       </div>
+      <div className="bottom show_mb">
+        <p className="this">
+          <Date />
+          Prendre un rendivou
+        </p>
+        <p>
+          <Icon name="user" />
+          Consulté le profile
+        </p>
+        <Rating icon="star" size="big" />
+      </div>
+
       <div className="right_part">
         <div className="top">
           <div className="times">

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "semantic-ui-react";
 
+import "./Blog.css";
+
 import HeaderOnScroll from "../../components/HeaderOnScroll/HeaderOnScroll.jsx";
 import NavigationBlog from "../../components/NavigationBlog/NavigationBlog.jsx";
 import HeroBlog from "../../components/HeroBlog/HeroBlog.jsx";
@@ -56,14 +58,14 @@ const Blog = () => {
       <NavigationBlog />
 
       <Grid
+        className="blog_grid"
         stackable
         columns={2}
         style={{
           margin: "0 2rem",
         }}
       >
-        <Grid.Column width={12}>
-          {/* HERO SECTION AND BLOG POSTS */}
+        <Grid.Column className="hero">
           <HeroBlog />
           <div className="Title_blogs">
             <h1>Les Plus Apercus</h1>
@@ -71,7 +73,7 @@ const Blog = () => {
           </div>
           <BlogPosts data={data} />
         </Grid.Column>
-        <Grid.Column width={4}>
+        <Grid.Column className="sidebar">
           <BlogSidebar />
         </Grid.Column>
       </Grid>

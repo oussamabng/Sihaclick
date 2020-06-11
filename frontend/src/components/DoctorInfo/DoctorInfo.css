@@ -177,12 +177,15 @@
   .action_doctor_btn .button {
     margin: 0 !important;
   }
+  .mobile_more {
+    margin: 0 1rem;
+  }
   .doctor_info .accordion_dons {
     width: auto !important;
   }
   .doctor_info {
     padding: 0 !important;
-    margin: 0 !important;
+    margin: 0 1rem !important;
     transform: translate(0%, -5rem);
   }
   .interface_doctor .row {
@@ -191,9 +194,13 @@
   .action_doctor_btn {
     width: 100% !important;
   }
+
   .doctor_info .doctor_img {
     width: 137px !important;
     height: 137px !important;
+  }
+  .interface_doctor .row {
+    margin: 1rem 0 !important;
   }
   .mobile_more,
   .only_mobile {
@@ -202,5 +209,83 @@
   }
   .doctor_info .header_part .label_part {
     margin: 0 1rem;
+  }
+}
+.doctor_info .accordion {
+  display: inline-block;
+  text-align: left;
+  margin: 1%;
+  width: 70%;
+}
+.doctor_info .accordion .content.opened {
+  max-height: 535px;
+  -webkit-transition: max-height 1s;
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  transition: max-height 1s;
+  overflow: hidden;
+}
+.doctor_info .accordion .content.closed {
+  max-height: 0;
+  -webkit-transition: max-height 1s;
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  transition: max-height 1s;
+  overflow: hidden;
+}
+.doctor_info .accordion .title {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1541px) {
+  ._calender_all {
+    width: 90%;
+  }
+  .interface_doctor .row {
+    width: 40%;
+  }
+  .interface_doctor .row.calender {
+    width: 60%;
+  }
+}
+@media (max-width: 1399px) {
+  .doctor_info {
+    padding: 0rem;
+  }
+}
+@media (max-width: 1299px) {
+  .interface_doctor .row {
+    width: 30% !important;
+  }
+  .interface_doctor .row.calender {
+    width: 70% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  ._calender_all {
+    width: 80%;
+  }
+}
+@media (max-width: 1230px) {
+  .interface_doctor .row .input {
+    display: none;
+  }
+  .interface_doctor {
+    flex-direction: column;
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 999px) {
+  .interface_doctor .row.calender {
+    display: none;
+  }
+  .interface_doctor .row {
+    width: 100% !important;
+  }
+  .interface_doctor {
+    padding: 0 0.5rem;
   }
 }

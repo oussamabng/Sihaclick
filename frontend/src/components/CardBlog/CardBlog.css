@@ -60,6 +60,9 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 1rem 0 !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 100px;
 }
 .card_blog_ .card_flex span {
   font-size: 16px;

@@ -5,13 +5,24 @@ import { ReactComponent as ArrowMin } from "../../assets/arrow.svg";
 
 import Etudiant from "../../methods/Etudiant.js";
 import TypeStage from "../../methods/TypeStage.js";
-  //? import css
+//? import css
 import "./StageSimpleForm.css";
 
-
-
 const StageSimpleForm = (props) => {
-  const { type, data,typeActor,setActor,handleStageType,handleSpec,typeStageEtudiant,speciality,specialitiz ,setChoosenYear,choosenYear,handleYear} = props; //* type if etudiant or resident or diplomé
+  const {
+    type,
+    data,
+    typeActor,
+    setActor,
+    handleStageType,
+    handleSpec,
+    typeStageEtudiant,
+    speciality,
+    specialitiz,
+    setChoosenYear,
+    choosenYear,
+    handleYear,
+  } = props; //* type if etudiant or resident or diplomé
   const trigger1 = (
     <span className="dropdown_title">
       <p>.</p>
@@ -23,7 +34,7 @@ const StageSimpleForm = (props) => {
       <p>.</p>
       {speciality} <Arrow />
     </span>
-  )
+  );
   //? years input
   const [years, setYears] = useState(null);
 
@@ -42,19 +53,17 @@ const StageSimpleForm = (props) => {
     data.length > 0 &&
       data[1].types.map((elm) => {
         diplomeArr.push({ key: elm.id, value: elm.name, text: elm.name });
-        return true
+        return true;
       });
     data.length > 0 &&
       data[0].types.map((elm) => {
         etudiantArr.push({ key: elm.id, value: elm.name, text: elm.name });
-                return true
-
+        return true;
       });
     data.length > 0 &&
       data[2].types.map((elm) => {
         residentArr.push({ key: elm.id, value: elm.name, text: elm.name });
-                return true
-
+        return true;
       });
     let temp = [];
     //? case DIPLOME
@@ -114,7 +123,7 @@ const StageSimpleForm = (props) => {
       }
     }
     setYears(temp);
-  }, [type, data,setChoosenYear]); //* all about year handling
+  }, [type, data, setChoosenYear]); //* all about year handling
 
   const triggerYears = (
     <span className="dropdown_title">
@@ -165,8 +174,8 @@ const StageSimpleForm = (props) => {
           </p>
           {type === "Etudiant" && (
             <Dropdown
-            value={typeStageEtudiant}
-            onChange={handleStageType}
+              value={typeStageEtudiant}
+              onChange={handleStageType}
               disabled={isLocked}
               trigger={trigger1}
               options={TypeStage}
@@ -185,25 +194,27 @@ const StageSimpleForm = (props) => {
           )}
           {(type === "Résident" || type === "Diplômé") && (
             <Dropdown
-            disabled={isLocked}
-            trigger={triggerSpeciality}
-            options={specialitiz}
-            onChange={handleSpec}
-            className="dropdown_stage lg"
-          />
+              disabled={isLocked}
+              trigger={triggerSpeciality}
+              options={specialitiz}
+              onChange={handleSpec}
+              className="dropdown_stage lg"
+            />
           )}
         </div>
-        {typeStageEtudiant==="Stage de fin d’étude" && <div className="item_dropdown sm">
-          <p>Précisez l’année:</p>
-          <Dropdown
-            disabled={isLocked}
-            trigger={triggerYears}
-            options={years}
-            value={choosenYear}
-            onChange={handleYear}
-            className="dropdown_stage sm"
-          />
-        </div>}
+        {typeStageEtudiant === "Stage de fin d’étude" && (
+          <div className="item_dropdown sm">
+            <p>Précisez l’année:</p>
+            <Dropdown
+              disabled={isLocked}
+              trigger={triggerYears}
+              options={years}
+              value={choosenYear}
+              onChange={handleYear}
+              className="dropdown_stage sm"
+            />
+          </div>
+        )}
       </div>
       <Button
         disabled={isLocked}

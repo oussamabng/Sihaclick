@@ -19,3 +19,65 @@
   height: 1px;
   width: 100%;
 }
+.card_rdv_recent .action.mobile {
+  display: none;
+}
+
+@media (max-width: 799px) {
+  .profile_rdv {
+    padding: 0rem 1rem;
+  }
+  .profile_rdv .title {
+    padding-bottom: 2rem;
+  }
+  .card_rdv .img_doc {
+    max-width: 116px;
+    height: 116px;
+    width: 100%;
+  }
+  .card_rdv {
+    align-items: flex-start;
+  }
+  .card_rdv .action {
+    display: none;
+  }
+  .card_rdv_recent .action.mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .card_rdv_recent .action.mobile .button {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    min-width: 100px;
+    border-radius: 5px;
+    background-color: var(--red);
+    margin: 1rem 0;
+    min-height: 30px;
+  }
+  .card_rdv_recent .action.mobile.gray .button {
+    background: #bfbfbf;
+  }
+  .card_rdv_recent .action.mobile p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #046489;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .card_rdv_recent {
+    min-width: max-content;
+  }
+  .card_rdv .info {
+    max-width: 220px;
+  }
+  .card_rdv .info span {
+    font-size: 14px;
+  }
+  .card_rdv .info p {
+    font-size: 12px;
+  }
+}

@@ -112,6 +112,9 @@
     padding: 0 !important;
   }
 }
+.slider_profile.bld .slick-list {
+  height: 160px !important;
+}
 .profile_sidebar.active {
   left: 0 !important;
   z-index: 80;

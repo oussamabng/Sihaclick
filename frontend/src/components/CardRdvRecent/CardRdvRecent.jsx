@@ -8,9 +8,9 @@ import Doctor from "../../assets/doctor.jpg";
 
 const CardRdvRecent = () => {
   const [isPassed, setIsPassed] = useState(true);
-  const handlePassed = ()=>{
-    setIsPassed(prevState=>!prevState);
-  }
+  const handlePassed = () => {
+    setIsPassed((prevState) => !prevState);
+  };
   return (
     <div className="card_rdv_recent">
       <div className="card_rdv">
@@ -33,9 +33,17 @@ const CardRdvRecent = () => {
           </p>
         </div>
         <div className={isPassed ? "action" : "action gray"}>
-          <Button onClick={handlePassed} >{isPassed ? "Annuler" : "Passer"}</Button>
+          <Button onClick={handlePassed}>
+            {isPassed ? "Annuler" : "Passer"}
+          </Button>
           <p>18 Mars 2020</p>
         </div>
+      </div>
+      <div className={isPassed ? "action mobile" : "action mobile gray"}>
+        <Button onClick={handlePassed}>
+          {isPassed ? "Annuler" : "Passer"}
+        </Button>
+        <p>18 Mars 2020</p>
       </div>
     </div>
   );

@@ -27,3 +27,8 @@
   background: #d9d8d8;
   width: 100%;
 }
+@media (max-width: 999px) {
+  .grid_cars_blg.ui.grid > .column {
+    margin: 0 !important;
+  }
+}

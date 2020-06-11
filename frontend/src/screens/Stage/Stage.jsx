@@ -9,6 +9,7 @@ import StageFixedForm from "../../components/StageFixedForm/StageFixedForm.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import SidebarGeneral from "../../components/SidebarGeneral/SidebarGeneral.jsx";
 
 const Stage = (props) => {
   //* handling the type of  stager
@@ -599,9 +600,39 @@ const Stage = (props) => {
       })
       .catch((err) => console.log(err));
   };
+  const [visible, setVisible] = React.useState(false);
+  const handleVisible = () => {
+    setVisible((prevState) => !prevState);
+  };
   return (
     <>
-      <HeaderOnScroll header={false} isLogin={false} />
+      <HeaderOnScroll
+        handleVisible={handleVisible}
+        header={false}
+        isLogin={false}
+      />
+      <SidebarGeneral
+        isFrench={true}
+        handleVisible={handleVisible}
+        visible={visible}
+        navs={[
+          { isDropdown: false, value: "Accueil", list: null },
+          { isDropdown: false, value: "Annuaire", list: null },
+          {
+            isDropdown: true,
+            value: "Echange",
+            list: [
+              { value: "Dons blood", link: "/blood" },
+              { value: "Dons medicament", link: "/medicament" },
+              { value: "Dons material", link: "/" },
+            ],
+          },
+          { isDropdown: false, value: "Blog", list: null },
+          { isDropdown: false, value: "Evenement", list: null },
+          { isDropdown: false, value: "Contactez", list: null },
+          { isDropdown: false, value: "A props de nous", list: null },
+        ]}
+      />
       <Navigation notLine={false} active="stage" />
       <HeroStage type={type} handleType={handleType} data={data} />
       <StageSimpleForm

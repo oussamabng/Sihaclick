@@ -3,8 +3,11 @@ import Slider from "react-slick";
 import BloodCard from "../BloodCard/BloodCard.jsx";
 //? import Arrow
 import Arrow from "../../components/Arrow/Arrow.jsx";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
-const ProfileBlood = () => {
+const ProfileBlood = (props) => {
   const [slider, setSlider] = useState(null);
   const settings = {
     dots: false,
@@ -21,10 +24,10 @@ const ProfileBlood = () => {
     ),
   };
   const next = () => {
-    slider.slickNext();
+    if (slider) slider.slickNext();
   };
   const previous = () => {
-    slider.slickPrev();
+    if (slider) slider.slickPrev();
   };
   return (
     <div className="profile_rdv">
@@ -43,10 +46,6 @@ const ProfileBlood = () => {
           className="slider_profile bld"
         >
           <BloodCard />
-          <BloodCard />
-          <BloodCard />
-          <BloodCard />
-          <BloodCard />
         </Slider>
       </div>
       <div className="arrows_profile">
@@ -56,5 +55,7 @@ const ProfileBlood = () => {
     </div>
   );
 };
-
-export default ProfileBlood;
+const mapStateToProps = (state) => ({
+  data_blood: state.blood.data_blood,
+});
+export default connect(mapStateToProps, {})(withRouter(ProfileBlood));

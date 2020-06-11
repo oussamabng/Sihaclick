@@ -74,3 +74,23 @@
 .doctor_profile_fav .action_doctor_btn .button {
   margin: 1rem 0;
 }
+.second_part_profile_doc.mobile {
+  display: none;
+  margin: 0 !important;
+  margin-top: 3rem !important;
+}
+
+@media (max-width: 999px) {
+  .label_part .text_with_icon h1 {
+    font-size: 18px;
+  }
+  .doctor_profile_fav .action_doctor_btn .button {
+    margin: 1rem 0 !important;
+  }
+  .scgrid {
+    display: none !important;
+  }
+  .second_part_profile_doc.mobile {
+    display: flex;
+  }
+}

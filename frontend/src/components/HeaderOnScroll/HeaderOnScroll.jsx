@@ -22,7 +22,7 @@ import { selectLanguage } from "../../actions/languageAction";
 import Login from "../../components/Login/Login.jsx";
 
 const HeaderOnScroll = (props) => {
-  const { handleVisible, hide } = props;
+  const { handleVisible, hide, toggle, isProfile } = props;
   const history = useHistory();
   const [isShow, setShow] = useState(false);
   const { header } = props;
@@ -67,10 +67,18 @@ const HeaderOnScroll = (props) => {
       className={
         !props.isToggleOpen
           ? hide
-            ? "_home_header shadow x mobile"
+            ? isProfile
+              ? "_home_header shadow x mobile hideMB"
+              : "_home_header shadow x mobile "
+            : isProfile
+            ? "_home_header shadow x hideMB"
             : "_home_header shadow x"
           : hide
-          ? "_home_header shadow x mobile no_sticky"
+          ? isProfile
+            ? "_home_header shadow x mobile no_sticky hideMB"
+            : "_home_header shadow x mobile no_sticky "
+          : isProfile
+          ? "_home_header shadow x no_sticky hideMB"
           : "_home_header shadow x no_sticky"
       }
       style={{
@@ -141,6 +149,16 @@ const HeaderOnScroll = (props) => {
 
             {!isShow && (
               <div className="toggle_action_md fill not_home">
+                <Toggle
+                  onClick={handleVisible}
+                  style={{
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+            )}
+            {!isShow && toggle && (
+              <div className="toggle_actionmobile">
                 <Toggle
                   onClick={handleVisible}
                   style={{

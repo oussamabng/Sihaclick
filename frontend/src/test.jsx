@@ -1,17 +1,14 @@
 import React from "react";
-import CalenderMobile from "./components/CalenderMobile/CalenderMobile.jsx";
+import { Button, Segement } from "semantic-ui-react";
 
 const test = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        minHeight: "40vh",
-        padding: "4rem 2rem",
-      }}
-    >
-      <CalenderMobile />
+    <div className="parent">
+      <input type="text" />
+      <p>TEST</p>
+      <div className="child">
+        <p>CHILD</p>
+      </div>
     </div>
   );
 };

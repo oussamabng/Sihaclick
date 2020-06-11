@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { set_doc } from "../../actions/doctorAction";
 import Calender from "../Calender/Calender";
+import CalenderMobile from "../CalenderMobile/CalenderMobile.jsx";
 
 const DoctorInfo = (props) => {
   const [activeIndex, setactiveIndex] = useState(false);
@@ -44,8 +45,8 @@ const DoctorInfo = (props) => {
                 Prendre un Rendez-vous
               </Button>
             </Accordion.Title>
-            <Accordion.Content active={activeIndex}>
-              <Calender />
+            <Accordion.Content className={activeIndex ? "opened" : "closed"}>
+              <CalenderMobile />
             </Accordion.Content>
           </Accordion>
 

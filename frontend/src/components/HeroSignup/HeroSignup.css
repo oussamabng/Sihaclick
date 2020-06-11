@@ -22,3 +22,19 @@
 .hero_signup .hero_ann {
   transform: translate(0%, 50%);
 }
+.hero_signup .hero_ann {
+  height: 180px !important;
+}
+@media (max-width: 999px) {
+  .hero_signup .contents .texts p {
+    font-size: 29px !important;
+    margin-bottom: 1rem;
+  }
+  .hero_signup .plus_title {
+    right: 0;
+    top: -44%;
+  }
+  .hero_annuaire .contents {
+    padding: 0 1rem;
+  }
+}

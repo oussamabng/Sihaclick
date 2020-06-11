@@ -79,3 +79,15 @@
   padding: auto !important;
   background: auto !important;
 }
+@media (max-width: 999px) {
+  .vsb {
+    display: none;
+  }
+  .why_signup .steps {
+    margin: 2rem !important;
+  }
+  .why_signup .contents {
+    margin: 0 1rem !important;
+  }
+ 
+}

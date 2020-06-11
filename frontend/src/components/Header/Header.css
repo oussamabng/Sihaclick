@@ -12,16 +12,16 @@
 ._home_header > .navbar .white ellipse {
   fill: white;
 }
-
+.toggle_action.header {
+  display: none;
+}
 ._home_header > .navbar > .navigation > .menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid white;
 }
-.home_action {
-  display: none !important;
-}
+
 ._home_header > .navbar > .navigation > .menu .item {
   font-size: 14px;
   font-family: "Raleway", sans-serif;
@@ -150,9 +150,6 @@
     display: none !important;
   }
 
-  .home_action {
-    display: none !important;
-  }
   ._home_header .toggle_action {
     display: flex !important;
     z-index: 33;
@@ -161,7 +158,7 @@
   ._home_header .toggle_action svg {
     cursor: pointer;
   }
-  ._home_header .toggle_action_md svg {
+  ._home_header .toggle_action_md.hide svg {
     display: none !important;
   }
 }

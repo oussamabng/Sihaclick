@@ -126,3 +126,24 @@
 .dropdown_title path {
   stroke: #046489;
 }
+@media (max-width: 999px) {
+  .hero_ann {
+    display: none;
+  }
+  .hero_stage.hero_medicament .plus_title {
+    right: 0 !important;
+  }
+}
+@media (max-width: 699px) {
+  .hero_stage.hero_medicament .contents .texts {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 499px) {
+  .hero_stage.hero_medicament .contents .texts {
+    max-width: 300px;
+  }
+}

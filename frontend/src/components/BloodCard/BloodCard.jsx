@@ -33,42 +33,44 @@ export default function BloodCard(props) {
     setShow((prevState) => !prevState);
   };
   useEffect(() => {
-    let time = new Date().toISOString();
-    let serverDate = data.created_at.slice(0, 10).split("-");
-    let serverTime = data.created_at.slice(11, 19).split(":");
-    let hereDate = time.slice(0, 10).split("-");
-    let hereTime = time.slice(11, 19).split(":");
-    let minusDate = [
-      hereDate[0] - serverDate[0],
-      hereDate[1] - serverDate[1],
-      hereDate[2] - serverDate[2],
-    ];
-    setCommune(data.user.chaab.address.commune.nom);
-    setWilaya(data.user.chaab.address.commune.wilaya.nom);
-    if (data.blood_donnation) {
-      data.blood_donnation.emergency === 1
-        ? setEmergency(true)
-        : setEmergency(false);
-    }
-    setTypeBlood(data.user.blood_group.group);
-    data.user.blood_group.rhesus === 1
-      ? setIsPositive(true)
-      : setIsPositive(false);
-    if (data.blood_donnation) {
-      data.blood_donnation.require === 1
-        ? setIsPlaquette(true)
-        : setIsPlaquette(false);
-    }
-    setName(data.user.name);
-    setLastName(data.user.lastname);
-    setPhone(data.user.phone);
-    let minusTime = hereTime[0] - serverTime[0];
-    if (minusDate[2] > 0) {
-      setTime("Il ya " + String(minusDate[2]) + " jours");
-    } else if (minusTime >= 24) {
-      setTime("Il ya " + String(Math.floor(minusTime / 24)) + " jours");
-    } else {
-      setTime("Il ya " + String(minusTime) + " h");
+    if (data) {
+      let time = new Date().toISOString();
+      let serverDate = data.created_at.slice(0, 10).split("-");
+      let serverTime = data.created_at.slice(11, 19).split(":");
+      let hereDate = time.slice(0, 10).split("-");
+      let hereTime = time.slice(11, 19).split(":");
+      let minusDate = [
+        hereDate[0] - serverDate[0],
+        hereDate[1] - serverDate[1],
+        hereDate[2] - serverDate[2],
+      ];
+      setCommune(data.user.chaab.address.commune.nom);
+      setWilaya(data.user.chaab.address.commune.wilaya.nom);
+      if (data.blood_donnation) {
+        data.blood_donnation.emergency === 1
+          ? setEmergency(true)
+          : setEmergency(false);
+      }
+      setTypeBlood(data.user.blood_group.group);
+      data.user.blood_group.rhesus === 1
+        ? setIsPositive(true)
+        : setIsPositive(false);
+      if (data.blood_donnation) {
+        data.blood_donnation.require === 1
+          ? setIsPlaquette(true)
+          : setIsPlaquette(false);
+      }
+      setName(data.user.name);
+      setLastName(data.user.lastname);
+      setPhone(data.user.phone);
+      let minusTime = hereTime[0] - serverTime[0];
+      if (minusDate[2] > 0) {
+        setTime("Il ya " + String(minusDate[2]) + " jours");
+      } else if (minusTime >= 24) {
+        setTime("Il ya " + String(Math.floor(minusTime / 24)) + " jours");
+      } else {
+        setTime("Il ya " + String(minusTime) + " h");
+      }
     }
   }, [data]);
   return (

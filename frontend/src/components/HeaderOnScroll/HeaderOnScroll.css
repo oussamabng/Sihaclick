@@ -22,6 +22,9 @@
 .toggle_action_md.fill svg path {
   stroke: var(--lighter-bleu);
 }
+.toggle_actionmobile svg path {
+  stroke: var(--lighter-bleu);
+}
 ._home_header > .navbar {
   width: 100%;
 }
@@ -72,6 +75,7 @@
   margin: 0 2rem;
   height: 30px;
 }
+
 @media (max-width: 1399px) {
   .coords_list {
     visibility: hidden;
@@ -81,6 +85,9 @@
   }
 }
 @media (max-width: 999px) {
+  ._home_header.hideMB {
+    display: none !important;
+  }
   ._home_header.mobile {
     display: none !important;
   }
@@ -96,5 +103,13 @@
 @media (max-width: 799px) {
   .coords_list {
     display: none !important;
+  }
+}
+.home_action {
+  display: flex!;
+}
+@media (max-width: 1099px) {
+  ._home_header > .navbar > .coords_list {
+    display: none;
   }
 }

@@ -55,3 +55,15 @@
 .why_signup .contents .hav_text {
   padding: 3rem 0;
 }
+@media (max-width: 999px) {
+  .why_signup .contents .text h1 {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+  .why_signup .contents .text p {
+    font-size: 12px;
+  }
+  .why_signup .contents {
+    padding: 0 !important;
+  }
+}

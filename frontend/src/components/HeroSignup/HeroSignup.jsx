@@ -25,6 +25,7 @@ const HeroSignup = () => {
             ever since the 1500s, when an unknown printer took a galley of{" "}
           </span>
         </div>
+
         <div
           className="hero_ann"
           style={{

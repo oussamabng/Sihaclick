@@ -130,3 +130,92 @@
   background: white !important;
   stroke: yellow !important;
 }
+.show_mb {
+  display: none;
+}
+.show_mb .this {
+  display: flex;
+  align-items: center;
+}
+.show_mb p {
+  margin: 0;
+  color: #13c2d4;
+  text-decoration: underline;
+  margin: 0 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+@media (max-width: 999px) {
+  ._card_annuaire .left_part .img_doc {
+    width: 100% !important;
+    height: 116px !important;
+    max-width: 116px !important;
+  }
+  ._card_annuaire .right_part {
+    display: none;
+  }
+  ._card_annuaire .left_part {
+    justify-content: center;
+  }
+  ._card_annuaire .infos .texts > p {
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  ._card_annuaire .infos .texts > h4 {
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-top: 0;
+    white-space: nowrap;
+  }
+  ._card_annuaire .infos .texts .phone_f,
+  ._card_annuaire .infos .texts .phone_x {
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+  ._card_annuaire .infos .label_part p {
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+    white-space: nowrap;
+  }
+  ._card_annuaire .left_part {
+    width: 100%;
+  }
+  ._card_annuaire .left_part .infos {
+    max-width: 210px;
+  }
+  .annuaire_annonce {
+    padding: 1rem 0.75rem;
+  }
+  .medicament_annonce .input input {
+    font-size: 12px;
+  }
+  .annuaire_annonce .grid_center .grid .column {
+    padding: 0;
+  }
+  ._card_annuaire .infos .texts .title {
+    white-space: nowrap;
+    margin: auto 1rem;
+  }
+  ._card_annuaire .infos .texts > p {
+    margin: auto 1rem;
+  }
+  ._card_annuaire {
+    width: 95%;
+    margin: 1rem 0;
+    flex-direction: column;
+  }
+  .show_mb {
+    display: flex;
+    margin-top: 1rem;
+  }
+  .show_mb p {
+    white-space: nowrap;
+    font-size: 10px;
+  }
+  .show_mb p svg {
+    margin-right: 6px;
+  }
+}

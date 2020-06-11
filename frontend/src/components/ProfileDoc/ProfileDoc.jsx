@@ -28,6 +28,45 @@ const ProfileDoc = () => {
                 </div>
               </div>
             </div>
+            <div className="second_part_profile_doc mobile">
+              <div className="label_part">
+                <p>18 Km</p>
+                <p>20 Vu</p>
+              </div>
+              <ul
+                className="coords_list"
+                style={{
+                  padding: "0",
+                  marignTop: "1rem",
+                }}
+              >
+                <li>
+                  {" "}
+                  <Icon name="phone" />
+                  +213 528 965 257 / +213 748 954 874
+                </li>
+                <li>
+                  <Icon name="mail outline" />
+                  Support@sihaclick.com
+                </li>
+                <li>
+                  <Icon name="map marker alternate" />
+                  17 Rue Hadad Said, Ain Benian - Alger
+                </li>
+              </ul>
+              <div className="action_doctor_btn">
+                <Button>
+                  <Date />
+                  Prendre un Rendez-vous
+                </Button>
+                <Button>
+                  {" "}
+                  <Icon name="map marker alternate" />
+                  Afficher la position
+                </Button>
+              </div>
+            </div>
+
             <div className="other_info intro">
               <h1>Introduction :</h1>
               <div className="title"></div>
@@ -81,7 +120,7 @@ const ProfileDoc = () => {
             </div>
           </div>
         </Grid.Column>
-        <Grid.Column width={6}>
+        <Grid.Column width={6} className="scgrid">
           <div className="second_part_profile_doc">
             <div className="label_part">
               <p>18 Km</p>

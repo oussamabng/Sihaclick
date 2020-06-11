@@ -1,7 +1,8 @@
 .sidebar_general {
   position: fixed;
   z-index: 100;
-  left: -500px;
+  left: -300px;
+  width: 300px;
   top: 0;
   padding: 2rem 4rem;
   background: rgb(19, 194, 212);

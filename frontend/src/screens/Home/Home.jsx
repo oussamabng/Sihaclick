@@ -63,7 +63,7 @@ const Home = (props) => {
           <Arrow className="previous_arrow" onClick={previous} />
           <Arrow className="next_arrow" onClick={next} />
         </div>
-        <Header visible={visible} handleVisible={handleVisible} />
+        <Header dont visible={visible} handleVisible={handleVisible} />
       </div>
       <HeaderOnScroll
         header={isScrolled}

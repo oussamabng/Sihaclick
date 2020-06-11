@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 //? import screens
 import Home from "./screens/Home/Home.jsx";
@@ -100,6 +105,7 @@ function App() {
                 <Profile active="stage" componentChild={<ProfileStage />} />
               )}
             />
+            <Redirect to="/" />
           </Switch>
         </Router>
       </PersistGate>

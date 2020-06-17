@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
-//? import img doctor
-import Doctor from "../../assets/doctor.jpg";
-
 //? import css
 import "./DoctorCard.css";
 
 //? import Modal
 import AppointmentModal from "../../components/AppointmentModal/AppointmentModal.jsx";
+import { useEffect } from "react";
 
-export default function DoctorCard() {
+export default function DoctorCard(props) {
+  const [fullname, setFullname] = useState("");
+  const [type, setType] = useState('')
+  const [photo, setPhoto] = useState('')
+  useEffect(() => {
+    setType(props.type)
+    setPhoto("https://sihaclik.com/" + props.photo)
+    setFullname(props.fullname);
+  }, [props.fullname])
   const [show, setShow] = useState(false);
   const handleModal = () => {
     setShow((prevState) => !prevState);
@@ -21,12 +27,12 @@ export default function DoctorCard() {
         <div
           className="doctor_img"
           style={{
-            backgroundImage: `url(${Doctor})`,
+            backgroundImage: `url(${photo})`,
           }}
         />
         <Card.Content>
-          <h1>Mohamed Chafik</h1>
-          <p>Docteur Specialiste</p>
+          <h1>{fullname}</h1>
+          <p>{type}</p>
           <Button
             className="hero_btn card_doc-btn"
             content="Prendre un Rendez-vous"

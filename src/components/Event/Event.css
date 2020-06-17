@@ -1,6 +1,7 @@
 ._best_doc._event {
   position: relative;
   padding: 2rem 4rem;
+  padding-bottom: 0;
 }
 ._best_doc._event > .circle_right {
   width: 315px;

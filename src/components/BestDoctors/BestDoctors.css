@@ -6,7 +6,8 @@
   background-repeat: no-repeat;
 }
 ._best_doc {
-  padding: 4rem;
+  padding:4rem 2rem;
+  padding-bottom: 0rem;
   position: relative;
   z-index: 15 !important;
 }

@@ -15,6 +15,7 @@ import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
+import Axios from "axios";
 
 const SidebarDons = (props) => {
   const {
@@ -37,6 +38,28 @@ const SidebarDons = (props) => {
   const handleChecked = () => {
     setactiveChecked((prevState) => !prevState);
   };
+  const hanldeFilter = () => {
+    setIsClicked(prevState => !prevState)
+    if (wilaya.length > 0) {
+      Axios.create({
+        baseURL: "https://sihaclik.com/api",
+        responseType: "json",
+        headers: {
+          "content-type": "application/json"
+        }
+      })
+        .get('https://sihaclik.com/api/public/wilaya')
+        .then(res => {
+          const wilayaNumb = res.data.filter(elm => elm.nom.toLowerCase().includes(wilaya.toLowerCase()))
+          if (props.set_wilaya_numb) {
+            props.set_wilaya_numb(wilayaNumb.length > 0 ? wilayaNumb[0].code : "all")
+          }
+        })
+    }
+    else {
+      props.set_wilaya_numb("all")
+    }
+  }
   const handleClick = () => {
     setActive((prevState) => !prevState);
   };
@@ -183,7 +206,7 @@ const SidebarDons = (props) => {
                     onChange={handleChange}
                   />
                   <Form.Button
-                    onClick={() => setIsClicked(true)}
+                    onClick={hanldeFilter}
                     className={isBlood ? "filter_btn blood" : "filter_btn"}
                   >
                     {isFrench ? "Filter" : filter.action}

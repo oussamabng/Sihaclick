@@ -7,34 +7,43 @@ import { ReactComponent as Date } from "../../assets/date.svg";
 
 //? import css
 import "./CardEvent.css";
+import { useEffect, useState } from "react";
 
-const CardEvent = () => {
+const CardEvent = (props) => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    setData(props.data)
+  }, [])
+
   return (
-    <div className="_card_event">
-      <Card>
-        <div
-          className="event_img"
-          style={{
-            backgroundImage: `url(${Img})`,
-          }}
-        />
-        <div className="content_event">
-          <h4>Journée Nationale de la néphrologie</h4>
-          <p>
-            <Icon name="map marker alternate" />
-            24 Rue hamid mentouri El bier - Alger
-          </p>
-          <p>
-            <Date />
-            Mardi 23-03-2020 a 8.00 h
-          </p>
-        </div>
-        <div className="inscrire_event">
-          <p>Inscrire</p>
-          <Icon name="long arrow alternate right" />
-        </div>
-      </Card>
-    </div>
+    <>
+      {data && <div key={props.key} className="_card_event">
+        <Card>
+          <div
+            className="event_img"
+            style={{
+              backgroundImage: `url(${"https://sihaclik.com/" + data.image.path})`,
+            }}
+          />
+          <div className="content_event">
+            <h4>{data.title}</h4>
+            <p>
+              <Icon name="map marker alternate" />
+              {data.address.address + " - " + data.address.commune.wilaya.nom}
+            </p>
+            <p>
+              <Date />
+              {data.date}
+            </p>
+          </div>
+          <div className="inscrire_event">
+            <p>Inscrire</p>
+            <Icon name="long arrow alternate right" />
+          </div>
+        </Card>
+      </div>
+      }
+    </>
   );
 };
 

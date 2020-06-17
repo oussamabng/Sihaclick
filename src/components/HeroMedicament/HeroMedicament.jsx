@@ -10,8 +10,8 @@ import { selectLanguage } from "../../actions/languageAction";
 import { languages } from "../../languages";
 
 const HeroMedicament = (props) => {
+  const { livre } = props
   const { isFrench } = props.selectedLanguage;
-  const { hero } = props.selectedLanguage.medicament;
   return (
     <div className="hero_medicament">
       <div className="circle_left"></div>
@@ -19,8 +19,8 @@ const HeroMedicament = (props) => {
       <div className="overlay">
         {" "}
         <div className={isFrench ? "info" : "info right"}>
-          <h1>{hero.h1}</h1>
-          <p>{hero.p}</p>
+          <h1>{props.selectedLanguage.medicament.hero.h1}</h1>
+          <p>{props.selectedLanguage.medicament.hero.p}</p>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@ const HeroMedicament = (props) => {
 };
 
 HeroMedicament.prototype = {
-  selectedLanguage: PropTypes.bool.isRequired,
+  selectedLanguage: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => {
   return {

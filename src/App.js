@@ -10,6 +10,8 @@ import {
 import Home from "./screens/Home/Home.jsx";
 import Blood from "./screens/Blood/Blood.jsx";
 import Medicament from "./screens/Medicament/Medicament.jsx";
+import Material from "./screens/Material/Material.jsx";
+import Livres from "./screens/Livres/Livres.jsx";
 import Doctor from "./screens/Doctor/Doctor.jsx";
 import Annuaire from "./screens/Annuaire/Annuaire.jsx";
 import Stage from "./screens/Stage/Stage.jsx";
@@ -41,6 +43,8 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/blood" component={Blood} />
             <Route exact path="/medicament" component={Medicament} />
+            <Route exact path="/materials" component={Material} />
+            <Route exact path="/livres" component={Livres} />
             <Route exact path="/doctor" component={Doctor} />
             <Route exact path="/annuaire" component={Annuaire} />
             <Route exact path="/stage" component={Stage} />

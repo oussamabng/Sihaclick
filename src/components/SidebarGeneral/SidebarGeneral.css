@@ -1,8 +1,7 @@
 .sidebar_general {
   position: fixed;
   z-index: 100;
-  left: -300px;
-  width: 300px;
+  left: -400px;
   top: 0;
   padding: 2rem 4rem;
   background: rgb(19, 194, 212);
@@ -15,7 +14,6 @@
 .sidebar_general.visible {
   left: 0 !important;
   transition: all 0.3s ease-in;
-  width: 100%;
 }
 .sidebar_general ul {
   padding: 0;

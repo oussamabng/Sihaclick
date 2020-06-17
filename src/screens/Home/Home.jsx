@@ -33,13 +33,17 @@ const Home = (props) => {
   const [visible, setVisible] = React.useState(false);
   const handleVisible = () => {
     setVisible((prevState) => !prevState);
+
   };
   useEffect(() => {
     window.addEventListener("scroll", () => {
+      if (visible) {
+        setVisible(false)
+      }
       let isTop = window.scrollY < 960;
       isTop ? setIsScrolled(true) : setIsScrolled(false);
     });
-  }, []);
+  }, [visible]);
   const next = () => {
     slider.slickNext();
   };
@@ -61,7 +65,7 @@ const Home = (props) => {
         <div className={props.isOpen ? "home_img blur" : "home_img"}>
           <HomeHeroSection setSlider={setSlider} />
           <Arrow className="previous_arrow" onClick={previous} />
-          <Arrow className="next_arrow" onClick={next} />
+          <Arrow className="next_arrow" oBETnClick={next} />
         </div>
         <Header dont visible={visible} handleVisible={handleVisible} />
       </div>

@@ -3,11 +3,13 @@ import { Button, Image } from "semantic-ui-react";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { selectLanguage } from "../../actions/languageAction";
+import PropTypes from "prop-types";
 
 //? import css
 import "./HomeHeroSection.css";
 
 import Test from "../../assets/hero_section.png";
+import { languages } from "../../languages";
 
 const HomeHeroSection = (props) => {
   const { setSlider } = props;
@@ -95,9 +97,13 @@ const HomeHeroSection = (props) => {
     </div>
   );
 };
+HomeHeroSection.prototype = {
+  selectedLanguage: PropTypes.object.isRequired,
+};
 const mapStateToProps = (state) => {
   return {
     selectedLanguage: state.language,
+
   };
 };
 export default connect(mapStateToProps, { selectLanguage })(HomeHeroSection);

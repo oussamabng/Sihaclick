@@ -33,6 +33,11 @@ import ModalBloodAdd from "../ModalBloodAdd/ModalBloodAdd";
 const BloodAnnonce = (props) => {
   const { isFrench } = props.selectedLanguage;
   const { filter } = props.selectedLanguage.medicament;
+  const [wilayaNumb, set_wilaya_numb] = useState('all')
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState();
+
+
   const friendOptions = [
     {
       key: 1,
@@ -64,9 +69,15 @@ const BloodAnnonce = (props) => {
   const [alphabet, setAlpha] = useState(false);
   const [distance, setDistance] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [AZfilter, setAZfilter] = useState(false)
+  const [current, setCurrent] = useState(1)
   const handleModal = () => {
     setOpenModal((prevState) => !prevState);
   };
+  const AZhandle = () => {
+    setAZfilter(prevState => !prevState)
+    setIsClicked(true)
+  }
   const handleType = (e, { value }) => {
     setTypeBlood(value);
   };
@@ -123,8 +134,8 @@ const BloodAnnonce = (props) => {
           let code =
             wilaya.length > 0
               ? res.data.filter((elm) =>
-                  elm.nom.toLowerCase().includes(wilaya.toLowerCase())
-                )[0].code
+                elm.nom.toLowerCase().includes(wilaya.toLowerCase())
+              )[0].code
               : "all";
           var codeCommune;
           res.data.map((elm) => {
@@ -139,20 +150,32 @@ const BloodAnnonce = (props) => {
           instance
             .get(
               `public/donnation/blood/["${typeBlood}${
-                isPositive ? "+" : "-"
+              isPositive ? "+" : "-"
               }"]/blood/all/${
-                wilaya.length > 0
-                  ? code
-                  : commune.length > 0
+              wilaya.length > 0
+                ? code
+                : commune.length > 0
                   ? codeCommune.wilaya_id
                   : "all"
               }/${commune.length > 0 ? codeCommune.id : "all"}/0/12`
             )
             .then((res) => {
-              props.get_blood(res.data);
+              if (AZfilter) {
+                props.get_blood(res.data.sort(dynamicSort("name")))
+                if (res.data.sort(dynamicSort("name")).length >= 12) {
+                  setMax(Math.ceil(res.data.sort(dynamicSort("name")).length / 12))
+
+                } else { setMax(1) }
+
+              } else {
+                props.get_blood(res.data);
+                if (res.data.length >= 12) {
+                  setMax(Math.ceil(res.data.length / 12))
+                } else { setMax(1); }
+              }
               setIsClicked(false);
               setIsLoading(false);
-              console.log({ res });
+              console.log(res)
             })
             .catch((err) => {
               console.log(err.response);
@@ -164,7 +187,54 @@ const BloodAnnonce = (props) => {
           setIsClicked(false);
         });
     }
-  }, [isClicked, commune, isPositive, props, typeBlood, wilaya]);
+
+  }, [isClicked, commune, isPositive, props, AZfilter, typeBlood, wilaya]);
+
+  useEffect(() => {
+    const instance = axios.create({
+      baseURL: "https://sihaclik.com/api/",
+      responseType: "json",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    instance
+      .get(
+        "public/donnation/blood/all/all/0/12"
+      )
+      .then((res) => {
+        if (AZfilter) {
+          props.get_blood(res.data.sort(dynamicSort("name")))
+          if (res.data.sort(dynamicSort("name")).length >= 12) {
+            setMax(Math.ceil(res.data.sort(dynamicSort("name")).length / 12))
+          } else { setMax(1) }
+        } else {
+          props.get_blood(res.data);
+          if (res.data.length >= 12) {
+            setMax(Math.ceil(res.data.length / 12))
+          } else { setMax(1) }
+        }
+        setIsClicked(false);
+        setIsLoading(false);
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err.response);
+        setIsClicked(false);
+      });
+  }, [])
+
+  function dynamicSort(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+    }
+    return function (a, b) {
+      var result = (a.user[property] < b.user[property]) ? -1 : (a.user[property] > b.user[property]) ? 1 : 0;
+      return result * sortOrder;
+    }
+  }
   useEffect(() => {
     if (distance) {
       props.sort_blood_distance(props.data_blood);
@@ -247,6 +317,7 @@ const BloodAnnonce = (props) => {
         isPositive={isPositive}
         typeBlood={typeBlood}
         setIsClicked={setIsClicked}
+        set_wilaya_numb={set_wilaya_numb}
       />
       <div className="table_blood">
         <div className="blood_filter">
@@ -254,9 +325,8 @@ const BloodAnnonce = (props) => {
             <Checkbox
               radio
               label="A - Z Filter"
-              value={alphabet}
-              checked={alphabet}
-              onClick={handleSort}
+              checked={AZfilter}
+              onClick={AZhandle}
               name="az"
             />
             <Checkbox
@@ -275,14 +345,14 @@ const BloodAnnonce = (props) => {
         </div>
         <div className="grid_center">
           <Grid columns={3}>
-            {props.data_blood.map((elm, index) => (
+            {props.data_blood && props.data_blood.map((elm, index) => (
               <Grid.Column key={index}>
                 <BloodCard data={elm} />
               </Grid.Column>
             ))}
           </Grid>
         </div>
-        <Pagination />
+        <Pagination max={max} setMax={setMax} setMin={setMin} min={min} current={current} setCurrent={setCurrent} />
       </div>
     </Segment>
   );
@@ -300,7 +370,7 @@ BloodAnnonce.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  data_blood: state.blood.data_blood,
+  c: state.blood.data_blood,
   isOpen: state.auth.isOpen,
   isLogin: state.auth.isLogin,
   token: state.auth.token,

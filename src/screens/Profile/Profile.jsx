@@ -34,9 +34,11 @@ const Profile = (props) => {
 Profile.propTypes = {
   isLogin: PropTypes.bool.isRequired,
   token: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired
 };
 const mapStateToProps = (state) => ({
   token: state.auth.token,
   isLogin: state.auth.isLogin,
+  user: state.auth.user
 });
 export default connect(mapStateToProps, {})(withRouter(Profile));

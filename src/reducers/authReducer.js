@@ -1,16 +1,15 @@
-import { LOGIN, LOGOUT,OPEN } from "../actions/types";
+import { LOGIN, LOGOUT, OPEN } from "../actions/types";
 
 const initialState = {
   token: "",
   user: {},
   isLogin: false,
-  isOpen:false
+  isOpen: false
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case LOGIN:
-      console.log(action);
       if (action.payload["token"]) {
         state.isLogin = true;
         state.token = action.payload["token"];
@@ -19,27 +18,27 @@ export default function (state = initialState, action) {
         state.user = action.payload["user"];
       }
       return {
-        ...state,
+        ...state
       };
     case LOGOUT:
       state.user = {};
       state.token = "";
       state.isLogin = false;
       return {
-        ...state,
+        ...state
       };
-      case OPEN:
-        if (!state.isOpen){
-          return {
-            ...state,
-            isOpen:true
-          };
-        }else {
-          return{
-            ...state,
-            isOpen:false
-          }
-        }   
+    case OPEN:
+      if (!state.isOpen) {
+        return {
+          ...state,
+          isOpen: true
+        };
+      } else {
+        return {
+          ...state,
+          isOpen: false
+        };
+      }
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CardProfileMedicament from "../CardProfileMedicament/CardProfileMedicament.jsx";
 import Slider from "react-slick";
 
@@ -8,7 +8,14 @@ import Arrow from "../../components/Arrow/Arrow.jsx";
 //? import css
 import "./ProfileMedicament.css";
 
-const ProfileMedicament = () => {
+import { connect } from "react-redux";
+import PropTypes from "prop-types"
+
+const ProfileMedicament = (props) => {
+  const { user } = props;
+  useEffect(() => {
+    console.log({ user })
+  }, [])
   const [slider, setSlider] = useState(null);
   const settings = {
     dots: false,
@@ -78,4 +85,17 @@ const ProfileMedicament = () => {
   );
 };
 
-export default ProfileMedicament;
+
+ProfileMedicament.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired
+};
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+  isLogin: state.auth.isLogin,
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps, {})(ProfileMedicament);
+

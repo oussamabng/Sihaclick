@@ -109,7 +109,6 @@ const ProfileUpdate = (props) => {
   useEffect(() => {
     setIsLoading(true);
     props.login({});
-    console.log({ tokenX: props.token });
     axios
       .create({
         headers: {
@@ -125,7 +124,6 @@ const ProfileUpdate = (props) => {
       })
       .then((res) => {
         let type_blood = res.data.blood_group.rhesus === 1 ? "+" : "-";
-        console.log(res);
         if (res.data.photo_id) {
           setImage("https://sihaclik.com/" + res.data.photo.path);
         }
@@ -136,8 +134,8 @@ const ProfileUpdate = (props) => {
         setBloodGroup(res.data.blood_group.group + type_blood);
         setAdr(
           res.data.chaab.address.address +
-            "-" +
-            res.data.chaab.address.commune.wilaya.nom
+          "-" +
+          res.data.chaab.address.commune.wilaya.nom
         );
         setLanguague(res.data.chaab.language);
         setisNotificated(res.data.chaab.blood_notification);

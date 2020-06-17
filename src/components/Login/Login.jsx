@@ -70,15 +70,30 @@ const Login = (props) => {
       })
       .then((res) => {
         setIsLoading(false);
-        const auth = {
-          token: res.data,
-        };
-        props.login(auth);
-        console.log(window.location.pathname);
-        window.location.pathname !== "/"
-          ? history.push(window.location.pathname)
-          : history.push("/profile/update/");
-        props.open();
+        let data = res.data
+        let instance = axios.create({
+          baseURL: "https://sihaclik.com/api",
+          responseType: "json",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${data}`,
+          }
+        });
+        instance.get("/chaab/get-chaab")
+          .then(res => {
+            const auth = {
+              token: data,
+              user: res.data
+            };
+            props.open();
+            props.login(auth);
+            window.location.pathname !== "/"
+              ? history.push(window.location.pathname)
+              : history.push("/profile/update/");
+          })
+          .catch(err => {
+            console.log(err.response)
+          })
       })
       .catch((err) => {
         console.log(err.response);

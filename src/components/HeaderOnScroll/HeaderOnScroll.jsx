@@ -26,7 +26,7 @@ const HeaderOnScroll = (props) => {
   const history = useHistory();
   const [isShow, setShow] = useState(false);
   const { header } = props;
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const trigger = <Image src={image} />;
 
   const handleLogout = () => {
@@ -39,27 +39,7 @@ const HeaderOnScroll = (props) => {
   }, [header]);
   useEffect(() => {
     if (props.isLogin) {
-      axios
-        .create({
-          headers: {
-            get: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("x-token")}`,
-            },
-          },
-        })
-        .request({
-          url: "https://sihaclik.com/api/chaab/get-chaab",
-          method: "get",
-        })
-        .then((res) => {
-          if (res.data.photo_id) {
-            setImage("https://sihaclik.com/" + res.data.photo.path);
-          }
-        })
-        .catch((err) => {
-          console.log(err.response);
-        });
+      setImage("https://sihaclik.com/" + props.user.photo.path);
     }
   }, [props.isLogin]);
   return (
@@ -71,15 +51,15 @@ const HeaderOnScroll = (props) => {
               ? "_home_header shadow x mobile hideMB"
               : "_home_header shadow x mobile "
             : isProfile
-            ? "_home_header shadow x hideMB"
-            : "_home_header shadow x"
+              ? "_home_header shadow x hideMB"
+              : "_home_header shadow x"
           : hide
-          ? isProfile
-            ? "_home_header shadow x mobile no_sticky hideMB"
-            : "_home_header shadow x mobile no_sticky "
-          : isProfile
-          ? "_home_header shadow x no_sticky hideMB"
-          : "_home_header shadow x no_sticky"
+            ? isProfile
+              ? "_home_header shadow x mobile no_sticky hideMB"
+              : "_home_header shadow x mobile no_sticky "
+            : isProfile
+              ? "_home_header shadow x no_sticky hideMB"
+              : "_home_header shadow x no_sticky"
       }
       style={{
         background: isShow ? "#13C2D4" : "white",
@@ -181,6 +161,7 @@ HeaderOnScroll.propTypes = {
   open: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
   selectLanguage: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -188,6 +169,7 @@ const mapStateToProps = (state) => ({
   isLogin: state.auth.isLogin,
   token: state.auth.token,
   selectLanguage: state.language,
+  user: state.auth.user
 });
 
 export default connect(mapStateToProps, { open, logout })(

@@ -1,9 +1,9 @@
 import { LOGIN, LOGOUT,OPEN } from "./types";
 
-export const login = (token) => (dispatch) => {
+export const login = (data) => (dispatch) => {
   dispatch({
     type: LOGIN,
-    payload: token,
+    payload: data,
   });
 };
 

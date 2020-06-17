@@ -80,9 +80,6 @@
   .coords_list {
     visibility: hidden;
   }
-  .toggle_action_md.not_home {
-    display: flex !important;
-  }
 }
 @media (max-width: 999px) {
   ._home_header.hideMB {

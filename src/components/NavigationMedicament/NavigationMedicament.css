@@ -6,3 +6,32 @@
 ._navigation.medicament li.active {
   color: var(--lighter-bleu);
 }
+._navigation.medicament .notend{
+  display: none;
+}
+._navigation.medicament .notenditems{
+  display: none;
+
+}
+@media(max-width:1399px){
+  ._navigation.medicament .end{
+    display: none;
+  }
+  ._navigation.medicament .notend{
+    display: block;
+  }
+  ._navigation.medicament .notend:hover .notenditems{
+    display: flex!important;
+    position: absolute;
+    background-color: white;
+  }
+  ._navigation.medicament .notenditems ul{
+    flex-direction: column!important;
+    align-items: flex-start!important;
+    display: flex!important;
+    cursor: default;
+  }
+  ._navigation.medicament .notenditems ul li:hover{
+    color: var(--lighter-bleu);;
+  }
+}

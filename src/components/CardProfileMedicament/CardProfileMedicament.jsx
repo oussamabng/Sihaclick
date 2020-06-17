@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "semantic-ui-react";
 
 //? import icon
@@ -9,28 +9,29 @@ import Teva from "../../assets/teva.png";
 //? import css
 import "./CardProfileMedicament.css";
 
-const CardProfileMedicament = () => {
-  //const [show, setShow] = useState(false);
-  //const handleModal = () => {
-    //setShow((prevState) => !prevState);
-  //};
+const CardProfileMedicament = (props) => {
+  const [data, setData] = useState({});
+  const { key, medicament } = props;
+  useEffect(() => {
+    setData(props.data)
+  }, [props.data])
   return (
-    <div className="card_don other profile">
+    <div key={key} className="card_don other profile">
       <Card>
         <div
           className="doctor_img card_don_img"
           style={{
-            backgroundImage: `url(${Teva})`,
+            backgroundImage: `url(${data.image_id ? "https://sihaclik.com/" + data.image.path : null})`,
           }}
         />
         <Card.Content>
           <div className="under_content">
             <div className="dons_title">
-              <Medicament />
-              <p>Médicament Tev 100g</p>
+              {medicament && <Medicament />}
+              <p>{data.name} 100g</p>
             </div>
             <p>
-              Contité : <span>200 boites</span>
+              Contité : <span>{data.quantity} {medicament ? "materiels" : "boites"}</span>
             </p>
           </div>
         </Card.Content>

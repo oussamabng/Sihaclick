@@ -45,8 +45,37 @@
 ._navigation svg path {
   stroke: #13c2d4;
 }
-@media (max-width: 1399px) {
-  ._navigation {
+.not_end{
+  display: none;
+}
+.not_end ul{
+  display: none;
+}
+@media(max-width:1199px){
+  ._navigation ul .end{
     display: none;
+  }
+  .not_end{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .not_end:hover ul{
+    bottom: 0%;
+    transform: translateY(100%);
+    z-index: 150;
+    display: flex;
+    background: white;
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .not_end ul li{
+    white-space: nowrap;
+  }
+  .not_end ul li:hover{
+    color: #13c2d4;
+
   }
 }

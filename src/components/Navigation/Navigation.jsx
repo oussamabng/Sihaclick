@@ -44,10 +44,24 @@ const Navigation = (props) => {
               </li>
             </>
           )}
-          <li>Blog</li>
-          <li>Evenement</li>
-          <li>Contactez</li>
-          <li>Apropos de nous</li>
+          <li className="end">Blog</li>
+          <li className="end">Evenement</li>
+          <li className="end">Contactez</li>
+          <li className="end">Apropos de nous</li>
+          <li className="not_end"><Arrow
+            style={{
+              margin: "0 .5rem",
+            }}
+          />
+                Autres
+                <ul>
+              <li >Blog</li>
+              <li>Evenement</li>
+              <li >Contactez</li>
+              <li >Apropos de nous</li>
+            </ul>
+          </li>
+
         </ul>
       </Container>
     </div>

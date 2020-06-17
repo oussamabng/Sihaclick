@@ -9,7 +9,6 @@ import StageFixedForm from "../../components/StageFixedForm/StageFixedForm.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import SidebarGeneral from "../../components/SidebarGeneral/SidebarGeneral.jsx";
 
 const Stage = (props) => {
   //* handling the type of  stager
@@ -475,36 +474,36 @@ const Stage = (props) => {
             type === "Diplômé"
               ? year
               : typeStageEtudiant === "Stage de fin d’étude"
-              ? parseInt(new Date().getFullYear() + 7 - parseInt(year) + 1)
-              : null,
+                ? parseInt(new Date().getFullYear() + 7 - parseInt(year) + 1)
+                : null,
         };
         let flexible = flexable;
         let date = flexableDate;
         let period = one
           ? 1
           : two
-          ? 2
-          : three
-          ? 3
-          : four
-          ? 4
-          : five
-          ? 5
-          : six
-          ? 6
-          : seven
-          ? 7
-          : eight
-          ? 8
-          : nine
-          ? 9
-          : ten
-          ? 10
-          : eleven
-          ? 11
-          : twelve
-          ? 12
-          : 1;
+            ? 2
+            : three
+              ? 3
+              : four
+                ? 4
+                : five
+                  ? 5
+                  : six
+                    ? 6
+                    : seven
+                      ? 7
+                      : eight
+                        ? 8
+                        : nine
+                          ? 9
+                          : ten
+                            ? 10
+                            : eleven
+                              ? 11
+                              : twelve
+                                ? 12
+                                : 1;
         let spec = specialitiz.filter((elm) =>
           elm.value.toLowerCase().includes(speciality.toLowerCase())
         )[0].key;
@@ -587,8 +586,8 @@ const Stage = (props) => {
           type === "Etudiant"
             ? "student"
             : type === "Diplômé"
-            ? "degre"
-            : "residant";
+              ? "degre"
+              : "residant";
         instance
           .post(`chaab/donnation/internship/${urlType}`, body)
           .then((res) => {
@@ -610,28 +609,6 @@ const Stage = (props) => {
         handleVisible={handleVisible}
         header={false}
         isLogin={false}
-      />
-      <SidebarGeneral
-        isFrench={true}
-        handleVisible={handleVisible}
-        visible={visible}
-        navs={[
-          { isDropdown: false, value: "Accueil", list: null },
-          { isDropdown: false, value: "Annuaire", list: null },
-          {
-            isDropdown: true,
-            value: "Echange",
-            list: [
-              { value: "Dons blood", link: "/blood" },
-              { value: "Dons medicament", link: "/medicament" },
-              { value: "Dons material", link: "/" },
-            ],
-          },
-          { isDropdown: false, value: "Blog", list: null },
-          { isDropdown: false, value: "Evenement", list: null },
-          { isDropdown: false, value: "Contactez", list: null },
-          { isDropdown: false, value: "A props de nous", list: null },
-        ]}
       />
       <Navigation notLine={false} active="stage" />
       <HeroStage type={type} handleType={handleType} data={data} />

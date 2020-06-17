@@ -4,7 +4,6 @@ import { Menu, Icon } from "semantic-ui-react";
 //? import css
 import "./Header.css";
 
-import SidebarGeneral from "../SidebarGeneral/SidebarGeneral.jsx";
 
 //? import Login modal
 import Login from "../../components/Login/Login.jsx";
@@ -17,6 +16,8 @@ import { withRouter } from "react-router-dom";
 //? import logo
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Toggle } from "../../assets/toggle.svg";
+import { ReactComponent as Arrow } from "../../assets/arrow.svg";
+
 import { handleToggle } from "../../actions/toggleAction";
 
 const Header = (props) => {
@@ -24,27 +25,7 @@ const Header = (props) => {
   const { visible, handleVisible, dont } = props;
   return (
     <header className="_home_header">
-      <SidebarGeneral
-        visible={visible}
-        navs={[
-          { isDropdown: false, value: navs[0], list: null },
-          { isDropdown: false, value: navs[1], list: null },
-          {
-            isDropdown: true,
-            value: navs[2],
-            list: [
-              { value: dropdown[0], link: "/blood" },
-              { value: dropdown[1], link: "/medicament" },
-              { value: dropdown[2], link: "/" },
-              { value: dropdown[3], link: "/" },
-            ],
-          },
-          { isDropdown: false, value: navs[3], list: null },
-          { isDropdown: false, value: navs[4], list: null },
-          { isDropdown: false, value: navs[5], list: null },
-          { isDropdown: false, value: navs[6], list: null },
-        ]}
-      />
+
       <div className="navbar">
         <div className="logoo">
           <Logo className="white" />
@@ -57,7 +38,7 @@ const Header = (props) => {
             <Menu.Item name={navs[0]} className="border" />
             <Menu.Item name={navs[1]} />
             <Menu.Menu>
-              <Menu.Item name={navs[2]} className="dons" />
+              <Menu.Item name={navs[2]} className="dons x" />
               <div className="dropdown">
                 <ul>
                   <li>
@@ -75,10 +56,33 @@ const Header = (props) => {
                 </ul>
               </div>
             </Menu.Menu>
-            <Menu.Item name={navs[3]} />
-            <Menu.Item name={navs[4]} />
-            <Menu.Item name={navs[5]} />
-            <Menu.Item name={navs[6]} />
+            <Menu.Item className="end" name={navs[3]} />
+            <Menu.Item className="end" name={navs[4]} />
+            <Menu.Item className="end" name={navs[5]} />
+            <Menu.Item className="end" name={navs[6]} />
+            <Menu.Menu>
+              <Menu.Item className="dons notend" >
+                Autres
+                <Arrow />
+              </Menu.Item>
+              <div className="dropdown">
+                <ul>
+                  <li>
+                    <a href="/blood">{navs[3]}</a>
+                  </li>
+                  <li>
+                    <a href="/medicament">{navs[4]}</a>
+                  </li>
+                  <li>
+                    <a href="/">{navs[5]}</a>
+                  </li>{" "}
+                  <li>
+                    <a href="/">{navs[6]}</a>
+                  </li>
+                </ul>
+              </div>
+            </Menu.Menu>
+
           </Menu>
         </div>
         <div className="home_action btns">

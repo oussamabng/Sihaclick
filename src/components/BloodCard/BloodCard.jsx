@@ -4,6 +4,11 @@ import { Button, Card, Icon } from "semantic-ui-react";
 //? import css
 import "./BloodCard.css";
 
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+import { Segment, Grid } from "semantic-ui-react";
+
 import { ReactComponent as O } from "../../assets/o.svg";
 import { ReactComponent as A } from "../../assets/a.svg";
 import { ReactComponent as B } from "../../assets/b.svg";
@@ -14,9 +19,10 @@ import { ReactComponent as Plaquette } from "../../assets/plaquette.svg";
 
 //? import modal
 import BloodModal from "../../components/BloodModal/BloodModal.jsx";
+import Axios from "axios";
 
-export default function BloodCard(props) {
-  const { data } = props;
+const BloodCard = (props) => {
+  const { data, profile, token } = props;
   const [typeBlood, setTypeBlood] = useState("AB");
   const [isPlaquette, setIsPlaquette] = useState(null);
   const [isPositive, setIsPositive] = useState(null);
@@ -28,12 +34,12 @@ export default function BloodCard(props) {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
-
+  console.log(data)
   const handleModal = () => {
     setShow((prevState) => !prevState);
   };
   useEffect(() => {
-    if (data) {
+    if (data && !profile) {
       let time = new Date().toISOString();
       let serverDate = data.created_at.slice(0, 10).split("-");
       let serverTime = data.created_at.slice(11, 19).split(":");
@@ -72,6 +78,16 @@ export default function BloodCard(props) {
         setTime("Il ya " + String(minusTime) + " h");
       }
     }
+    if (data && profile) {
+      Axios.create({
+        baseURL: "",
+        responseType: "json",
+        headers: {
+          'content-type': "application/json",
+          Authorization: `Bearer ${token}`,
+        }
+      })
+    }
   }, [data]);
   return (
     <div>
@@ -103,8 +119,8 @@ export default function BloodCard(props) {
                   {isPositive ? (
                     <Icon name="plus" className="type_blood" />
                   ) : (
-                    <Icon name="minus" className="type_blood" />
-                  )}
+                      <Icon name="minus" className="type_blood" />
+                    )}
                 </div>
               )}
               {isPlaquette && (
@@ -116,11 +132,11 @@ export default function BloodCard(props) {
                       <p className="_blood_type">{typeBlood}</p>
                     </div>
                   ) : (
-                    <div className="blood_icon flex">
-                      <Icon name="minus" className="type_blood_plaquette" />
-                      <p className="_blood_type">{typeBlood}</p>
-                    </div>
-                  )}
+                      <div className="blood_icon flex">
+                        <Icon name="minus" className="type_blood_plaquette" />
+                        <p className="_blood_type">{typeBlood}</p>
+                      </div>
+                    )}
                 </div>
               )}
             </div>
@@ -150,3 +166,14 @@ export default function BloodCard(props) {
     </div>
   );
 }
+BloodCard.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+  isLogin: state.auth.isLogin,
+  user: state.auth.user,
+});
+export default connect(mapStateToProps, {})(withRouter(BloodCard));

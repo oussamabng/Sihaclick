@@ -5,7 +5,6 @@ import NavigationMedicament from "../../components/NavigationMedicament/Navigati
 import HeroMedicament from "../../components/HeroMedicament/HeroMedicament.jsx";
 import MedicamentAnnonce from "../../components/MedicamentAnnonce/MedicamentAnnonce.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
-import SidebarGeneral from "../../components/SidebarGeneral/SidebarGeneral.jsx";
 
 //? redux stuff
 import { selectLanguage } from "../../actions/languageAction";
@@ -42,25 +41,7 @@ const Livres = (props) => {
         visible={visible}
         handleVisible={handleVisible}
       />
-      <SidebarGeneral
-        visible={visible}
-        isFrench={isFrench}
-        navs={[
-          { isDropdown: false, value: nav[0], list: null },
-          { isDropdown: false, value: nav[1], list: null },
-          {
-            isDropdown: false,
-            value: nav[0],
-            list: null,
-          },
-          { isDropdown: false, value: nav[2], list: null },
-          { isDropdown: false, value: nav[3], list: null },
-          { isDropdown: false, value: nav[4], list: null },
-          { isDropdown: false, value: nav[5], list: null },
-          { isDropdown: false, value: nav[6], list: null },
-          { isDropdown: false, value: nav[7], list: null },
-        ]}
-      />
+
       <NavigationMedicament selectedLanguage={props.selectedLanguage} />
       <HeroMedicament livre />
       <MedicamentAnnonce livre />

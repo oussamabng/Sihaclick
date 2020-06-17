@@ -7,14 +7,35 @@ import Arrow from "../../components/Arrow/Arrow.jsx";
 
 //? import css
 import "./ProfileMedicament.css";
+import { Segment, Grid } from "semantic-ui-react"
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types"
+import Axios from "axios";
 
 const ProfileMedicament = (props) => {
-  const { user } = props;
+  const { user, token } = props;
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    console.log({ user })
+    //console.log({ user })
+    setIsLoading(true)
+    let instence = Axios.create({
+      baseURL: "https://sihaclik.com/api",
+      responseType: "json",
+      headers: {
+        'content-type': "application/json",
+        Authorization: `Bearer ${token}`,
+      }
+    });
+    instence.get('/chaab/donnation/matter/equipments')
+      .then(res => {
+        setData(res.data)
+        setIsLoading(false)
+      })
+      .catch(err => {
+        console.log(err.response)
+      })
   }, [])
   const [slider, setSlider] = useState(null);
   const settings = {
@@ -61,27 +82,70 @@ const ProfileMedicament = (props) => {
     slider.slickPrev();
   };
   return (
-    <div className="profile_rdv">
-      <div className="title">
-        <p>Médicament et materiel</p>
-        <div className="line"></div>
+    <>
+      <div className="profile_rdv">
+        <div className="title">
+          <p>Médicament</p>
+          <div className="line"></div>
+        </div>
+        <Segment loading={isLoading}>
+          {data.length >= 4 && <Slider
+            ref={(c) => setSlider(c)}
+            {...settings}
+            className="slider_profile"
+          >
+            {data.map((elm, index) =>
+              <CardProfileMedicament medicament data={elm} key={index} />
+            )}
+          </Slider>}
+          {data.length < 4 && data.length > 0 && <Grid stackable columns='equal'
+            className="slider_profile"
+          >
+            {data.map((elm, index) =>
+              <Grid.Column key={index}>
+                <CardProfileMedicament medicament data={elm} />
+              </Grid.Column>
+            )}
+          </Grid>}
+        </Segment>
+        {data.length >= 4 && <div className="arrows_profile">
+          <Arrow isRight={false} slider={slider} onClick={previous} />
+          <Arrow isRight slider={slider} onClick={next} />
+        </div>}
       </div>
-      <Slider
-        ref={(c) => setSlider(c)}
-        {...settings}
-        className="slider_profile"
-      >
-        <CardProfileMedicament />
-        <CardProfileMedicament />
-        <CardProfileMedicament />
-        <CardProfileMedicament />
-        <CardProfileMedicament />
-      </Slider>
-      <div className="arrows_profile">
-        <Arrow isRight={false} slider={slider} onClick={previous} />
-        <Arrow isRight slider={slider} onClick={next} />
+
+      <div className="profile_rdv">
+        <div className="title">
+          <p>Materiels</p>
+          <div className="line"></div>
+        </div>
+        <Segment loading={isLoading}>
+          {data.length >= 4 && <Slider
+            ref={(c) => setSlider(c)}
+            {...settings}
+            className="slider_profile"
+          >
+            {data.map((elm, index) =>
+              <CardProfileMedicament data={elm} key={index} />
+            )}
+          </Slider>}
+          {data.length < 4 && data.length > 0 && <Grid stackable columns='equal'
+            className="slider_profile"
+          >
+            {data.map((elm, index) =>
+              <Grid.Column key={index}>
+                <CardProfileMedicament data={elm} />
+              </Grid.Column>
+            )}
+          </Grid>}
+        </Segment>
+        {data.length >= 4 && <div className="arrows_profile">
+          <Arrow isRight={false} slider={slider} onClick={previous} />
+          <Arrow isRight slider={slider} onClick={next} />
+        </div>}
       </div>
-    </div>
+
+    </>
   );
 };
 
